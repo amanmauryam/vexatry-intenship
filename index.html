@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vexatry Global — Internship Portal</title>
-    <meta name="description" content="Start your internship journey with Vexatry Global. Work on real projects, develop practical skills and build experience that matters.">
-    <meta property="og:title" content="Vexatry Global — Internship Portal">
-    <meta property="og:description" content="Internships that help you build real experience.">
+    <title>Vexatry Global — Internship Career Portal</title>
+    <meta name="description" content="Your next opportunity starts here. Explore internships at Vexatry Global, build real skills, work on real projects and grow your career.">
+    <link rel="canonical" href="https://vexatry.com/internship/">
+    <meta property="og:title" content="Vexatry Global — Internship Career Portal">
+    <meta property="og:description" content="Build real skills. Work on real projects. Grow with Vexatry.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vexatry.com/internship/">
+    <meta name="theme-color" content="#0B0D10">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,14 +20,20 @@
             theme: {
                 extend: {
                     colors: {
-                        bg: '#F9F9F7',
-                        primary: '#000000',
-                        lime: '#EDFE5E',
-                        cornflower: '#BED4FB',
-                        spring: '#31E992',
+                        bg: '#0B0D10',
+                        bg2: '#12161B',
+                        surface: '#181D23',
+                        accent: '#B7FF3C',
+                        blue: '#7C9CFF',
+                        success: '#32D583',
+                        muted: '#A7AFBA',
+                        placeholder: '#7E8792',
                     },
                     fontFamily: {
                         manrope: ['Manrope', 'sans-serif'],
+                    },
+                    borderColor: {
+                        line: 'rgba(255,255,255,0.10)',
                     },
                 }
             }
@@ -33,645 +42,775 @@
     <style>
         * { font-family: 'Manrope', sans-serif; }
         html { scroll-behavior: smooth; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
-        .faq-answer.open { max-height: 300px; }
-        .hero-card { animation: float 6s ease-in-out infinite; }
-        .hero-card-2 { animation: float 6s ease-in-out 1s infinite; }
-        .hero-card-3 { animation: float 6s ease-in-out 2s infinite; }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        body { background-color: #0B0D10; color: #FFFFFF; }
+
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 48px 48px;
         }
-        .nav-scrolled { background: rgba(249, 249, 247, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #000; }
+        .dot-bg {
+            background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .nav-scrolled {
+            background: rgba(11,13,16,0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+        }
+
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-answer.open { max-height: 300px; }
+
+        .intern-card { transition: border-color 0.2s ease; }
+        .intern-card:hover { border-color: #B7FF3C; }
+        .intern-card:hover .card-arrow { transform: translate(3px, -3px); }
+        .card-arrow { transition: transform 0.2s ease; }
+
+        .hero-float { animation: heroFloat 7s ease-in-out infinite; }
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .btn-primary {
+            background: #B7FF3C; color: #0B0D10; font-weight: 700;
+            border-radius: 8px; transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .btn-primary:hover { background: #a8ef2e; }
+
+        .btn-secondary {
+            background: transparent; color: #FFFFFF; font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.25); border-radius: 8px;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+        .btn-secondary:hover { border-color: #B7FF3C; background: rgba(183,255,60,0.06); }
+
+        .field {
+            background: #181D23; border: 1px solid rgba(255,255,255,0.12);
+            color: #FFFFFF; border-radius: 8px; transition: border-color 0.2s ease;
+        }
+        .field::placeholder { color: #7E8792; }
+        .field:focus { outline: none; border-color: #B7FF3C; }
+
+        select.field option { background: #181D23; color: #FFFFFF; }
+
+        .timeline-line::before {
+            content: ''; position: absolute; left: 15px; top: 34px; bottom: -18px;
+            width: 1px; background: rgba(255,255,255,0.10);
+        }
+        .timeline-item:last-child .timeline-line::before { display: none; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-float, .reveal { animation: none; transition: none; opacity: 1; transform: none; }
+        }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Vexatry Global",
+        "url": "https://vexatry.com",
+        "description": "Internship and student career portal operated by Vexatry Global."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Open Internships",
+        "itemListElement": [
+            {"@type": "ListItem","position": 1,"item": {"@type": "JobPosting","title": "Web Development Intern","employmentType": "INTERNSHIP","hiringOrganization": {"@type": "Organization","name": "Vexatry Global"},"jobLocation": {"@type": "Place","address": "Remote"},"description": "Build websites, APIs and real-world web applications."}},
+            {"@type": "ListItem","position": 2,"item": {"@type": "JobPosting","title": "UI/UX Design Intern","employmentType": "INTERNSHIP","hiringOrganization": {"@type": "Organization","name": "Vexatry Global"},"jobLocation": {"@type": "Place","address": "Remote"},"description": "Design interfaces and experiences for real products."}},
+            {"@type": "ListItem","position": 3,"item": {"@type": "JobPosting","title": "Digital Marketing Intern","employmentType": "INTERNSHIP","hiringOrganization": {"@type": "Organization","name": "Vexatry Global"},"jobLocation": {"@type": "Place","address": "Remote"},"description": "Plan and execute digital marketing campaigns."}}
+        ]
+    }
+    </script>
 </head>
-<body class="bg-bg text-primary">
+<body class="bg-bg text-white antialiased">
 
     <!-- Navbar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 lg:h-20">
-                <!-- Logo -->
-                <a href="#" class="text-lg lg:text-xl font-extrabold tracking-tight uppercase">Vexatry Global</a>
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b border-line transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-[72px]">
+                <a href="#" class="flex items-center gap-2.5 group" aria-label="Vexatry Global home">
+                    <span class="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-bg font-extrabold text-sm">V</span>
+                    <span class="leading-none">
+                        <span class="block text-sm font-extrabold tracking-widest uppercase">Vexatry</span>
+                        <span class="block text-[10px] font-semibold tracking-[0.2em] uppercase text-muted">Global</span>
+                    </span>
+                </a>
 
-                <!-- Desktop Nav -->
-                <div class="hidden lg:flex items-center gap-8">
-                    <a href="#internships" class="text-sm font-medium hover:opacity-60 transition-opacity">Internships</a>
-                    <a href="#how-it-works" class="text-sm font-medium hover:opacity-60 transition-opacity">How It Works</a>
-                    <a href="#life" class="text-sm font-medium hover:opacity-60 transition-opacity">Life at Vexatry</a>
-                    <a href="#verify" class="text-sm font-medium hover:opacity-60 transition-opacity">Certificate Verification</a>
+                <div class="hidden lg:flex items-center gap-7">
+                    <a href="#internships" class="text-[13px] font-semibold text-muted hover:text-white transition-colors">Internships</a>
+                    <a href="#how-it-works" class="text-[13px] font-semibold text-muted hover:text-white transition-colors">How It Works</a>
+                    <a href="#life" class="text-[13px] font-semibold text-muted hover:text-white transition-colors">Life at Vexatry</a>
+                    <a href="#verify" class="text-[13px] font-semibold text-muted hover:text-white transition-colors">Verify Certificate</a>
                 </div>
 
-                <!-- Desktop Actions -->
                 <div class="hidden lg:flex items-center gap-4">
-                    <a href="#" class="text-sm font-semibold hover:opacity-60 transition-opacity">Login</a>
-                    <a href="#" class="bg-lime text-primary text-sm font-bold px-5 py-2.5 border border-primary hover:bg-primary hover:text-white transition-colors">Apply Now &rarr;</a>
+                    <a href="#" class="text-[13px] font-semibold text-muted hover:text-white transition-colors">Login</a>
+                    <a href="#internships" class="btn-primary text-[13px] px-5 py-2.5">Find an Internship &rarr;</a>
                 </div>
 
-                <!-- Mobile Hamburger -->
-                <button id="menu-btn" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
-                    <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar1"></span>
-                    <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar2"></span>
-                    <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar3"></span>
+                <button id="menu-btn" class="lg:hidden p-2 -mr-2 text-white" aria-label="Toggle menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"/></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden hidden bg-bg border-t border-primary">
-            <div class="px-6 py-6 flex flex-col gap-4">
-                <a href="#internships" class="text-base font-medium mobile-link">Internships</a>
-                <a href="#how-it-works" class="text-base font-medium mobile-link">How It Works</a>
-                <a href="#life" class="text-base font-medium mobile-link">Life at Vexatry</a>
-                <a href="#verify" class="text-base font-medium mobile-link">Certificate Verification</a>
-                <hr class="border-primary">
-                <a href="#" class="text-base font-medium">Login</a>
-                <a href="#" class="bg-lime text-primary text-base font-bold px-5 py-3 border border-primary text-center">Apply Now &rarr;</a>
+        <div id="mobile-menu" class="lg:hidden hidden bg-bg2 border-t border-line">
+            <div class="px-5 py-5 flex flex-col gap-1">
+                <a href="#internships" class="mobile-link py-2.5 text-sm font-semibold text-muted hover:text-white transition-colors">Internships</a>
+                <a href="#how-it-works" class="mobile-link py-2.5 text-sm font-semibold text-muted hover:text-white transition-colors">How It Works</a>
+                <a href="#life" class="mobile-link py-2.5 text-sm font-semibold text-muted hover:text-white transition-colors">Life at Vexatry</a>
+                <a href="#verify" class="mobile-link py-2.5 text-sm font-semibold text-muted hover:text-white transition-colors">Verify Certificate</a>
+                <div class="h-px bg-line my-2"></div>
+                <a href="#" class="py-2.5 text-sm font-semibold">Login</a>
+                <a href="#internships" class="btn-primary text-center text-sm px-5 py-3 mt-1">Find an Internship &rarr;</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-28 lg:pt-36 pb-16 lg:pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <!-- Left Content -->
-            <div>
-                <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[0.95] tracking-tight uppercase">
-                    Build.<br>Learn.<br>Grow.
-                </h1>
-                <p class="mt-6 lg:mt-8 text-lg lg:text-xl font-medium leading-relaxed max-w-lg">
-                    Start your internship journey with Vexatry Global. Work on real projects, develop practical skills and build experience that matters.
-                </p>
-                <div class="mt-8 flex flex-wrap gap-4">
-                    <a href="#internships" class="bg-lime text-primary text-base font-bold px-7 py-3.5 border border-primary hover:bg-primary hover:text-white transition-colors">
-                        Explore Internships &rarr;
-                    </a>
-                    <a href="#how-it-works" class="text-base font-bold px-7 py-3.5 border border-primary hover:bg-primary hover:text-white transition-colors">
-                        How It Works
-                    </a>
+    <!-- Hero -->
+    <section class="relative pt-28 lg:pt-36 pb-14 lg:pb-20 overflow-hidden grid-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg pointer-events-none"></div>
+        <div class="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 border border-line rounded-full px-3.5 py-1.5 mb-7">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        <span class="text-[12px] font-semibold text-muted tracking-wide">Internship Portal by Vexatry Global</span>
+                    </div>
+                    <h1 class="text-[38px] sm:text-5xl lg:text-[68px] xl:text-[76px] font-extrabold leading-[0.98] tracking-tight uppercase">
+                        Your Next<br>
+                        <span class="text-accent">Opportunity</span><br>
+                        Starts Here.
+                    </h1>
+                    <p class="mt-6 text-base lg:text-lg text-muted leading-relaxed max-w-md">
+                        Build real skills.<br>
+                        Work on real projects.<br>
+                        Grow with Vexatry.
+                    </p>
+                    <div class="mt-8 flex flex-wrap items-center gap-4">
+                        <a href="#internships" class="btn-primary px-7 py-3.5 text-[15px]">Explore Internships &rarr;</a>
+                        <span class="text-sm text-muted">Already registered? <a href="#" class="text-blue font-semibold hover:underline">Login</a></span>
+                    </div>
+                </div>
+
+                <!-- Hero visual: dashboard-inspired card -->
+                <div class="relative hidden lg:block">
+                    <div class="absolute -inset-6 dot-bg rounded-2xl opacity-60 pointer-events-none"></div>
+
+                    <div class="hero-float relative bg-bg2 border border-line rounded-xl p-6 max-w-sm ml-auto">
+                        <div class="flex items-start justify-between">
+                            <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Development</span>
+                            <span class="text-muted">&#8599;</span>
+                        </div>
+                        <h3 class="mt-3 text-xl font-extrabold">Web Development Intern</h3>
+
+                        <div class="mt-4 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-accent"></span>
+                            <span class="text-[13px] font-bold text-accent uppercase tracking-wide">Open</span>
+                        </div>
+
+                        <div class="mt-3 text-[13px] text-muted">Remote &middot; 3 Months</div>
+
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">HTML</span>
+                            <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">CSS</span>
+                            <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Django</span>
+                        </div>
+
+                        <button class="mt-5 w-full btn-primary py-2.5 text-sm">Apply &rarr;</button>
+                    </div>
+
+                    <!-- Floating mini cards -->
+                    <div class="absolute -left-6 top-10 bg-bg2 border border-line rounded-lg px-4 py-3">
+                        <div class="text-[11px] font-bold text-muted uppercase tracking-wider">Status</div>
+                        <div class="text-[13px] font-bold mt-0.5">Under Review</div>
+                    </div>
+                    <div class="absolute -left-2 bottom-6 bg-bg2 border border-line rounded-lg px-4 py-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-success"></span>
+                            <span class="text-[13px] font-bold">Certificate Verified</span>
+                        </div>
+                        <div class="text-[11px] text-muted mt-0.5">VG-CERT-2026-00124</div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Right Visual Composition -->
-            <div class="relative hidden lg:block">
-                <!-- Card 1: Internship Card -->
-                <div class="hero-card absolute top-0 right-0 bg-white border border-primary p-5 w-72">
-                    <div class="text-xs font-bold uppercase tracking-wider mb-2">Internship</div>
-                    <div class="text-lg font-bold">Web Development Intern</div>
-                    <div class="text-sm mt-1 opacity-70">Remote &middot; 3 Months</div>
-                    <div class="flex flex-wrap gap-1.5 mt-3">
-                        <span class="text-xs bg-bg border border-primary px-2 py-0.5">HTML</span>
-                        <span class="text-xs bg-bg border border-primary px-2 py-0.5">CSS</span>
-                        <span class="text-xs bg-bg border border-primary px-2 py-0.5">JavaScript</span>
-                    </div>
-                    <div class="mt-4 inline-block bg-lime text-xs font-bold px-3 py-1 border border-primary">Open &middot; Apply Now</div>
-                </div>
-
-                <!-- Card 2: Profile Card -->
-                <div class="hero-card-2 absolute top-40 left-0 bg-white border border-primary p-5 w-64">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-lime border border-primary flex items-center justify-center font-bold text-sm">AM</div>
-                        <div>
-                            <div class="text-sm font-bold">Aman Maurya</div>
-                            <div class="text-xs opacity-60">Web Development</div>
-                        </div>
-                    </div>
-                    <div class="mt-3 flex gap-2">
-                        <span class="text-xs bg-bg border border-primary px-2 py-0.5">React</span>
-                        <span class="text-xs bg-bg border border-primary px-2 py-0.5">Node.js</span>
-                        <span class="text-xs bg-bg border border-primary px-2 py-0.5">Django</span>
-                    </div>
-                </div>
-
-                <!-- Card 3: Certificate Card -->
-                <div class="hero-card-3 absolute bottom-0 right-8 bg-white border border-primary p-5 w-72">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div class="w-3 h-3 bg-spring border border-primary"></div>
-                        <span class="text-xs font-bold uppercase tracking-wider">Certificate Verified</span>
-                    </div>
-                    <div class="text-sm font-bold">VG-CERT-2026-00124</div>
-                    <div class="text-xs mt-1 opacity-60">Web Development Intern &middot; Issued 01 Dec 2026</div>
-                    <div class="mt-3 w-full bg-bg border border-primary h-1.5">
-                        <div class="bg-spring h-full" style="width: 100%"></div>
-                    </div>
-                </div>
-
-                <!-- Decorative Elements -->
-                <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-cornflower border border-primary opacity-50"></div>
-                <div class="absolute top-20 right-80 w-8 h-8 bg-lime border border-primary"></div>
+    <!-- Hero Highlight Strip -->
+    <section class="border-y border-line bg-bg2" aria-label="Highlights">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 py-4">
+                <span class="flex items-center gap-2 text-[12px] font-bold tracking-[0.12em] uppercase text-muted"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Real Projects</span>
+                <span class="flex items-center gap-2 text-[12px] font-bold tracking-[0.12em] uppercase text-muted"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Mentorship</span>
+                <span class="flex items-center gap-2 text-[12px] font-bold tracking-[0.12em] uppercase text-muted"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Practical Experience</span>
+                <span class="flex items-center gap-2 text-[12px] font-bold tracking-[0.12em] uppercase text-muted"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Portfolio Building</span>
+                <span class="flex items-center gap-2 text-[12px] font-bold tracking-[0.12em] uppercase text-muted"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Certificate</span>
             </div>
         </div>
     </section>
 
     <!-- Why Vexatry -->
-    <section class="py-16 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="max-w-2xl">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
-                More than an internship.<br>A place to build.
-            </h2>
-        </div>
-        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Card 1 -->
-            <div class="border border-primary p-6 bg-white">
-                <div class="w-10 h-10 bg-lime border border-primary flex items-center justify-center mb-4">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                </div>
-                <h3 class="text-lg font-bold">Real Projects</h3>
-                <p class="mt-2 text-sm leading-relaxed opacity-70">Work on practical projects and assignments that solve real problems.</p>
+    <section id="why" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-2xl reveal">
+                <span class="text-[12px] font-bold tracking-[0.18em] uppercase text-accent">Why Vexatry</span>
+                <h2 class="mt-4 text-[32px] sm:text-[42px] lg:text-[50px] font-extrabold leading-[1.05] tracking-tight">
+                    Don't just learn.<br>Build something.
+                </h2>
             </div>
-            <!-- Card 2 -->
-            <div class="border border-primary p-6 bg-white">
-                <div class="w-10 h-10 bg-lime border border-primary flex items-center justify-center mb-4">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+
+            <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="reveal bg-bg2 border border-line rounded-xl p-6 hover:border-white/20 transition-colors">
+                    <div class="text-[13px] font-bold text-accent tracking-widest">01</div>
+                    <h3 class="mt-6 text-lg font-extrabold">Real Work</h3>
+                    <p class="mt-2 text-[15px] text-muted leading-relaxed">Work on practical projects and assignments.</p>
                 </div>
-                <h3 class="text-lg font-bold">Learn by Doing</h3>
-                <p class="mt-2 text-sm leading-relaxed opacity-70">Develop skills through actual work, not just theory.</p>
-            </div>
-            <!-- Card 3 -->
-            <div class="border border-primary p-6 bg-white">
-                <div class="w-10 h-10 bg-lime border border-primary flex items-center justify-center mb-4">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <div class="reveal bg-bg2 border border-line rounded-xl p-6 hover:border-white/20 transition-colors">
+                    <div class="text-[13px] font-bold text-accent tracking-widest">02</div>
+                    <h3 class="mt-6 text-lg font-extrabold">Learn</h3>
+                    <p class="mt-2 text-[15px] text-muted leading-relaxed">Develop technical and professional skills.</p>
                 </div>
-                <h3 class="text-lg font-bold">Mentorship</h3>
-                <p class="mt-2 text-sm leading-relaxed opacity-70">Get guidance from experienced professionals during your internship.</p>
-            </div>
-            <!-- Card 4 -->
-            <div class="border border-primary p-6 bg-white">
-                <div class="w-10 h-10 bg-lime border border-primary flex items-center justify-center mb-4">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                <div class="reveal bg-bg2 border border-line rounded-xl p-6 hover:border-white/20 transition-colors">
+                    <div class="text-[13px] font-bold text-accent tracking-widest">03</div>
+                    <h3 class="mt-6 text-lg font-extrabold">Collaborate</h3>
+                    <p class="mt-2 text-[15px] text-muted leading-relaxed">Work with people and teams.</p>
                 </div>
-                <h3 class="text-lg font-bold">Build Your Portfolio</h3>
-                <p class="mt-2 text-sm leading-relaxed opacity-70">Create work that can be showcased professionally to future employers.</p>
+                <div class="reveal bg-bg2 border border-line rounded-xl p-6 hover:border-white/20 transition-colors">
+                    <div class="text-[13px] font-bold text-accent tracking-widest">04</div>
+                    <h3 class="mt-6 text-lg font-extrabold">Grow</h3>
+                    <p class="mt-2 text-[15px] text-muted leading-relaxed">Build experience you can take forward.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Internship Listings -->
-    <section id="internships" class="py-16 lg:py-24 px-6 lg:px-8 bg-white border-y border-primary">
+    <!-- Open Opportunities -->
+    <section id="internships" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8 bg-bg2 border-y border-line">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Find your opportunity.</h2>
-                <span class="text-sm font-medium opacity-60">12 Opportunities</span>
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
+                <h2 class="text-[32px] sm:text-[42px] lg:text-[50px] font-extrabold leading-[1.02] tracking-tight uppercase">
+                    Open<br>Opportunities
+                </h2>
+                <span id="result-count" class="text-[13px] font-semibold text-muted">6 Open Roles</span>
             </div>
 
-            <!-- Filters -->
-            <div class="mt-8 flex flex-wrap gap-3">
-                <input type="text" placeholder="Search internships..." class="border border-primary px-4 py-2.5 text-sm bg-bg focus:outline-none focus:ring-2 focus:ring-lime w-full sm:w-auto sm:flex-1 max-w-xs">
-                <select class="border border-primary px-4 py-2.5 text-sm bg-bg focus:outline-none focus:ring-2 focus:ring-lime">
-                    <option>All Departments</option>
-                    <option>Development</option>
-                    <option>Design</option>
-                    <option>Marketing</option>
-                </select>
-                <select class="border border-primary px-4 py-2.5 text-sm bg-bg focus:outline-none focus:ring-2 focus:ring-lime">
-                    <option>All Work Modes</option>
-                    <option>Remote</option>
-                    <option>Hybrid</option>
-                    <option>On-site</option>
-                </select>
+            <!-- Search and Filters -->
+            <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5 reveal">
+                <div class="lg:col-span-2 relative">
+                    <label for="search" class="sr-only">Search internships</label>
+                    <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-placeholder pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+                    <input type="text" id="search" placeholder="Search internships..." class="field w-full pl-10 pr-4 py-2.5 text-sm">
+                </div>
+                <div>
+                    <label for="filter-dept" class="sr-only">Department</label>
+                    <select id="filter-dept" class="field w-full px-3.5 py-2.5 text-sm">
+                        <option value="">All Departments</option>
+                        <option value="development">Development</option>
+                        <option value="design">Design</option>
+                        <option value="marketing">Marketing</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filter-loc" class="sr-only">Location</label>
+                    <select id="filter-loc" class="field w-full px-3.5 py-2.5 text-sm">
+                        <option value="">All Locations</option>
+                        <option value="remote">Remote</option>
+                        <option value="hybrid">Hybrid</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label for="filter-mode" class="sr-only">Work Mode</label>
+                        <select id="filter-mode" class="field w-full px-3.5 py-2.5 text-sm">
+                            <option value="">Work Mode</option>
+                            <option value="full-time">Full-time</option>
+                            <option value="part-time">Part-time</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="filter-duration" class="sr-only">Duration</label>
+                        <select id="filter-duration" class="field w-full px-3.5 py-2.5 text-sm">
+                            <option value="">Duration</option>
+                            <option value="2">2 Months</option>
+                            <option value="3">3 Months</option>
+                        </select>
+                    </div>
+                </div>
             </div>
 
-            <!-- Internship Cards Grid -->
-            <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                <!-- Card 1 -->
-                <div class="border border-primary p-5 bg-bg hover:shadow-[4px_4px_0_#000] transition-shadow">
-                    <div class="text-xs font-bold uppercase tracking-wider opacity-60">Development</div>
-                    <h3 class="text-lg font-bold mt-1">Web Development Intern</h3>
-                    <div class="flex flex-wrap gap-2 mt-3 text-xs font-medium">
-                        <span class="border border-primary px-2 py-0.5">Remote</span>
-                        <span class="border border-primary px-2 py-0.5">Hybrid</span>
-                        <span class="border border-primary px-2 py-0.5">3 Months</span>
-                    </div>
-                    <div class="flex flex-wrap gap-1.5 mt-3">
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">HTML</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">CSS</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">JavaScript</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">Django</span>
-                    </div>
-                    <a href="#" class="mt-5 inline-block text-sm font-bold border-b-2 border-primary hover:text-lime hover:border-lime transition-colors">View Internship &rarr;</a>
-                </div>
+            <!-- Internship Cards -->
+            <div id="internship-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-                <!-- Card 2 -->
-                <div class="border border-primary p-5 bg-bg hover:shadow-[4px_4px_0_#000] transition-shadow">
-                    <div class="text-xs font-bold uppercase tracking-wider opacity-60">Development</div>
-                    <h3 class="text-lg font-bold mt-1">Backend Development Intern</h3>
-                    <div class="flex flex-wrap gap-2 mt-3 text-xs font-medium">
-                        <span class="border border-primary px-2 py-0.5">Remote</span>
-                        <span class="border border-primary px-2 py-0.5">3 Months</span>
+                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="development" data-loc="remote" data-mode="full-time" data-duration="3" data-title="Web Development Intern" data-desc="Build websites APIs and web applications">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Development</span>
+                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 mt-3">
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">Python</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">Django</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">REST APIs</span>
+                    <h3 class="mt-3 text-lg font-extrabold">Web Development Intern</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Build websites, APIs and real-world web applications.</p>
+                    <div class="mt-4 text-[13px] text-muted">Remote &nbsp;&middot;&nbsp; 3 Months</div>
+                    <div class="mt-3 flex flex-wrap gap-1.5">
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">HTML</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">CSS</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">JavaScript</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Django</span>
                     </div>
-                    <a href="#" class="mt-5 inline-block text-sm font-bold border-b-2 border-primary hover:text-lime hover:border-lime transition-colors">View Internship &rarr;</a>
-                </div>
+                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
+                </article>
 
-                <!-- Card 3 -->
-                <div class="border border-primary p-5 bg-bg hover:shadow-[4px_4px_0_#000] transition-shadow">
-                    <div class="text-xs font-bold uppercase tracking-wider opacity-60">Design</div>
-                    <h3 class="text-lg font-bold mt-1">UI/UX Design Intern</h3>
-                    <div class="flex flex-wrap gap-2 mt-3 text-xs font-medium">
-                        <span class="border border-primary px-2 py-0.5">Remote</span>
-                        <span class="border border-primary px-2 py-0.5">Hybrid</span>
-                        <span class="border border-primary px-2 py-0.5">3 Months</span>
+                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="design" data-loc="remote" data-mode="full-time" data-duration="3" data-title="UI/UX Design Intern" data-desc="Design interfaces and product experiences">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Design</span>
+                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 mt-3">
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">Figma</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">Prototyping</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">UI Design</span>
+                    <h3 class="mt-3 text-lg font-extrabold">UI/UX Design Intern</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Design interfaces and experiences for real products.</p>
+                    <div class="mt-4 text-[13px] text-muted">Remote &nbsp;&middot;&nbsp; 3 Months</div>
+                    <div class="mt-3 flex flex-wrap gap-1.5">
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Figma</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Prototyping</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">UI Design</span>
                     </div>
-                    <a href="#" class="mt-5 inline-block text-sm font-bold border-b-2 border-primary hover:text-lime hover:border-lime transition-colors">View Internship &rarr;</a>
-                </div>
+                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
+                </article>
 
-                <!-- Card 4 -->
-                <div class="border border-primary p-5 bg-bg hover:shadow-[4px_4px_0_#000] transition-shadow">
-                    <div class="text-xs font-bold uppercase tracking-wider opacity-60">Marketing</div>
-                    <h3 class="text-lg font-bold mt-1">Digital Marketing Intern</h3>
-                    <div class="flex flex-wrap gap-2 mt-3 text-xs font-medium">
-                        <span class="border border-primary px-2 py-0.5">Remote</span>
-                        <span class="border border-primary px-2 py-0.5">2 Months</span>
+                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="marketing" data-loc="remote" data-mode="part-time" data-duration="2" data-title="Digital Marketing Intern" data-desc="Plan and execute digital marketing campaigns">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Marketing</span>
+                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 mt-3">
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">SEO</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">Social Media</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">Analytics</span>
+                    <h3 class="mt-3 text-lg font-extrabold">Digital Marketing Intern</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Plan and execute digital marketing campaigns.</p>
+                    <div class="mt-4 text-[13px] text-muted">Remote &nbsp;&middot;&nbsp; 2 Months</div>
+                    <div class="mt-3 flex flex-wrap gap-1.5">
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">SEO</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Social Media</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Analytics</span>
                     </div>
-                    <a href="#" class="mt-5 inline-block text-sm font-bold border-b-2 border-primary hover:text-lime hover:border-lime transition-colors">View Internship &rarr;</a>
-                </div>
+                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
+                </article>
 
-                <!-- Card 5 -->
-                <div class="border border-primary p-5 bg-bg hover:shadow-[4px_4px_0_#000] transition-shadow">
-                    <div class="text-xs font-bold uppercase tracking-wider opacity-60">Development</div>
-                    <h3 class="text-lg font-bold mt-1">Frontend Development Intern</h3>
-                    <div class="flex flex-wrap gap-2 mt-3 text-xs font-medium">
-                        <span class="border border-primary px-2 py-0.5">Remote</span>
-                        <span class="border border-primary px-2 py-0.5">3 Months</span>
+                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="development" data-loc="remote" data-mode="full-time" data-duration="3" data-title="Frontend Development Intern" data-desc="Build modern responsive user interfaces">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Development</span>
+                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 mt-3">
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">React</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">Tailwind</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">TypeScript</span>
+                    <h3 class="mt-3 text-lg font-extrabold">Frontend Development Intern</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Build modern, responsive user interfaces.</p>
+                    <div class="mt-4 text-[13px] text-muted">Remote &nbsp;&middot;&nbsp; 3 Months</div>
+                    <div class="mt-3 flex flex-wrap gap-1.5">
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">React</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Tailwind</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">TypeScript</span>
                     </div>
-                    <a href="#" class="mt-5 inline-block text-sm font-bold border-b-2 border-primary hover:text-lime hover:border-lime transition-colors">View Internship &rarr;</a>
-                </div>
+                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
+                </article>
 
-                <!-- Card 6 -->
-                <div class="border border-primary p-5 bg-bg hover:shadow-[4px_4px_0_#000] transition-shadow">
-                    <div class="text-xs font-bold uppercase tracking-wider opacity-60">Marketing</div>
-                    <h3 class="text-lg font-bold mt-1">Content Writing Intern</h3>
-                    <div class="flex flex-wrap gap-2 mt-3 text-xs font-medium">
-                        <span class="border border-primary px-2 py-0.5">Remote</span>
-                        <span class="border border-primary px-2 py-0.5">2 Months</span>
+                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="development" data-loc="hybrid" data-mode="full-time" data-duration="3" data-title="Backend Development Intern" data-desc="Build APIs and server-side applications">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Development</span>
+                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 mt-3">
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">Copywriting</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">SEO</span>
-                        <span class="text-xs bg-white border border-primary px-2 py-0.5">Blogs</span>
+                    <h3 class="mt-3 text-lg font-extrabold">Backend Development Intern</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Build APIs and server-side applications.</p>
+                    <div class="mt-4 text-[13px] text-muted">Hybrid &nbsp;&middot;&nbsp; 3 Months</div>
+                    <div class="mt-3 flex flex-wrap gap-1.5">
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Python</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Django</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">REST APIs</span>
                     </div>
-                    <a href="#" class="mt-5 inline-block text-sm font-bold border-b-2 border-primary hover:text-lime hover:border-lime transition-colors">View Internship &rarr;</a>
-                </div>
+                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
+                </article>
+
+                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="marketing" data-loc="remote" data-mode="part-time" data-duration="2" data-title="Content Writing Intern" data-desc="Write blogs copy and content strategy">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Marketing</span>
+                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
+                    </div>
+                    <h3 class="mt-3 text-lg font-extrabold">Content Writing Intern</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Write blogs, copy and shape content strategy.</p>
+                    <div class="mt-4 text-[13px] text-muted">Remote &nbsp;&middot;&nbsp; 2 Months</div>
+                    <div class="mt-3 flex flex-wrap gap-1.5">
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Copywriting</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">SEO</span>
+                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Blogs</span>
+                    </div>
+                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
+                </article>
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden mt-8 border border-line rounded-xl bg-bg p-10 text-center">
+                <div class="text-[13px] font-bold tracking-[0.18em] uppercase text-muted">No Internships Found</div>
+                <p class="mt-2 text-sm text-muted">Try adjusting your search or filters.</p>
             </div>
 
             <div class="mt-10 text-center">
-                <a href="#" class="inline-block border border-primary px-8 py-3 text-sm font-bold hover:bg-primary hover:text-white transition-colors">View All Internships &rarr;</a>
+                <a href="#" class="btn-secondary inline-block px-8 py-3 text-sm">View All Internships &rarr;</a>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section id="how-it-works" class="py-16 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">How it works.</h2>
-        <p class="mt-3 text-lg opacity-60 max-w-lg">A simple and transparent process from application to completion.</p>
+    <section id="how-it-works" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-2xl reveal">
+                <span class="text-[12px] font-bold tracking-[0.18em] uppercase text-accent">Process</span>
+                <h2 class="mt-4 text-[32px] sm:text-[42px] lg:text-[50px] font-extrabold leading-[1.05] tracking-tight uppercase">
+                    From Application<br>To Experience.
+                </h2>
+            </div>
 
-        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Step 1 -->
-            <div class="border border-primary p-6 bg-white relative">
-                <div class="text-4xl font-extrabold text-lime">01</div>
-                <h3 class="text-lg font-bold mt-3">Apply</h3>
-                <p class="mt-2 text-sm leading-relaxed opacity-70">Browse available internships and submit your application with your details.</p>
-            </div>
-            <!-- Step 2 -->
-            <div class="border border-primary p-6 bg-white relative">
-                <div class="text-4xl font-extrabold text-lime">02</div>
-                <h3 class="text-lg font-bold mt-3">Review</h3>
-                <p class="mt-2 text-sm leading-relaxed opacity-70">Our team reviews your application and profile for the best fit.</p>
-            </div>
-            <!-- Step 3 -->
-            <div class="border border-primary p-6 bg-white relative">
-                <div class="text-4xl font-extrabold text-lime">03</div>
-                <h3 class="text-lg font-bold mt-3">Interview</h3>
-                <p class="mt-2 text-sm leading-relaxed opacity-70">Selected candidates are invited for a brief interview session.</p>
-            </div>
-            <!-- Step 4 -->
-            <div class="border border-primary p-6 bg-white relative">
-                <div class="text-4xl font-extrabold text-lime">04</div>
-                <h3 class="text-lg font-bold mt-3">Selection</h3>
-                <p class="mt-2 text-sm leading-relaxed opacity-70">Get selected and receive your official internship offer letter.</p>
-            </div>
-            <!-- Step 5 -->
-            <div class="border border-primary p-6 bg-white relative">
-                <div class="text-4xl font-extrabold text-lime">05</div>
-                <h3 class="text-lg font-bold mt-3">Internship</h3>
-                <p class="mt-2 text-sm leading-relaxed opacity-70">Work on real projects, learn from mentors, and build your skills.</p>
-            </div>
-            <!-- Step 6 -->
-            <div class="border border-primary p-6 bg-white relative">
-                <div class="text-4xl font-extrabold text-spring">06</div>
-                <h3 class="text-lg font-bold mt-3">Completion</h3>
-                <p class="mt-2 text-sm leading-relaxed opacity-70">Complete your internship and receive your verified certificate.</p>
-            </div>
+            <ol class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
+                    <div class="text-3xl font-extrabold text-accent">01</div>
+                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Create Your Profile</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Sign up and complete your student profile.</p>
+                </li>
+                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
+                    <div class="text-3xl font-extrabold text-accent">02</div>
+                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Apply for an Internship</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Find a role that matches your skills and apply.</p>
+                </li>
+                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
+                    <div class="text-3xl font-extrabold text-accent">03</div>
+                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Application Review</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Our team reviews your application and profile.</p>
+                </li>
+                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
+                    <div class="text-3xl font-extrabold text-accent">04</div>
+                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Interview / Discussion</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Selected candidates are invited for a short discussion.</p>
+                </li>
+                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
+                    <div class="text-3xl font-extrabold text-accent">05</div>
+                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Start Your Internship</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Onboard, meet your mentor and start working.</p>
+                </li>
+                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
+                    <div class="text-3xl font-extrabold text-success">06</div>
+                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Complete &amp; Get Certified</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Finish your internship and receive a verifiable certificate.</p>
+                </li>
+            </ol>
         </div>
     </section>
 
     <!-- Life at Vexatry -->
-    <section id="life" class="py-16 lg:py-24 px-6 lg:px-8 bg-primary text-white">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Life at Vexatry.</h2>
-            <p class="mt-3 text-lg opacity-60 max-w-lg">A community of builders, learners, and innovators.</p>
-
-            <div class="mt-12 grid sm:grid-cols-3 gap-6">
-                <div class="border border-white/20 p-6">
-                    <div class="text-4xl lg:text-5xl font-extrabold text-lime">200+</div>
-                    <div class="mt-2 text-sm font-medium opacity-70">Projects Completed</div>
-                </div>
-                <div class="border border-white/20 p-6">
-                    <div class="text-4xl lg:text-5xl font-extrabold text-lime">500+</div>
-                    <div class="mt-2 text-sm font-medium opacity-70">Interns Mentored</div>
-                </div>
-                <div class="border border-white/20 p-6">
-                    <div class="text-4xl lg:text-5xl font-extrabold text-lime">300+</div>
-                    <div class="mt-2 text-sm font-medium opacity-70">Certificates Issued</div>
-                </div>
+    <section id="life" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8 bg-bg2 border-y border-line">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <div class="reveal">
+                <span class="text-[12px] font-bold tracking-[0.18em] uppercase text-accent">Culture</span>
+                <h2 class="mt-4 text-[32px] sm:text-[42px] lg:text-[50px] font-extrabold leading-[1.05] tracking-tight">
+                    Life at Vexatry.
+                </h2>
+                <p class="mt-4 text-base text-muted leading-relaxed max-w-md">
+                    A community of builders, learners and problem solvers. We keep the work real, the feedback honest and the growth continuous.
+                </p>
+                <a href="#internships" class="mt-7 inline-block btn-primary px-6 py-3 text-sm">Explore Internships &rarr;</a>
             </div>
 
-            <div class="mt-12 grid sm:grid-cols-2 gap-6">
-                <div class="border border-white/20 p-6">
-                    <h3 class="text-lg font-bold">Remote-First Culture</h3>
-                    <p class="mt-2 text-sm opacity-70 leading-relaxed">Work from anywhere. We believe great work happens when you have the freedom to choose your environment.</p>
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div class="reveal bg-bg border border-line rounded-xl p-6">
+                    <div class="w-9 h-9 rounded-md border border-line bg-surface flex items-center justify-center text-accent">
+                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12h18M3 6h18M3 18h12"/></svg>
+                    </div>
+                    <h3 class="mt-4 text-base font-extrabold">Remote-First</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Work from anywhere with async-friendly workflows.</p>
                 </div>
-                <div class="border border-white/20 p-6">
-                    <h3 class="text-lg font-bold">Hands-On Learning</h3>
-                    <p class="mt-2 text-sm opacity-70 leading-relaxed">No passive tasks. Every intern works on meaningful projects that contribute to real products.</p>
+                <div class="reveal bg-bg border border-line rounded-xl p-6">
+                    <div class="w-9 h-9 rounded-md border border-line bg-surface flex items-center justify-center text-accent">
+                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                    </div>
+                    <h3 class="mt-4 text-base font-extrabold">Hands-On Learning</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed">No passive tasks. Every intern ships meaningful work.</p>
+                </div>
+                <div class="reveal bg-bg border border-line rounded-xl p-6">
+                    <div class="w-9 h-9 rounded-md border border-line bg-surface flex items-center justify-center text-accent">
+                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h3 class="mt-4 text-base font-extrabold">Mentorship</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Guidance from experienced professionals throughout.</p>
+                </div>
+                <div class="reveal bg-bg border border-line rounded-xl p-6">
+                    <div class="w-9 h-9 rounded-md border border-line bg-surface flex items-center justify-center text-accent">
+                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="mt-4 text-base font-extrabold">Verified Outcome</h3>
+                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Certificates with unique IDs, publicly verifiable.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Certificate Verification -->
-    <section id="verify" class="py-16 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="verify" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Verify a Certificate</h2>
-            <p class="mt-3 text-base opacity-60">Verify the authenticity of an internship certificate issued by Vexatry Global.</p>
+            <span class="text-[12px] font-bold tracking-[0.18em] uppercase text-accent reveal inline-block">Verification</span>
+            <h2 class="mt-4 text-[32px] sm:text-[42px] lg:text-[50px] font-extrabold leading-[1.05] tracking-tight uppercase reveal">
+                Verify a<br>Certificate.
+            </h2>
+            <p class="mt-4 text-[15px] text-muted leading-relaxed reveal">
+                Enter the certificate ID to verify a certificate issued by Vexatry Global.
+            </p>
 
-            <div class="mt-8 flex flex-col sm:flex-row gap-3">
-                <input type="text" id="cert-input" placeholder="Enter Certificate ID (e.g. VG-CERT-2026-00124)" class="flex-1 border border-primary px-4 py-3 text-sm bg-bg focus:outline-none focus:ring-2 focus:ring-lime">
-                <button onclick="verifyCert()" class="bg-lime text-primary text-sm font-bold px-6 py-3 border border-primary hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Verify Certificate &rarr;</button>
+            <div class="mt-8 flex flex-col sm:flex-row gap-3 reveal">
+                <label for="cert-input" class="sr-only">Certificate ID</label>
+                <input type="text" id="cert-input" placeholder="VG-CERT-2026-00124" class="field flex-1 px-4 py-3 text-sm" autocomplete="off">
+                <button type="button" onclick="verifyCert()" class="btn-primary px-6 py-3 text-sm whitespace-nowrap">Verify Certificate &rarr;</button>
             </div>
 
-            <!-- Verification Result -->
-            <div id="verify-result" class="mt-8 hidden">
-                <div id="verify-valid" class="hidden border border-primary p-6 bg-white text-left">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-5 h-5 bg-spring border border-primary flex items-center justify-center">
-                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-                        </div>
-                        <span class="text-sm font-bold uppercase tracking-wider">Certificate Verified</span>
+            <div id="verify-result" class="mt-6 hidden text-left" role="status" aria-live="polite">
+                <div id="verify-valid" class="hidden border border-line rounded-xl bg-bg2 p-6">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-5 h-5 rounded-full bg-success flex items-center justify-center">
+                            <svg class="w-3 h-3 text-bg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                        </span>
+                        <span class="text-[13px] font-extrabold uppercase tracking-wider text-success">Verified</span>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div>
-                            <div class="font-bold">Certificate ID</div>
-                            <div class="opacity-70">VG-CERT-2026-00124</div>
-                        </div>
-                        <div>
-                            <div class="font-bold">Name</div>
-                            <div class="opacity-70">Aman Maurya</div>
-                        </div>
-                        <div>
-                            <div class="font-bold">Internship</div>
-                            <div class="opacity-70">Web Development Intern</div>
-                        </div>
-                        <div>
-                            <div class="font-bold">Duration</div>
-                            <div class="opacity-70">01 Sep 2026 — 30 Nov 2026</div>
-                        </div>
-                        <div>
-                            <div class="font-bold">Issue Date</div>
-                            <div class="opacity-70">01 Dec 2026</div>
-                        </div>
-                        <div>
-                            <div class="font-bold">Status</div>
-                            <div class="text-spring font-bold">Verified</div>
-                        </div>
-                    </div>
+                    <p class="mt-3 text-sm text-muted">Certificate issued by Vexatry Global</p>
+                    <dl class="mt-4 grid grid-cols-2 gap-4 text-sm">
+                        <div><dt class="text-[12px] font-bold uppercase tracking-wider text-muted">Name</dt><dd class="mt-0.5 font-bold">Aman Maurya</dd></div>
+                        <div><dt class="text-[12px] font-bold uppercase tracking-wider text-muted">Internship</dt><dd class="mt-0.5 font-bold">Web Development Intern</dd></div>
+                        <div><dt class="text-[12px] font-bold uppercase tracking-wider text-muted">Duration</dt><dd class="mt-0.5 font-bold">01 Sep 2026 — 30 Nov 2026</dd></div>
+                        <div><dt class="text-[12px] font-bold uppercase tracking-wider text-muted">Issued</dt><dd class="mt-0.5 font-bold">01 Dec 2026</dd></div>
+                        <div class="col-span-2"><dt class="text-[12px] font-bold uppercase tracking-wider text-muted">Certificate ID</dt><dd class="mt-0.5 font-bold">VG-CERT-2026-00124</dd></div>
+                    </dl>
                 </div>
-                <div id="verify-invalid" class="hidden border border-primary p-6 bg-white text-left">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-5 h-5 bg-red-500 border border-primary flex items-center justify-center">
-                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/></svg>
-                        </div>
-                        <span class="text-sm font-bold uppercase tracking-wider">Certificate Not Found</span>
-                    </div>
-                    <p class="text-sm opacity-70 leading-relaxed">We could not find a certificate matching this certificate ID. Please check the certificate ID and try again.</p>
+
+                <div id="verify-invalid" class="hidden border border-line rounded-xl bg-bg2 p-6">
+                    <div class="text-[13px] font-extrabold uppercase tracking-wider">Certificate Not Found</div>
+                    <p class="mt-2 text-sm text-muted leading-relaxed">We couldn't find a certificate with this ID. Please check the certificate ID and try again.</p>
+                    <button type="button" onclick="resetVerify()" class="mt-4 btn-secondary px-5 py-2.5 text-sm">Try Again</button>
                 </div>
             </div>
+
+            <p class="mt-5 text-[13px] text-muted reveal">You can also scan the QR code printed on the certificate.</p>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="py-16 lg:py-24 px-6 lg:px-8 bg-white border-y border-primary">
+    <section id="faq" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8 bg-bg2 border-y border-line">
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Frequently asked questions.</h2>
+            <h2 class="text-[32px] sm:text-[42px] font-extrabold tracking-tight reveal">Frequently asked questions.</h2>
 
-            <div class="mt-10 space-y-0">
-                <!-- FAQ 1 -->
-                <div class="border-b border-primary">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold pr-4">How do I apply for an internship?</span>
-                        <span class="text-xl font-bold flex-shrink-0 transition-transform duration-300">+</span>
+            <div class="mt-10">
+                <div class="border-b border-line">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="text-[15px] font-bold">How do I apply for an internship?</span>
+                        <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p class="pb-5 text-sm leading-relaxed opacity-70">Browse available internships, click on the one you're interested in, and click "Apply Now". You'll need to create an account and complete your profile first.</p>
-                    </div>
+                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Browse open opportunities, open a listing and click "Apply Now". You'll need to create an account and complete your profile first.</p></div>
                 </div>
-                <!-- FAQ 2 -->
-                <div class="border-b border-primary">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold pr-4">Is the internship remote or on-site?</span>
-                        <span class="text-xl font-bold flex-shrink-0 transition-transform duration-300">+</span>
+                <div class="border-b border-line">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="text-[15px] font-bold">Is the internship remote or on-site?</span>
+                        <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p class="pb-5 text-sm leading-relaxed opacity-70">Most internships at Vexatry Global are remote-first. Some positions may offer hybrid arrangements. Each internship listing clearly mentions the work mode.</p>
-                    </div>
+                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Most internships are remote-first, with some hybrid roles. Each listing clearly states the work mode and location.</p></div>
                 </div>
-                <!-- FAQ 3 -->
-                <div class="border-b border-primary">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold pr-4">Will I receive a certificate after completion?</span>
-                        <span class="text-xl font-bold flex-shrink-0 transition-transform duration-300">+</span>
+                <div class="border-b border-line">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="text-[15px] font-bold">Will I receive a certificate after completion?</span>
+                        <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p class="pb-5 text-sm leading-relaxed opacity-70">Yes. Upon successful completion of the internship, you will receive a verified certificate from Vexatry Global. Each certificate has a unique ID and can be publicly verified.</p>
-                    </div>
+                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Yes. On successful completion you receive a verified certificate from Vexatry Global with a unique ID that anyone can verify publicly.</p></div>
                 </div>
-                <!-- FAQ 4 -->
-                <div class="border-b border-primary">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold pr-4">How can I verify my certificate?</span>
-                        <span class="text-xl font-bold flex-shrink-0 transition-transform duration-300">+</span>
+                <div class="border-b border-line">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="text-[15px] font-bold">How can I verify my certificate?</span>
+                        <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p class="pb-5 text-sm leading-relaxed opacity-70">Use the Certificate Verification tool on this page. Enter your certificate ID (e.g. VG-CERT-2026-00124) to instantly verify its authenticity.</p>
-                    </div>
+                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Use the verification tool on this page. Enter the certificate ID (e.g. VG-CERT-2026-00124) to instantly check its authenticity, or scan the QR code on the certificate.</p></div>
                 </div>
-                <!-- FAQ 5 -->
-                <div class="border-b border-primary">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold pr-4">What is the selection process?</span>
-                        <span class="text-xl font-bold flex-shrink-0 transition-transform duration-300">+</span>
+                <div class="border-b border-line">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="text-[15px] font-bold">What is the selection process?</span>
+                        <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p class="pb-5 text-sm leading-relaxed opacity-70">The process is simple: Apply &rarr; Review &rarr; Interview &rarr; Selection &rarr; Internship &rarr; Completion. You can track your application status from your dashboard.</p>
-                    </div>
+                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Create profile &rarr; Apply &rarr; Review &rarr; Interview &rarr; Start &rarr; Complete &amp; Certified. You can track every stage from your dashboard.</p></div>
                 </div>
-                <!-- FAQ 6 -->
-                <div class="border-b border-primary">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold pr-4">Can I apply for multiple internships?</span>
-                        <span class="text-xl font-bold flex-shrink-0 transition-transform duration-300">+</span>
+                <div class="border-b border-line">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="text-[15px] font-bold">Can I apply for multiple internships?</span>
+                        <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p class="pb-5 text-sm leading-relaxed opacity-70">Yes, you can apply for multiple internships. However, we recommend focusing on roles that best match your skills and interests for the best chance of selection.</p>
-                    </div>
+                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Yes, you can apply to multiple roles. We recommend focusing on the ones that best match your skills and interests.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-16 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="bg-lime border border-primary p-8 lg:p-14 text-center">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Ready to start?</h2>
-            <p class="mt-3 text-base lg:text-lg opacity-70 max-w-md mx-auto">Join Vexatry Global and start building real experience today.</p>
-            <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <a href="#internships" class="bg-primary text-white text-base font-bold px-7 py-3.5 border border-primary hover:bg-transparent hover:text-primary transition-colors">Explore Internships &rarr;</a>
-                <a href="#" class="text-base font-bold px-7 py-3.5 border border-primary hover:bg-primary hover:text-white transition-colors">Create Account</a>
+    <!-- CTA -->
+    <section class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative overflow-hidden bg-bg2 border border-line rounded-xl px-6 sm:px-10 lg:px-14 py-12 lg:py-16 text-center grid-bg reveal">
+                <div class="relative">
+                    <h2 class="text-[32px] sm:text-[42px] lg:text-[48px] font-extrabold tracking-tight uppercase">Ready to start?</h2>
+                    <p class="mt-3 text-[15px] text-muted max-w-md mx-auto">Create your Vexatry student account and begin building real experience today.</p>
+                    <div class="mt-8 flex flex-wrap justify-center gap-4">
+                        <a href="#internships" class="btn-primary px-7 py-3.5 text-sm">Explore Internships &rarr;</a>
+                        <a href="#" class="btn-secondary px-7 py-3.5 text-sm">Create Account</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-primary px-6 lg:px-8 py-10 lg:py-14">
+    <footer class="border-t border-line px-5 sm:px-6 lg:px-8 py-12">
         <div class="max-w-7xl mx-auto">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Brand -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
                 <div class="sm:col-span-2 lg:col-span-1">
-                    <div class="text-lg font-extrabold uppercase tracking-tight">Vexatry Global</div>
-                    <p class="mt-2 text-sm opacity-60 leading-relaxed max-w-xs">Internships that help you build real experience.</p>
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-bg font-extrabold text-sm">V</span>
+                        <span class="leading-none">
+                            <span class="block text-sm font-extrabold tracking-widest uppercase">Vexatry</span>
+                            <span class="block text-[10px] font-semibold tracking-[0.2em] uppercase text-muted">Global</span>
+                        </span>
+                    </div>
+                    <p class="mt-4 text-sm text-muted">Build. Learn. Grow.</p>
                 </div>
-                <!-- Links -->
+
                 <div>
-                    <div class="text-sm font-bold uppercase tracking-wider mb-3">Platform</div>
-                    <ul class="space-y-2 text-sm opacity-70">
-                        <li><a href="#internships" class="hover:opacity-100 transition-opacity">Internships</a></li>
-                        <li><a href="#how-it-works" class="hover:opacity-100 transition-opacity">How It Works</a></li>
-                        <li><a href="#verify" class="hover:opacity-100 transition-opacity">Certificate Verification</a></li>
-                        <li><a href="#faq" class="hover:opacity-100 transition-opacity">FAQ</a></li>
+                    <div class="text-[12px] font-bold uppercase tracking-widest text-muted">Platform</div>
+                    <ul class="mt-4 space-y-2.5 text-sm">
+                        <li><a href="#internships" class="text-muted hover:text-accent transition-colors">Internships</a></li>
+                        <li><a href="#how-it-works" class="text-muted hover:text-accent transition-colors">How It Works</a></li>
+                        <li><a href="#verify" class="text-muted hover:text-accent transition-colors">Certificate Verification</a></li>
+                        <li><a href="#faq" class="text-muted hover:text-accent transition-colors">FAQ</a></li>
                     </ul>
                 </div>
+
                 <div>
-                    <div class="text-sm font-bold uppercase tracking-wider mb-3">Company</div>
-                    <ul class="space-y-2 text-sm opacity-70">
-                        <li><a href="#" class="hover:opacity-100 transition-opacity">About Vexatry</a></li>
-                        <li><a href="#life" class="hover:opacity-100 transition-opacity">Life at Vexatry</a></li>
-                        <li><a href="#" class="hover:opacity-100 transition-opacity">Contact</a></li>
-                        <li><a href="#" class="hover:opacity-100 transition-opacity">Privacy Policy</a></li>
+                    <div class="text-[12px] font-bold uppercase tracking-widest text-muted">Company</div>
+                    <ul class="mt-4 space-y-2.5 text-sm">
+                        <li><a href="#life" class="text-muted hover:text-accent transition-colors">Life at Vexatry</a></li>
+                        <li><a href="#" class="text-muted hover:text-accent transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-muted hover:text-accent transition-colors">Privacy Policy</a></li>
                     </ul>
                 </div>
+
                 <div>
-                    <div class="text-sm font-bold uppercase tracking-wider mb-3">Account</div>
-                    <ul class="space-y-2 text-sm opacity-70">
-                        <li><a href="#" class="hover:opacity-100 transition-opacity">Login</a></li>
-                        <li><a href="#" class="hover:opacity-100 transition-opacity">Register</a></li>
-                        <li><a href="#" class="hover:opacity-100 transition-opacity">Dashboard</a></li>
+                    <div class="text-[12px] font-bold uppercase tracking-widest text-muted">Account</div>
+                    <ul class="mt-4 space-y-2.5 text-sm">
+                        <li><a href="#" class="text-muted hover:text-accent transition-colors">Login</a></li>
+                        <li><a href="#" class="text-muted hover:text-accent transition-colors">Register</a></li>
+                        <li><a href="#" class="text-muted hover:text-accent transition-colors">Dashboard</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-10 pt-6 border-t border-primary flex flex-col sm:flex-row items-center justify-between gap-3">
-                <div class="text-sm opacity-60">&copy; 2026 Vexatry Global. All rights reserved.</div>
-                <a href="https://vexatry.com" target="_blank" rel="noopener noreferrer" class="text-sm font-bold border-b border-primary hover:text-lime hover:border-lime transition-colors">Visit vexatry.com &rarr;</a>
+
+            <div class="mt-10 pt-6 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="text-[13px] text-muted">&copy; 2026 Vexatry Global. All rights reserved.</div>
+                <a href="https://vexatry.com" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-muted hover:text-accent transition-colors">Visit vexatry.com &rarr;</a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Mobile Menu Toggle
+        // Mobile menu
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const bar1 = document.getElementById('bar1');
-        const bar2 = document.getElementById('bar2');
-        const bar3 = document.getElementById('bar3');
+        const menuIcon = document.getElementById('menu-icon');
         let menuOpen = false;
 
         menuBtn.addEventListener('click', () => {
             menuOpen = !menuOpen;
             mobileMenu.classList.toggle('hidden');
-            if (menuOpen) {
-                bar1.style.transform = 'rotate(45deg) translate(5px, 5px)';
-                bar2.style.opacity = '0';
-                bar3.style.transform = 'rotate(-45deg) translate(5px, -5px)';
-            } else {
-                bar1.style.transform = 'none';
-                bar2.style.opacity = '1';
-                bar3.style.transform = 'none';
-            }
+            menuBtn.setAttribute('aria-expanded', String(menuOpen));
+            menuIcon.setAttribute('d', menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 7h16M4 12h16M4 17h16');
         });
 
-        // Close mobile menu on link click
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
                 menuOpen = false;
-                bar1.style.transform = 'none';
-                bar2.style.opacity = '1';
-                bar3.style.transform = 'none';
+                mobileMenu.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuIcon.setAttribute('d', 'M4 7h16M4 12h16M4 17h16');
             });
         });
 
-        // Navbar scroll effect
+        // Navbar scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
+            navbar.classList.toggle('nav-scrolled', window.scrollY > 20);
         });
 
-        // FAQ Accordion
+        // FAQ accordion
         function toggleFaq(btn) {
             const answer = btn.nextElementSibling;
             const icon = btn.querySelector('span:last-child');
             const isOpen = answer.classList.contains('open');
 
-            // Close all
             document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-            document.querySelectorAll('.faq-toggle span:last-child').forEach(i => {
-                i.textContent = '+';
-                i.style.transform = 'rotate(0deg)';
+            document.querySelectorAll('.faq-toggle').forEach(b => {
+                b.setAttribute('aria-expanded', 'false');
+                b.querySelector('span:last-child').textContent = '+';
             });
 
             if (!isOpen) {
                 answer.classList.add('open');
-                icon.textContent = '−';
-                icon.style.transform = 'rotate(180deg)';
+                icon.textContent = '\u2212';
+                btn.setAttribute('aria-expanded', 'true');
             }
         }
 
-        // Certificate Verification
+        // Internship filters
+        const searchInput = document.getElementById('search');
+        const deptFilter = document.getElementById('filter-dept');
+        const locFilter = document.getElementById('filter-loc');
+        const modeFilter = document.getElementById('filter-mode');
+        const durationFilter = document.getElementById('filter-duration');
+        const cards = Array.from(document.querySelectorAll('.intern-card'));
+        const resultCount = document.getElementById('result-count');
+        const emptyState = document.getElementById('empty-state');
+
+        function applyFilters() {
+            const q = searchInput.value.trim().toLowerCase();
+            const dept = deptFilter.value;
+            const loc = locFilter.value;
+            const mode = modeFilter.value;
+            const dur = durationFilter.value;
+            let visible = 0;
+
+            cards.forEach(card => {
+                const title = (card.dataset.title + ' ' + card.dataset.desc).toLowerCase();
+                const match =
+                    (!q || title.includes(q)) &&
+                    (!dept || card.dataset.dept === dept) &&
+                    (!loc || card.dataset.loc === loc) &&
+                    (!mode || card.dataset.mode === mode) &&
+                    (!dur || card.dataset.duration === dur);
+
+                card.classList.toggle('hidden', !match);
+                if (match) visible++;
+            });
+
+            resultCount.textContent = visible + (visible === 1 ? ' Open Role' : ' Open Roles');
+            emptyState.classList.toggle('hidden', visible !== 0);
+        }
+
+        [searchInput, deptFilter, locFilter, modeFilter, durationFilter].forEach(el => {
+            el.addEventListener('input', applyFilters);
+            el.addEventListener('change', applyFilters);
+        });
+
+        // Certificate verification
         function verifyCert() {
-            const input = document.getElementById('cert-input').value.trim();
+            const input = document.getElementById('cert-input').value.trim().toUpperCase();
             const result = document.getElementById('verify-result');
             const valid = document.getElementById('verify-valid');
             const invalid = document.getElementById('verify-invalid');
@@ -687,10 +826,33 @@
             }
         }
 
-        // Allow Enter key for certificate verification
+        function resetVerify() {
+            document.getElementById('verify-result').classList.add('hidden');
+            document.getElementById('verify-valid').classList.add('hidden');
+            document.getElementById('verify-invalid').classList.add('hidden');
+            document.getElementById('cert-input').value = '';
+            document.getElementById('cert-input').focus();
+        }
+
         document.getElementById('cert-input').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') verifyCert();
         });
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            revealEls.forEach(el => io.observe(el));
+        } else {
+            revealEls.forEach(el => el.classList.add('visible'));
+        }
     </script>
 </body>
 </html>

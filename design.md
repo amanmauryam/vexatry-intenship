@@ -1,1054 +1,1014 @@
-# Vexatry Internship Portal — Design Specification
+# Vexatry Internship Portal
 
-## 1. Project Overview
-
-Build a dedicated internship portal for Vexatry Global.
-
-The portal should allow studentscandidates to
-
- Browse available internships
- Create an account
- Loginlogout securely
- Complete their profile
- Upload resume
- Apply for internships
- Track application status
- View internship details
- View internship progressstatus
- Access issued certificates
- Verifydownload their certificates
- Manage their account
-
-The portal should feel like an official Vexatry Global product, but it should have a more youthful and career-focused personality than the main Vexatry corporate website.
+## Alternative Theme — "Career Hub"
 
 ---
 
-# 2. Design Direction
+# 1. Design Concept
 
-## Design Concept
+Create a dedicated internship and student career portal for Vexatry Global.
 
-### Vexatry Launchpad
+The visual direction should be significantly different from the main Vexatry Global website.
 
-The visual identity should be based on the existing Vexatry Global design language.
+The main Vexatry website can remain:
 
-Do NOT create a completely unrelated visual theme.
+> Light / Cream / Lime / Minimal
 
-The portal should feel like
+The internship portal should become:
 
- Vexatry Global + modern startup careers platform + student-focused experience
+> Dark / Modern / Tech / Career-focused / Youthful
 
-The design should be
+However, the Vexatry Global brand name and logo should remain clearly visible so users understand that the portal is officially operated by Vexatry Global.
 
- Modern
- Clean
- Youthful
- Professional
- Minimal
- Trustworthy
- Easy to navigate
- Mobile-friendly
-
-Avoid making it look like a coaching institute, job spam website, or generic certificate-selling platform.
+The design inspiration should be closer to a modern technology startup's career platform than a traditional internship website.
 
 ---
 
-# 3. Existing Vexatry Visual Language
+# 2. Design Personality
 
-Maintain the existing Vexatry design foundation.
+The website should communicate:
 
-## Primary Colors
+* Opportunity
+* Technology
+* Growth
+* Confidence
+* Professionalism
+* Progress
+* Community
 
-### Background
+The interface should feel exciting to students without looking childish.
 
-`#F9F9F7`
+Avoid:
 
-Use as the primary page background.
-
-### Black
-
-`#000000`
-
-Use for
-
- Main text
- Borders
- Navigation
- Buttons
- Headings
-
-### Lime
-
-`#EDFE5E`
-
-Use as the primary accent.
-
-Use for
-
- Primary CTA
- Highlight areas
- Important labels
- Selected states
- Small decorative elements
-
-### Cornflower Blue
-
-`#BED4FB`
-
-Use as a secondary accent.
-
-### Spring Green
-
-`#31E992`
-
-Use for
-
- Success states
- Application approved
- Certificate issued
- Completed status
- Positive indicators
+* College-portal appearance
+* Coaching institute appearance
+* Excessive gradients
+* Generic stock photography
+* Excessive glassmorphism
+* Excessive animations
+* "Get certificate easily" type messaging
+* Fake statistics
 
 ---
 
-# 4. Visual Rules
+# 3. Color System
 
-Use
+## Primary Background
 
- Thin black borders
- Large typography
- Generous whitespace
- Simple geometric shapes
- Flat UI
- Very subtle or no shadows
- Small border radius
- Strong typography hierarchy
+`#0B0D10`
 
-Avoid
+Use this for:
 
- Heavy gradients
- Glassmorphism
- Excessive shadows
- Neon effects
- Excessive animations
- Overly rounded UI
- Generic stock-photo layouts
- Excessive illustrations
+* Main hero
+* Dashboard
+* Navigation
+* Large sections
 
-The design should look intentional and premium without becoming complicated.
+## Secondary Background
+
+`#12161B`
+
+Use for:
+
+* Cards
+* Dashboard panels
+* Forms
+* Secondary sections
+
+## Surface
+
+`#181D23`
+
+Use for:
+
+* Elevated cards
+* Inputs
+* Dropdowns
+* Tables
+
+## Primary Text
+
+`#FFFFFF`
+
+## Secondary Text
+
+`#A7AFBA`
+
+## Accent
+
+`#B7FF3C`
+
+Bright green should be the primary action color.
+
+Use it for:
+
+* CTA buttons
+* Active states
+* Progress
+* Important highlights
+
+## Secondary Accent
+
+`#7C9CFF`
+
+Use blue for:
+
+* Links
+* Information
+* Secondary actions
+* Selected filters
+
+## Success
+
+`#32D583`
+
+Use for:
+
+* Selected
+* Completed
+* Verified
+* Certificate available
 
 ---
 
-# 5. Typography
+# 4. Typography
 
-Use the same typography direction as the current Vexatry website.
+Use **Manrope**.
 
-Primary font
+Typography should be bold and modern.
 
-Manrope
-
-Use
-
- Large bold headings
- Medium-weight body text
- Strong button typography
- Compact labels
-
-Headings should have strong visual presence.
-
-Example
+Hero:
 
 ```text
-BUILD.
-LEARN.
-GROW.
+64–80px desktop
+40–48px tablet
+36–42px mobile
 ```
 
-Body copy should remain short and readable.
+Section headings:
+
+```text
+40–52px desktop
+32–38px mobile
+```
+
+Body:
+
+```text
+16–18px
+```
+
+Small metadata:
+
+```text
+13–14px
+```
+
+Use strong font weights for:
+
+* Internship titles
+* Dashboard numbers
+* Status
+* CTA text
 
 ---
 
-# 6. Site Architecture
+# 5. Global UI Style
 
-The portal should contain two major areas
+Use:
 
-## Public Website
+* Dark backgrounds
+* Thin borders
+* Medium/small border radius
+* Strong typography
+* Compact cards
+* Large whitespace
+* Simple icons
+* Subtle transitions
 
-```text
-
-├── Home
-├── Internships
-├── Internship Detail
-├── How It Works
-├── Life at Vexatry
-├── FAQ
-├── Certificate Verification
-├── Login
-└── Register
-```
-
-## Student Portal
+Borders:
 
 ```text
-dashboard
-├── Dashboard
-├── Profile
-├── My Applications
-├── Internship
-├── Certificate
-├── Notifications
-└── Account Settings
+rgba(255,255,255,0.10)
 ```
+
+Cards should not have heavy shadows.
+
+Instead, use contrast between background and surface.
 
 ---
 
-# 7. Public Navbar
+# 6. Public Navbar
 
-Desktop navbar
+Desktop:
 
 ```text
-VEXATRY GLOBAL
-INTERNSHIPS
+VEXATRY
+GLOBAL
 
 Internships
 How It Works
 Life at Vexatry
-Certificate Verification
+Verify Certificate
 
 Login
-Apply Now →
+
+[ Find an Internship → ]
 ```
 
-The `Apply Now` button should use the lime accent.
+Navbar:
 
-On mobile, use a clean hamburger menu.
+* Dark background
+* Thin bottom border
+* Sticky on scroll
+* Slight backdrop blur is allowed
+* No excessive glass effect
+
+The Vexatry logo should remain the strongest brand element.
 
 ---
 
-# 8. Homepage
+# 7. Hero Section
 
-## Hero Section
+Hero should immediately communicate the purpose.
 
-Hero should immediately explain what the platform is.
-
-Example direction
+Example:
 
 ```text
-BUILD.
-LEARN.
-GROW.
+YOUR NEXT
+OPPORTUNITY
+STARTS HERE.
 
-Start your internship journey
-with Vexatry Global.
-
-Work on real projects, develop practical
-skills and build experience that matters.
+Build real skills.
+Work on real projects.
+Grow with Vexatry.
 
 [ Explore Internships → ]
-[ How It Works ]
+
+Already registered?
+Login
 ```
 
-Do not overload the hero with too much information.
+Hero visual:
 
-Use a visual composition on the right side.
+Use a dashboard-inspired composition rather than a stock student image.
 
-Possible visual
+For example:
 
- Internship application card
- Candidate profile card
- Project card
- Certificate card
+```text
+┌───────────────────────────┐
+│ WEB DEVELOPMENT INTERN    │
+│                           │
+│ ● OPEN                   │
+│                           │
+│ Remote · 3 Months         │
+│                           │
+│ HTML  CSS  Django         │
+│                           │
+│        Apply →            │
+└───────────────────────────┘
+```
 
-These cards can visually communicate the entire student journey.
+Behind it, use subtle grid lines or geometric elements.
+
+---
+
+# 8. Hero Highlight
+
+Add a small horizontal strip below the hero:
+
+```text
+REAL PROJECTS
+MENTORSHIP
+PRACTICAL EXPERIENCE
+PORTFOLIO BUILDING
+CERTIFICATE
+```
+
+Keep this monochrome with small green indicators.
 
 ---
 
 # 9. Why Vexatry
 
-Section heading
+Heading:
 
 ```text
-More than an internship.
-A place to build.
+Don't just learn.
+Build something.
 ```
 
-Use 4 cards.
+Use four large cards.
 
-### Real Projects
+### Real Work
 
 Work on practical projects and assignments.
 
-### Learn by Doing
+### Learn
 
-Develop skills through actual work.
+Develop technical and professional skills.
 
-### Mentorship
+### Collaborate
 
-Get guidance during your internship.
+Work with people and teams.
 
-### Build Your Portfolio
+### Grow
 
-Create work that can be showcased professionally.
+Build experience you can take forward.
 
-Only display benefits that Vexatry actually provides.
+Cards should have subtle number labels:
+
+```text
+01
+02
+03
+04
+```
 
 ---
 
-# 10. Internship Listings
+# 10. Internship Section
 
-Heading
-
-```text
-Find your opportunity.
-```
-
-Provide internship cards.
-
-Each card should contain
+Heading:
 
 ```text
-Web Development Intern
-
-Development
-
-Remote  Hybrid
-
-3 Months
-
-HTML · CSS · JavaScript · Django
-
-View Internship →
+OPEN
+OPPORTUNITIES
 ```
 
-Other possible categories
-
- Web Development
- Backend Development
- Frontend Development
- UIUX Design
- Digital Marketing
- SEO
- Content
- Business Development
-
-Do not hardcode these categories if they will be managed from Django admin.
-
----
-
-# 11. Internship Filters
-
-The listing page should support
-
- Search
- Category
- Location
- Work mode
- Duration
- Status
-
-Example
+Add search and filters.
 
 ```text
 Search internships...
 
-[All Departments]
-[All Locations]
-[All Work Modes]
-
-12 Opportunities
+[ All Departments ]
+[ All Locations ]
+[ Work Mode ]
+[ Duration ]
 ```
 
-Cards should remain simple and easy to scan.
+Internship cards:
+
+```text
+┌─────────────────────────────────────────┐
+│ DEVELOPMENT                         ↗   │
+│                                         │
+│ Web Development Intern                  │
+│                                         │
+│ Build websites, APIs and real-world     │
+│ web applications.                       │
+│                                         │
+│ Remote   ·   3 Months                   │
+│                                         │
+│ HTML  CSS  JavaScript  Django           │
+│                                         │
+│                              View →     │
+└─────────────────────────────────────────┘
+```
+
+Hover:
+
+* Border becomes accent green
+* Arrow moves slightly
+* No dramatic animation
 
 ---
 
-# 12. Internship Detail Page
+# 11. Internship Detail Page
 
-Each internship should have a dedicated detail page.
-
-Structure
+Top section:
 
 ```text
+DEVELOPMENT
+
 Web Development Intern
 
-Development
+Build practical web development
+experience at Vexatry Global.
+
 Remote
 3 Months
+Internship
 
 [ Apply Now → ]
 ```
 
-Then
+Then use a two-column layout.
 
-## About the Internship
-
-Description.
-
-## What You'll Do
-
-Bullet list.
-
-## Skills You'll Work With
-
-Skill tags.
-
-## Who Can Apply
-
-Eligibility information.
-
-## Internship Duration
-
-Duration.
-
-## Work Mode
-
-Remote  Hybrid  On-site.
-
-## Selection Process
-
-Simple process
+Left:
 
 ```text
-01 Apply
-02 Review
-03 Interview
-04 Selection
-05 Internship
-06 Completion
+About
+Responsibilities
+Skills
+Eligibility
+What You'll Learn
 ```
 
-## FAQ
-
-Internship-specific questions.
-
-At the bottom
+Right:
 
 ```text
-Ready to start
+INTERNSHIP DETAILS
 
-[ Apply for this Internship → ]
+Department
+Development
+
+Duration
+3 Months
+
+Mode
+Remote
+
+Status
+Open
+
+[ Apply Now → ]
 ```
 
-If the student is not logged in
-
-```text
-Login  Register to Apply
-```
+The right panel should remain sticky on desktop.
 
 ---
 
-# 13. Registration Page
+# 12. How It Works
 
-Registration should be simple.
-
-Heading
+Heading:
 
 ```text
-Start your journey.
+FROM APPLICATION
+TO EXPERIENCE.
 ```
 
-Fields
+Timeline:
 
 ```text
+01
+CREATE YOUR PROFILE
+
+↓
+
+02
+APPLY FOR AN INTERNSHIP
+
+↓
+
+03
+APPLICATION REVIEW
+
+↓
+
+04
+INTERVIEW / DISCUSSION
+
+↓
+
+05
+START YOUR INTERNSHIP
+
+↓
+
+06
+COMPLETE & GET CERTIFIED
+```
+
+Use a vertical timeline on mobile.
+
+---
+
+# 13. Student Registration
+
+Dark form page.
+
+Left:
+
+```text
+START YOUR
+JOURNEY.
+
+Create your Vexatry
+student account.
+```
+
+Right:
+
+```text
+Create Account
+
 Full Name
+[________________]
+
 Email
+[________________]
+
 Password
+[________________]
+
 Confirm Password
-```
+[________________]
 
-Button
+[ Create Account → ]
 
-```text
-Create Account →
-```
-
-Optional
-
-```text
-Already have an account
+Already have an account?
 Login
 ```
 
-Do not ask for unnecessary information during registration.
+Keep the form short.
 
-Additional profile information should be collected after registration.
+Profile information should be completed after registration.
 
 ---
 
-# 14. Login Page
+# 14. Student Login
 
-Simple login interface.
+Heading:
 
 ```text
-Welcome back.
+WELCOME BACK.
+```
 
+Form:
+
+```text
 Email
 Password
 
 [ Login → ]
 
-Forgot password
+Forgot password?
 
-Don't have an account
+Don't have an account?
 Create one
 ```
 
-The login page should have a small Vexatry visual element rather than a generic login template.
+Include a subtle Vexatry logo/graphic.
 
 ---
 
-# 15. Student Onboarding
+# 15. Student Dashboard
 
-After registration, guide the student to complete their profile.
+The dashboard should use a slightly lighter dark surface than the public website.
 
-Example
+Layout:
 
 ```text
-Complete your profile
-
-████████░░ 80%
-
-Basic Information
-Education
-Skills
-Resume
-Links
-
-[ Complete Profile → ]
+┌────────────────────────────────────────────────────┐
+│ VEXATRY                              Aman     ●     │
+├──────────────┬─────────────────────────────────────┤
+│              │                                     │
+│ Overview     │ Welcome back, Aman.                 │
+│              │                                     │
+│ Profile      │ Keep moving forward.                │
+│              │                                     │
+│ Applications │ ┌────────┐ ┌────────┐ ┌────────┐   │
+│              │ │Applied │ │Active  │ │Certs   │   │
+│ Internship   │ │   2    │ │   1    │ │   0    │   │
+│              │ └────────┘ └────────┘ └────────┘   │
+│ Certificate  │                                     │
+│              │ Current Application                 │
+│ Notifications│ Web Development Intern              │
+│              │                                     │
+│ Settings     │ ● Under Review                      │
+│              │                                     │
+│ Logout       │ [ View Application → ]              │
+│              │                                     │
+└──────────────┴─────────────────────────────────────┘
 ```
 
-Profile fields can include
+---
 
-### Personal
+# 16. Dashboard Cards
 
- Full name
- Profile photo
- Phone
- Location
+Top-level cards:
 
-### Education
+### Applications
 
- College
- Degree
- Course
- Graduation year
+Show total applications.
 
-### Skills
+### Active Internship
 
- Technical skills
- Soft skills
+Show current internship.
 
-### Professional Links
+### Certificates
 
- GitHub
- LinkedIn
- Portfolio
+Show available certificates.
 
-### Resume
+### Profile
 
- Upload PDF
+Show profile completion.
 
-Keep onboarding progressive rather than showing one huge form.
+Example:
+
+```text
+PROFILE
+82%
+
+████████████████░░░░
+
+Complete your profile →
+```
 
 ---
 
-# 16. Student Dashboard
+# 17. Dashboard — Current Internship
 
-The dashboard is the most important private page.
-
-Desktop layout
+If selected:
 
 ```text
-------------------------------------------------
-VEXATRY                         Aman     Profile
-------------------------------------------------
-
-Dashboard
-Applications
-Internship
-Certificate
-Notifications
-Settings
-
-------------------------------------------------
-
-Good morning, Aman.
-
-Keep building your future.
-
-[ Profile Completion 80% ]
-
-------------------------------------------------
-
-Application Status
+CURRENT INTERNSHIP
 
 Web Development Intern
 
-Under Review
+Vexatry Global
 
-Applied 18 Sep 2026
+ACTIVE
 
-[ View Application ]
-------------------------------------------------
+01 SEP 2026
+30 NOV 2026
 
-Current Internship
+Progress
 
-Web Development Intern
+████████████░░░░░░
 
-Day 18  60
+42%
 
-████████████░░░░
-
-[ View Internship ]
-------------------------------------------------
-
-Certificate
-
-Status Not Available Yet
-
-Your certificate will appear here
-after successful completion.
-
-------------------------------------------------
+[ Open Internship Dashboard → ]
 ```
 
-The dashboard should immediately answer
-
-1. What is my application status
-2. What internship am I doing
-3. What do I need to do next
-4. Do I have a certificate
-
----
-
-# 17. Dashboard Sidebar
-
-Desktop
+If no active internship:
 
 ```text
-Overview
-My Profile
-Applications
-My Internship
-Certificate
-Notifications
-Settings
+NO ACTIVE INTERNSHIP
+
+Find an opportunity that
+matches your skills.
+
+[ Explore Internships → ]
 ```
-
-Bottom
-
-```text
-Help
-Logout
-```
-
-Mobile
-
-Use either
-
- Bottom navigation
- Slide-out navigation
-
-Do not keep a large desktop sidebar on mobile.
 
 ---
 
 # 18. My Applications
 
-Page heading
+Use a clean dark table on desktop.
 
 ```text
-My Applications
+INTERNSHIP              APPLIED        STATUS
+
+Web Development         18 Sep         Under Review
+Digital Marketing       10 Sep         Interview
+UI/UX Design            04 Sep         Rejected
 ```
 
-Application cardstable
-
-```text
-Web Development Intern
-
-Applied
-18 Sep 2026
-
-Status
-Under Review
-
-[ View Details ]
-```
-
-Possible statuses
-
-```text
-Applied
-Under Review
-Interview
-Selected
-Rejected
-Withdrawn
-```
-
-Use subtle status indicators.
-
-Do not use excessive colors.
+Mobile should convert each row into a card.
 
 ---
 
-# 19. Application Detail
+# 19. Application Status
 
-Show
+Use a visual timeline.
 
 ```text
+APPLICATION
+
 Web Development Intern
 
-Application ID
-VG-2026-00124
-
-Applied on
-18 September 2026
-
-Status
-Under Review
-```
-
-Then show a timeline
-
-```text
-✓ Application Submitted
-      18 Sep
+✓ Applied
+18 Sep
 
 ✓ Application Received
-      18 Sep
+18 Sep
 
 ● Under Review
-      Current
+Current
 
 ○ Interview
 
 ○ Final Decision
 ```
 
-This should make the process transparent.
+Active step uses the green accent.
+
+Completed steps use success green.
 
 ---
 
 # 20. My Internship
 
-Once a student is selected, their dashboard should change.
-
-Example
+Page:
 
 ```text
-My Internship
+MY INTERNSHIP
 
 Web Development Intern
 
 Vexatry Global
 
-01 Sep 2026 — 30 Nov 2026
+ACTIVE
 
-Status
-Active
+01 SEP — 30 NOV 2026
 ```
 
-Then
+Then:
 
 ```text
-Internship Progress
+INTERNSHIP PROGRESS
 
-Day 21 of 90
+42%
 
-██████████░░░░░░░
+████████████░░░░░░░
 
-23%
+Days completed
+38 / 90
 ```
 
-Show
+Information cards:
 
- Start date
- End date
- Duration
- Mentor
- Department
- Assigned tasks
- Progress
- Important announcements
+```text
+Mentor
+Department
+Duration
+Work Mode
+Start Date
+End Date
+```
 
 ---
 
-# 21. Internship Completion
+# 21. Internship Tasks
 
-When the internship is successfully completed
-
-Dashboard should show
+Provide a task area.
 
 ```text
-Congratulations!
+TASKS
 
-Your internship has been completed.
+✓ Setup development environment
+✓ Complete HTML assignment
 
-Web Development Intern
-Vexatry Global
+● Build responsive landing page
 
-[ View Certificate → ]
+○ Create Django API
+
+○ Final project
 ```
 
-Use the spring green accent for the completed state.
+Each task can have:
+
+* Status
+* Due date
+* Description
+* Submission if required
 
 ---
 
-# 22. Certificate Section
+# 22. Certificate Dashboard
 
-This is one of the core features of the portal.
-
-Page heading
+Heading:
 
 ```text
-My Certificate
+YOUR
+CERTIFICATES
 ```
 
-If available
+If available:
 
 ```text
-Internship Certificate
+┌──────────────────────────────────────────┐
+│                                          │
+│       CERTIFICATE OF INTERNSHIP          │
+│                                          │
+│            Aman Maurya                   │
+│                                          │
+│       Web Development Intern             │
+│                                          │
+│       Vexatry Global                     │
+│                                          │
+│       VG-CERT-2026-00124                 │
+│                                          │
+└──────────────────────────────────────────┘
 
-Web Development Intern
-
-Issued to
-Aman Maurya
-
-Internship Period
-01 Sep 2026 — 30 Nov 2026
-
-Certificate ID
-VG-CERT-2026-00124
-
-Issued on
-01 Dec 2026
-
-[ View Certificate ]
-[ Download PDF ]
-[ Verify Certificate ]
+[ View Certificate ] [ Download PDF ]
 ```
 
-Certificate preview should be visually prominent.
+Certificate card should look premium but remain simple.
 
 ---
 
 # 23. Certificate Verification
 
-Create a public page
+Public route:
 
 ```text
-Verify a Vexatry Certificate
+/certificate/verify/
 ```
 
-Description
+Page:
 
 ```text
-Verify the authenticity of an internship certificate
-issued by Vexatry Global.
-```
+VERIFY A
+CERTIFICATE.
 
-Input
+Enter the certificate ID
+to verify a certificate issued
+by Vexatry Global.
 
-```text
-Enter Certificate ID
+[ VG-CERT-2026-00124 ]
 
 [ Verify Certificate → ]
 ```
 
-Example
+Add QR scanning information:
 
 ```text
-VG-CERT-2026-00124
+You can also scan the QR code
+printed on the certificate.
 ```
 
 ---
 
-# 24. Valid Certificate Result
+# 24. Verified Certificate
 
-After verification
+Result:
 
 ```text
-Certificate Verified ✓
+✓ VERIFIED
 
-This certificate was issued by Vexatry Global.
+Certificate issued by
+Vexatry Global
+
+Aman Maurya
+
+Web Development Intern
+
+01 Sep 2026 — 30 Nov 2026
 
 Certificate ID
 VG-CERT-2026-00124
 
-Name
-Aman Maurya
-
-Internship
-Web Development Intern
-
-Duration
-01 Sep 2026 — 30 Nov 2026
-
-Issue Date
+Issued
 01 Dec 2026
-
-Status
-Verified
 ```
 
-The verification page should be publicly accessible without requiring login.
+Add a clear verification indicator.
+
+Do not expose:
+
+* Email
+* Phone
+* Address
+* Private student information
 
 ---
 
 # 25. Invalid Certificate
 
-If the ID does not exist
-
 ```text
-Certificate Not Found
+CERTIFICATE NOT FOUND
 
-We could not find a certificate matching this
-certificate ID.
+We couldn't find a certificate
+with this ID.
 
-Please check the certificate ID and try again.
+Please check the certificate ID
+and try again.
+
+[ Try Again ]
 ```
 
-Do not reveal unnecessary database information.
+Keep the error neutral.
 
 ---
 
-# 26. Certificate QR Code
+# 26. QR Code
 
-Every issued certificate should contain a QR code.
+Each certificate should have a QR code.
 
-QR should point to
-
-```text
-certificateverifycertificate-id
-```
-
-Scanning the QR should open the public verification page.
-
-The verification page should clearly display
+QR should open:
 
 ```text
-✓ Certificate Verified
+/certificate/verify/<certificate-id>/
 ```
 
-This gives certificates a professional verification mechanism.
+The public verification page should show the certificate's basic public information and verification status.
 
 ---
 
-# 27. Certificate Download
+# 27. Profile
 
-The student should be able to download the official certificate PDF.
-
-The certificate design should include
+Profile page:
 
 ```text
-VEXATRY GLOBAL
+MY PROFILE
 
-Certificate of Internship
-
-This certificate is proudly presented to
-
-STUDENT NAME
-
-for successfully completing the
-
-WEB DEVELOPMENT INTERNSHIP
-
-from DATE to DATE.
-
-Certificate ID VG-CERT-2026-00124
-
-Authorized Signature
-Vexatry Global
-```
-
-Certificate generation should be handled server-side.
-
----
-
-# 28. Notifications
-
-Student notification page
-
-```text
-Notifications
-```
-
-Examples
-
-```text
-Your application has been received.
-
-Your interview has been scheduled.
-
-You have been selected for the internship.
-
-A new task has been assigned.
-
-Your internship has been completed.
-
-Your certificate is now available.
-```
-
-Unread notifications should have a subtle indicator.
-
----
-
-# 29. Profile Page
-
-Profile should look like a professional candidate profile.
-
-```text
 Aman Maurya
 
-Web Development
-[ Edit Profile ]
+Profile completion
+82%
 
-Education
-...
+PERSONAL
+Name
+Email
+Phone
+Location
 
-Skills
+EDUCATION
+College
+Degree
+Graduation Year
+
+SKILLS
 HTML
 CSS
 JavaScript
 Django
 
-Resume
-resume.pdf
-
-Links
+PROFILES
 GitHub
 LinkedIn
 Portfolio
-```
 
-Allow students to edit their information.
+RESUME
+resume.pdf
+
+[ Edit Profile ]
+```
 
 ---
 
-# 30. Settings
+# 28. Notifications
 
-Include
+Use a simple activity feed:
 
 ```text
-Account Information
-Change Password
-Email Preferences
-Delete Account
-Logout
+NOTIFICATIONS
+
+● Your application is under review.
+  2 hours ago
+
+● Interview scheduled.
+  Yesterday
+
+● New internship opportunity available.
+  2 days ago
+
+● Your certificate is now available.
+  4 days ago
 ```
 
-Keep settings simple.
+Unread notifications use the green indicator.
 
 ---
 
-# 31. Footer
+# 29. Mobile Dashboard
 
-Public footer
+Mobile should not simply shrink the desktop dashboard.
+
+Use:
+
+```text
+VEXATRY       ☰
+```
+
+Then:
+
+```text
+Welcome, Aman.
+
+Profile
+82%
+
+Current Internship
+Web Development Intern
+42%
+
+[ Continue → ]
+
+Applications
+2
+
+Certificates
+1
+```
+
+Bottom navigation:
+
+```text
+Home
+Applications
+Internship
+Certificate
+Profile
+```
+
+Keep it thumb-friendly.
+
+---
+
+# 30. Footer
+
+Dark footer:
 
 ```text
 VEXATRY GLOBAL
 
-Internships that help you build real experience.
+Build. Learn. Grow.
 
 Internships
 How It Works
@@ -1059,85 +1019,200 @@ Contact
 © 2026 Vexatry Global
 ```
 
-Include a link back to the main Vexatry Global website.
+---
+
+# 31. Animation
+
+Use subtle motion only.
+
+Allowed:
+
+* Button hover
+* Card hover
+* Arrow movement
+* Progress animation
+* Page fade
+* Timeline reveal
+
+Avoid:
+
+* Large parallax
+* Constant moving backgrounds
+* Excessive particle effects
+* Distracting animations
+
+The portal must feel fast.
 
 ---
 
-# 32. Responsive Design
+# 32. Background Treatment
 
-The entire portal must be responsive.
+Use very subtle technical visual elements.
 
-## Desktop
+Possible:
 
-Use
+* Fine grid
+* Small dots
+* Thin lines
+* Geometric shapes
 
- Sidebar dashboard
- Multi-column cards
- Large hero
- Wide content area
+Opacity should remain very low.
 
-## Tablet
-
-Reduce
-
- Card columns
- Typography
- Navigation spacing
-
-## Mobile
-
-Prioritize
-
- Single-column layout
- Large touch targets
- Bottomslide navigation
- Compact cards
- Sticky primary CTA where useful
-
-The student should be able to apply for an internship entirely from a phone.
+The background must never compete with text.
 
 ---
 
-# 33. UI Components
+# 33. Buttons
 
-Create reusable components for
+Primary:
 
- Navbar
- Footer
- Internship Card
- Status Badge
- Application Timeline
- Dashboard Card
- Progress Bar
- Profile Card
- Certificate Card
- Notification Item
- Modal
- Form Input
- Select
- Button
- Empty State
- Success State
- Error State
- Pagination
+```text
+[ Apply Now → ]
+```
 
-Do not duplicate UI markup unnecessarily.
+Style:
+
+* Lime background
+* Black text
+* Medium radius
+* Bold text
+
+Secondary:
+
+```text
+[ View Details ]
+```
+
+Style:
+
+* Transparent
+* White text
+* Thin white border
+
+Ghost:
+
+```text
+View all →
+```
 
 ---
 
-# 34. Empty States
+# 34. Cards
 
-Every dashboard section should have a useful empty state.
+Cards should use:
 
-Example
+```text
+Background: #12161B
+Border: rgba(255,255,255,0.10)
+Radius: 12px
+```
+
+Avoid excessive rounded cards.
+
+The UI should maintain a professional technology-product appearance.
+
+---
+
+# 35. Forms
+
+Input:
+
+```text
+Background: #181D23
+Border: rgba(255,255,255,0.12)
+Text: #FFFFFF
+Placeholder: #7E8792
+```
+
+Focus:
+
+```text
+Border: #B7FF3C
+```
+
+Error:
+
+Use a clear text message below the field.
+
+---
+
+# 36. Accessibility
+
+Implement:
+
+* Proper form labels
+* Keyboard navigation
+* Visible focus states
+* Accessible buttons
+* Semantic HTML
+* Sufficient text contrast
+* Alt text
+* Error messages
+* Do not rely exclusively on colors for status
+
+---
+
+# 37. SEO
+
+Public pages should have:
+
+* Unique title
+* Meta description
+* Canonical URL
+* Open Graph metadata
+* Appropriate structured data
+
+Public:
+
+```text
+/
+ /internships/
+ /internships/<slug>/
+ /how-it-works/
+ /certificate/verify/
+```
+
+Private dashboard pages should not be indexed.
+
+---
+
+# 38. Security UX
+
+The portal handles:
+
+* Student accounts
+* Resume files
+* Applications
+* Certificates
+* Personal information
+
+The UI should communicate security without making exaggerated claims.
+
+Use:
+
+* Secure authentication
+* CSRF protection
+* Permission checks
+* Private dashboard
+* Server-side validation
+* Secure file handling
+* Password reset
+* Logout
+* Ownership checks for certificates
+
+---
+
+# 39. Empty States
 
 ### No Applications
 
 ```text
-You haven't applied for an internship yet.
+NO APPLICATIONS YET
 
-Explore available opportunities and find
-your next learning experience.
+Your next opportunity is waiting.
+
+Explore internships and find
+something that matches your skills.
 
 [ Explore Internships → ]
 ```
@@ -1145,280 +1220,126 @@ your next learning experience.
 ### No Certificate
 
 ```text
+NO CERTIFICATES YET
+
 Your certificate will appear here
 after successful completion of your internship.
 ```
 
-Avoid blank pages.
-
----
-
-# 35. Status Design
-
-Use consistent statuses.
-
-### Application
+### No Active Internship
 
 ```text
-Applied
-Under Review
-Interview
-Selected
-Rejected
-```
+NO ACTIVE INTERNSHIP
 
-### Internship
+You currently don't have an active internship.
 
-```text
-Upcoming
-Active
-Completed
-```
-
-### Certificate
-
-```text
-Pending
-Available
-Verified
-```
-
-Use color only as a secondary visual indicator.
-
-The status text must always remain readable without relying on color alone.
-
----
-
-# 36. Accessibility
-
-Follow basic accessibility principles
-
- Proper labels for forms
- Keyboard navigation
- Visible focus states
- Sufficient contrast
- Semantic HTML
- Accessible buttons
- Alt text for meaningful images
- Error messages associated with inputs
- Do not communicate information only through color
-
----
-
-# 37. Animation
-
-Animations should be minimal.
-
-Allowed
-
- Small hover transitions
- Button transitions
- Card entrance animation
- Progress animation
- Subtle page transitions
-
-Avoid
-
- Constant floating animations
- Excessive parallax
- Large page transitions
- Distracting effects
-
-The portal should feel fast.
-
----
-
-# 38. SEO
-
-Public pages should have proper
-
- Title
- Meta description
- Canonical URL
- Open Graph metadata
- Structured data where appropriate
-
-Important public pages
-
-```text
-
- internships
- internshipsslug
- certificateverify
-```
-
-Student dashboard pages should generally not be indexed.
-
----
-
-# 39. Security
-
-Because students will have accounts and personal information, security is important.
-
-Implement
-
- Secure authentication
- CSRF protection
- Password hashing
- Permission checks
- Private dashboard URLs
- Secure resume access
- Certificate ownership checks
- Rate limiting for certificate verification where appropriate
- Server-side validation
- File type validation
- File size limits
- Secure logout
- Protection against unauthorized certificate access
-
-Never expose private student information through public URLs.
-
----
-
-# 40. Important UX Principle
-
-The portal should always answer
-
- What should I do next
-
-For example
-
-New user
-
-```text
-Complete your profile →
-```
-
-Profile completed
-
-```text
-Explore internships →
-```
-
-Applied
-
-```text
-Track your application →
-```
-
-Selected
-
-```text
-Start your internship →
-```
-
-Internship completed
-
-```text
-View your certificate →
-```
-
-This creates a clear student journey.
-
----
-
-# 41. Complete User Journey
-
-The intended experience is
-
-```text
-Visitor
-   ↓
-Explore Internships
-   ↓
-Register
-   ↓
-Complete Profile
-   ↓
-Apply
-   ↓
-Application Tracking
-   ↓
-Selected
-   ↓
-Internship Dashboard
-   ↓
-Complete Internship
-   ↓
-Certificate Issued
-   ↓
-View  Download Certificate
-   ↓
-Public Certificate Verification
+[ Explore Opportunities → ]
 ```
 
 ---
 
-# 42. Overall Design Personality
+# 40. User Journey
 
-The final website should feel
+The complete experience should be:
 
-Professional enough for a company
-
-
-
-Friendly enough for students
-
-
-
-Modern enough for a technology company
-
-
-
-Simple enough for first-time users
-
-The portal should NOT feel like
-
- A generic job board
- A college portal
- A coaching website
- A certificate-selling website
- A government portal
- A complicated enterprise dashboard
+```text
+VISITOR
+   ↓
+EXPLORE INTERNSHIPS
+   ↓
+REGISTER
+   ↓
+COMPLETE PROFILE
+   ↓
+APPLY
+   ↓
+TRACK APPLICATION
+   ↓
+SELECTED
+   ↓
+INTERNSHIP DASHBOARD
+   ↓
+COMPLETE INTERNSHIP
+   ↓
+CERTIFICATE ISSUED
+   ↓
+VIEW / DOWNLOAD CERTIFICATE
+   ↓
+PUBLIC VERIFICATION
+```
 
 ---
 
-# 43. Final Visual Direction
+# 41. Design System Summary
 
-Use the Vexatry visual identity consistently
+## Colors
 
 ```text
-Background
-#F9F9F7
-
-Primary
-#000000
-
-Primary Accent
-#EDFE5E
-
-Secondary Accent
-#BED4FB
-
-Success
-#31E992
+Background       #0B0D10
+Secondary        #12161B
+Surface          #181D23
+Primary Text     #FFFFFF
+Secondary Text   #A7AFBA
+Accent Green     #B7FF3C
+Accent Blue      #7C9CFF
+Success          #32D583
 ```
 
-Visual language
+## Style
 
 ```text
-Cream background
-+
-Black typography
-+
-Hairline borders
-+
-Lime CTAs
-+
-Bluegreen supporting accents
-+
-Large typography
-+
-Generous whitespace
-+
+Dark
+Minimal
+Technical
+Professional
+Youthful
+Career-focused
+```
+
+## UI
+
+```text
+Thin borders
+Medium radius
 Minimal shadows
-+
-Small-radius cards
+Strong typography
+Compact cards
+Large whitespace
+Subtle motion
 ```
 
-The result should look like a dedicated Vexatry Global internship product, not a completely separate brand.
+---
+
+# 42. Final Design Goal
+
+The final portal should feel like a **real technology company's internal career platform made public for students**.
+
+The user should feel:
+
+> "I am applying to a real company and I have my own professional career dashboard."
+
+Not:
+
+> "I am filling out a random internship form."
+
+The visual connection to Vexatry Global should come primarily through:
+
+* Logo
+* Brand name
+* Typography
+* Accent green
+* Overall design quality
+
+The internship portal itself should have its own dark visual personality.
+
+The final experience should be:
+
+**Vexatry Global**
++
+**Modern Technology**
++
+**Career Platform**
++
+**Student Dashboard**
++
+**Certificate Verification**
