@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vexatry Global — Internship Career Portal</title>
-    <meta name="description" content="Your next opportunity starts here. Explore internships at Vexatry Global, build real skills, work on real projects and grow your career.">
+    <title>Vexatry Global — Internship Portal</title>
+    <meta name="description" content="Your first big opportunity starts here. Explore internships at Vexatry Global, work on real projects and start building your career.">
     <link rel="canonical" href="https://vexatry.com/internship/">
-    <meta property="og:title" content="Vexatry Global — Internship Career Portal">
-    <meta property="og:description" content="Build real skills. Work on real projects. Grow with Vexatry.">
+    <meta property="og:title" content="Vexatry Global — Internship Portal">
+    <meta property="og:description" content="Get practical experience, work on real projects and start building your career.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vexatry.com/internship/">
-    <meta name="theme-color" content="#0B0D10">
+    <meta name="theme-color" content="#F7F5EF">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,20 +20,19 @@
             theme: {
                 extend: {
                     colors: {
-                        bg: '#0B0D10',
-                        bg2: '#12161B',
-                        surface: '#181D23',
-                        accent: '#B7FF3C',
-                        blue: '#7C9CFF',
-                        success: '#32D583',
-                        muted: '#A7AFBA',
-                        placeholder: '#7E8792',
+                        ivory: '#F7F5EF',
+                        navy: '#111827',
+                        brand: '#243B6B',
+                        accent: '#FF6B35',
+                        softblue: '#D9E6FF',
+                        success: '#1FA774',
+                        muted: '#5B6472',
                     },
                     fontFamily: {
                         manrope: ['Manrope', 'sans-serif'],
                     },
                     borderColor: {
-                        line: 'rgba(255,255,255,0.10)',
+                        ink: '#111827',
                     },
                 }
             }
@@ -42,73 +41,88 @@
     <style>
         * { font-family: 'Manrope', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: #0B0D10; color: #FFFFFF; }
+        body { background-color: #F7F5EF; color: #111827; overflow-x: hidden; }
 
-        .grid-bg {
-            background-image:
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 48px 48px;
+        section[id], div[id] { scroll-margin-top: 84px; }
+
+        .label {
+            font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
+            text-transform: uppercase;
         }
-        .dot-bg {
-            background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
-            background-size: 24px 24px;
+
+        .h-hero {
+            font-size: clamp(2.1rem, 7vw, 84px);
+            line-height: 0.96;
+        }
+        .h-sec {
+            font-size: clamp(1.9rem, 5.2vw, 56px);
+            line-height: 1.0;
         }
 
         .nav-scrolled {
-            background: rgba(11,13,16,0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.10);
+            background: rgba(247,245,239,0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
-
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-        .faq-answer.open { max-height: 300px; }
-
-        .intern-card { transition: border-color 0.2s ease; }
-        .intern-card:hover { border-color: #B7FF3C; }
-        .intern-card:hover .card-arrow { transform: translate(3px, -3px); }
-        .card-arrow { transition: transform 0.2s ease; }
-
-        .hero-float { animation: heroFloat 7s ease-in-out infinite; }
-        @keyframes heroFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         .btn-primary {
-            background: #B7FF3C; color: #0B0D10; font-weight: 700;
-            border-radius: 8px; transition: background 0.2s ease, transform 0.2s ease;
+            background: #FF6B35; color: #FFFFFF; font-weight: 700;
+            border: 1px solid #FF6B35; border-radius: 4px;
+            display: inline-block; text-align: center;
+            transition: background 0.2s ease, border-color 0.2s ease;
         }
-        .btn-primary:hover { background: #a8ef2e; }
+        .btn-primary:hover { background: #e85a28; border-color: #e85a28; }
 
-        .btn-secondary {
-            background: transparent; color: #FFFFFF; font-weight: 700;
-            border: 1px solid rgba(255,255,255,0.25); border-radius: 8px;
-            transition: border-color 0.2s ease, background 0.2s ease;
+        .btn-dark {
+            background: #111827; color: #FFFFFF; font-weight: 700;
+            border: 1px solid #111827; border-radius: 4px;
+            display: inline-block; text-align: center;
+            transition: background 0.2s ease;
         }
-        .btn-secondary:hover { border-color: #B7FF3C; background: rgba(183,255,60,0.06); }
+        .btn-dark:hover { background: #000000; }
+
+        .btn-outline {
+            background: transparent; color: #111827; font-weight: 700;
+            border: 1px solid #111827; border-radius: 4px;
+            display: inline-block; text-align: center;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .btn-outline:hover { background: #111827; color: #F7F5EF; }
 
         .field {
-            background: #181D23; border: 1px solid rgba(255,255,255,0.12);
-            color: #FFFFFF; border-radius: 8px; transition: border-color 0.2s ease;
+            background: #FFFFFF; border: 1px solid #111827; color: #111827;
+            border-radius: 4px; transition: box-shadow 0.2s ease;
         }
-        .field::placeholder { color: #7E8792; }
-        .field:focus { outline: none; border-color: #B7FF3C; }
+        .field::placeholder { color: #8b93a1; }
+        .field:focus { outline: none; box-shadow: 0 0 0 3px rgba(255,107,53,0.25); }
+        select.field option { background: #FFFFFF; color: #111827; }
 
-        select.field option { background: #181D23; color: #FFFFFF; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-answer.open { max-height: 320px; }
 
-        .timeline-line::before {
-            content: ''; position: absolute; left: 15px; top: 34px; bottom: -18px;
-            width: 1px; background: rgba(255,255,255,0.10);
+        .intern-row {
+            transition: background 0.2s ease, border-color 0.2s ease;
         }
-        .timeline-item:last-child .timeline-line::before { display: none; }
+        .intern-row:hover { background: #FFFFFF; border-color: #111827; }
+        .row-arrow {
+            color: #FF6B35;
+            transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+        }
+        @media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+            .row-arrow { opacity: 0; transform: translateX(-6px); }
+            .intern-row:hover .row-arrow { opacity: 1; transform: translateX(0); }
+        }
+
+        .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+            outline: 2px solid #FF6B35; outline-offset: 2px;
+        }
 
         @media (prefers-reduced-motion: reduce) {
-            .hero-float, .reveal { animation: none; transition: none; opacity: 1; transform: none; }
+            .reveal { transition: none; opacity: 1; transform: none; }
+            html { scroll-behavior: auto; }
         }
     </style>
     <script type="application/ld+json">
@@ -117,7 +131,7 @@
         "@type": "Organization",
         "name": "Vexatry Global",
         "url": "https://vexatry.com",
-        "description": "Internship and student career portal operated by Vexatry Global."
+        "description": "Internship portal operated by Vexatry Global for the next generation of professionals."
     }
     </script>
     <script type="application/ld+json">
@@ -126,596 +140,577 @@
         "@type": "ItemList",
         "name": "Open Internships",
         "itemListElement": [
-            {"@type": "ListItem","position": 1,"item": {"@type": "JobPosting","title": "Web Development Intern","employmentType": "INTERNSHIP","hiringOrganization": {"@type": "Organization","name": "Vexatry Global"},"jobLocation": {"@type": "Place","address": "Remote"},"description": "Build websites, APIs and real-world web applications."}},
+            {"@type": "ListItem","position": 1,"item": {"@type": "JobPosting","title": "Web Development Intern","employmentType": "INTERNSHIP","hiringOrganization": {"@type": "Organization","name": "Vexatry Global"},"jobLocation": {"@type": "Place","address": "Remote"},"description": "Build modern websites and web applications with the Vexatry team."}},
             {"@type": "ListItem","position": 2,"item": {"@type": "JobPosting","title": "UI/UX Design Intern","employmentType": "INTERNSHIP","hiringOrganization": {"@type": "Organization","name": "Vexatry Global"},"jobLocation": {"@type": "Place","address": "Remote"},"description": "Design interfaces and experiences for real products."}},
             {"@type": "ListItem","position": 3,"item": {"@type": "JobPosting","title": "Digital Marketing Intern","employmentType": "INTERNSHIP","hiringOrganization": {"@type": "Organization","name": "Vexatry Global"},"jobLocation": {"@type": "Place","address": "Remote"},"description": "Plan and execute digital marketing campaigns."}}
         ]
     }
     </script>
 </head>
-<body class="bg-bg text-white antialiased">
+<body class="bg-ivory text-navy antialiased">
 
     <!-- Navbar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b border-line transition-all duration-300">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-ivory border-b border-ink transition-all duration-200">
         <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 lg:h-[72px]">
-                <a href="#" class="flex items-center gap-2.5 group" aria-label="Vexatry Global home">
-                    <span class="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-bg font-extrabold text-sm">V</span>
-                    <span class="leading-none">
-                        <span class="block text-sm font-extrabold tracking-widest uppercase">Vexatry</span>
-                        <span class="block text-[10px] font-semibold tracking-[0.2em] uppercase text-muted">Global</span>
-                    </span>
+            <div class="flex items-center justify-between h-16 lg:h-[68px]">
+                <a href="#" class="flex items-baseline gap-2 sm:gap-3 min-w-0" aria-label="Vexatry Global Internship Portal home">
+                    <span class="text-sm sm:text-[15px] lg:text-base font-extrabold tracking-[0.08em] sm:tracking-[0.14em] uppercase whitespace-nowrap">Vexatry Global</span>
+                    <span class="hidden sm:inline label text-muted border-l border-ink/30 pl-3">Internship Portal</span>
                 </a>
 
-                <div class="hidden lg:flex items-center gap-7">
-                    <a href="#internships" class="text-[13px] font-semibold text-muted hover:text-white transition-colors">Internships</a>
-                    <a href="#how-it-works" class="text-[13px] font-semibold text-muted hover:text-white transition-colors">How It Works</a>
-                    <a href="#life" class="text-[13px] font-semibold text-muted hover:text-white transition-colors">Life at Vexatry</a>
-                    <a href="#verify" class="text-[13px] font-semibold text-muted hover:text-white transition-colors">Verify Certificate</a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#internships" class="text-[13px] font-semibold hover:text-accent transition-colors">Internships</a>
+                    <a href="#how-it-works" class="text-[13px] font-semibold hover:text-accent transition-colors">How It Works</a>
+                    <a href="#life" class="text-[13px] font-semibold hover:text-accent transition-colors">Life at Vexatry</a>
+                    <a href="#verify" class="text-[13px] font-semibold hover:text-accent transition-colors">Certificate Verification</a>
                 </div>
 
-                <div class="hidden lg:flex items-center gap-4">
-                    <a href="#" class="text-[13px] font-semibold text-muted hover:text-white transition-colors">Login</a>
-                    <a href="#internships" class="btn-primary text-[13px] px-5 py-2.5">Find an Internship &rarr;</a>
+                <div class="hidden lg:flex items-center gap-5">
+                    <a href="#" class="text-[13px] font-semibold hover:text-accent transition-colors">Login</a>
+                    <a href="#internships" class="btn-primary text-[13px] px-5 py-2.5">Apply Now</a>
                 </div>
 
-                <button id="menu-btn" class="lg:hidden p-2 -mr-2 text-white" aria-label="Toggle menu" aria-expanded="false">
+                <button id="menu-btn" class="lg:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"/></svg>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="lg:hidden hidden bg-bg2 border-t border-line">
+        <div id="mobile-menu" class="lg:hidden hidden bg-ivory border-t border-ink max-h-[calc(100dvh-64px)] overflow-y-auto overscroll-contain">
             <div class="px-5 py-5 flex flex-col gap-1">
-                <a href="#internships" class="mobile-link py-2.5 text-sm font-semibold text-muted hover:text-white transition-colors">Internships</a>
-                <a href="#how-it-works" class="mobile-link py-2.5 text-sm font-semibold text-muted hover:text-white transition-colors">How It Works</a>
-                <a href="#life" class="mobile-link py-2.5 text-sm font-semibold text-muted hover:text-white transition-colors">Life at Vexatry</a>
-                <a href="#verify" class="mobile-link py-2.5 text-sm font-semibold text-muted hover:text-white transition-colors">Verify Certificate</a>
-                <div class="h-px bg-line my-2"></div>
+                <a href="#internships" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">Internships</a>
+                <a href="#how-it-works" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">How It Works</a>
+                <a href="#life" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">Life at Vexatry</a>
+                <a href="#verify" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">Certificate Verification</a>
+                <div class="h-px bg-ink/20 my-2"></div>
                 <a href="#" class="py-2.5 text-sm font-semibold">Login</a>
-                <a href="#internships" class="btn-primary text-center text-sm px-5 py-3 mt-1">Find an Internship &rarr;</a>
+                <a href="#internships" class="btn-primary text-center text-sm px-5 py-3 mt-1">Apply Now</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="relative pt-28 lg:pt-36 pb-14 lg:pb-20 overflow-hidden grid-bg">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg pointer-events-none"></div>
-        <div class="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
+    <section class="pt-28 lg:pt-36 pb-12 lg:pb-16">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-8 lg:gap-16 items-center">
                 <div>
-                    <div class="inline-flex items-center gap-2 border border-line rounded-full px-3.5 py-1.5 mb-7">
-                        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                        <span class="text-[12px] font-semibold text-muted tracking-wide">Internship Portal by Vexatry Global</span>
-                    </div>
-                    <h1 class="text-[38px] sm:text-5xl lg:text-[68px] xl:text-[76px] font-extrabold leading-[0.98] tracking-tight uppercase">
-                        Your Next<br>
-                        <span class="text-accent">Opportunity</span><br>
+                    <div class="label text-accent">Vexatry Internships</div>
+                    <h1 class="mt-5 h-hero font-extrabold tracking-tight uppercase">
+                        Your First<br>
+                        Big Opportunity<br>
                         Starts Here.
                     </h1>
                     <p class="mt-6 text-base lg:text-lg text-muted leading-relaxed max-w-md">
-                        Build real skills.<br>
-                        Work on real projects.<br>
-                        Grow with Vexatry.
+                        Get practical experience, work on real projects and start building your career.
                     </p>
-                    <div class="mt-8 flex flex-wrap items-center gap-4">
-                        <a href="#internships" class="btn-primary px-7 py-3.5 text-[15px]">Explore Internships &rarr;</a>
-                        <span class="text-sm text-muted">Already registered? <a href="#" class="text-blue font-semibold hover:underline">Login</a></span>
+                    <div class="mt-8">
+                        <a href="#internships" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships</a>
                     </div>
                 </div>
 
-                <!-- Hero visual: dashboard-inspired card -->
-                <div class="relative hidden lg:block">
-                    <div class="absolute -inset-6 dot-bg rounded-2xl opacity-60 pointer-events-none"></div>
-
-                    <div class="hero-float relative bg-bg2 border border-line rounded-xl p-6 max-w-sm ml-auto">
-                        <div class="flex items-start justify-between">
-                            <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Development</span>
-                            <span class="text-muted">&#8599;</span>
-                        </div>
-                        <h3 class="mt-3 text-xl font-extrabold">Web Development Intern</h3>
-
-                        <div class="mt-4 flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-accent"></span>
-                            <span class="text-[13px] font-bold text-accent uppercase tracking-wide">Open</span>
+                <!-- Editorial visual: overlapping cards (tablet & desktop) -->
+                <div class="relative hidden md:block" aria-hidden="true">
+                    <div class="relative h-[380px] lg:h-[420px] w-full max-w-[520px] mx-auto lg:mx-0 lg:ml-auto">
+                        <!-- Certificate preview (back) -->
+                        <div class="absolute right-0 top-0 w-56 sm:w-64 bg-white border border-ink p-4 sm:p-5 rotate-[3deg]">
+                            <div class="label text-muted text-[10px]">Vexatry Global</div>
+                            <div class="mt-3 text-[13px] font-extrabold uppercase tracking-wide text-center">Certificate of Internship</div>
+                            <div class="mt-3 text-center text-sm font-bold">Aman Maurya</div>
+                            <div class="mt-1 text-center text-[12px] text-muted">Web Development Intern</div>
+                            <div class="mt-4 border-t border-ink/20 pt-3 text-[11px] text-muted">VG-CERT-2026-00124</div>
                         </div>
 
-                        <div class="mt-3 text-[13px] text-muted">Remote &middot; 3 Months</div>
-
-                        <div class="mt-4 flex flex-wrap gap-1.5">
-                            <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">HTML</span>
-                            <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">CSS</span>
-                            <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Django</span>
+                        <!-- Internship card (middle) -->
+                        <div class="absolute left-0 sm:left-2 top-24 w-60 sm:w-72 bg-white border border-ink p-4 sm:p-5 -rotate-[1.5deg]">
+                            <div class="flex items-center justify-between">
+                                <span class="label text-[10px] text-muted">Development</span>
+                                <span class="w-2 h-2 rounded-full bg-accent"></span>
+                            </div>
+                            <div class="mt-3 text-lg font-extrabold uppercase leading-tight">Web Development Intern</div>
+                            <div class="mt-2 text-[13px] text-muted">Remote &middot; 3 Months</div>
+                            <div class="mt-3 text-[12px] font-semibold">HTML &middot; CSS &middot; JavaScript &middot; Django</div>
+                            <div class="mt-4 btn-primary text-[12px] px-4 py-2">Apply</div>
                         </div>
 
-                        <button class="mt-5 w-full btn-primary py-2.5 text-sm">Apply &rarr;</button>
-                    </div>
-
-                    <!-- Floating mini cards -->
-                    <div class="absolute -left-6 top-10 bg-bg2 border border-line rounded-lg px-4 py-3">
-                        <div class="text-[11px] font-bold text-muted uppercase tracking-wider">Status</div>
-                        <div class="text-[13px] font-bold mt-0.5">Under Review</div>
-                    </div>
-                    <div class="absolute -left-2 bottom-6 bg-bg2 border border-line rounded-lg px-4 py-3">
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-success"></span>
-                            <span class="text-[13px] font-bold">Certificate Verified</span>
+                        <!-- Profile card (front) -->
+                        <div class="absolute right-2 sm:right-4 bottom-0 w-52 sm:w-60 bg-brand text-white border border-ink p-4 sm:p-5 rotate-[1deg]">
+                            <div class="label text-[10px] text-softblue">Candidate Profile</div>
+                            <div class="mt-3 text-base font-extrabold">Aman Maurya</div>
+                            <div class="mt-1 text-[12px] text-softblue">Web Development</div>
+                            <div class="mt-4 space-y-1.5 text-[12px]">
+                                <div class="flex justify-between"><span class="text-softblue">Profile</span><span class="font-bold">82%</span></div>
+                                <div class="h-1.5 bg-white/20"><div class="h-full bg-accent" style="width:82%"></div></div>
+                            </div>
                         </div>
-                        <div class="text-[11px] text-muted mt-0.5">VG-CERT-2026-00124</div>
+
+                        <!-- Project thumbnail -->
+                        <div class="absolute left-4 sm:left-10 bottom-4 w-40 sm:w-44 bg-softblue border border-ink p-3 sm:p-4 -rotate-[2deg]">
+                            <div class="label text-[10px] text-brand">Project</div>
+                            <div class="mt-2 text-[13px] font-bold leading-snug">Responsive Landing Page</div>
+                            <div class="mt-2 text-[11px] text-muted">HTML &middot; CSS &middot; JS</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Hero Highlight Strip -->
-    <section class="border-y border-line bg-bg2" aria-label="Highlights">
+    <!-- Hero Information Strip -->
+    <section class="border-y border-ink" aria-label="Highlights">
         <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 py-4">
-                <span class="flex items-center gap-2 text-[12px] font-bold tracking-[0.12em] uppercase text-muted"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Real Projects</span>
-                <span class="flex items-center gap-2 text-[12px] font-bold tracking-[0.12em] uppercase text-muted"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Mentorship</span>
-                <span class="flex items-center gap-2 text-[12px] font-bold tracking-[0.12em] uppercase text-muted"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Practical Experience</span>
-                <span class="flex items-center gap-2 text-[12px] font-bold tracking-[0.12em] uppercase text-muted"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Portfolio Building</span>
-                <span class="flex items-center gap-2 text-[12px] font-bold tracking-[0.12em] uppercase text-muted"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Certificate</span>
+            <div class="py-5 lg:py-7 flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-navy">
+                <span class="text-base sm:text-xl lg:text-2xl font-extrabold uppercase tracking-tight">Real Projects</span>
+                <span class="hidden sm:inline text-accent font-extrabold text-xl" aria-hidden="true">/</span>
+                <span class="text-base sm:text-xl lg:text-2xl font-extrabold uppercase tracking-tight">Mentorship</span>
+                <span class="hidden sm:inline text-accent font-extrabold text-xl" aria-hidden="true">/</span>
+                <span class="text-base sm:text-xl lg:text-2xl font-extrabold uppercase tracking-tight">Practical Experience</span>
+                <span class="hidden sm:inline text-accent font-extrabold text-xl" aria-hidden="true">/</span>
+                <span class="text-base sm:text-xl lg:text-2xl font-extrabold uppercase tracking-tight">Certificate</span>
             </div>
         </div>
     </section>
 
-    <!-- Why Vexatry -->
-    <section id="why" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="max-w-2xl reveal">
-                <span class="text-[12px] font-bold tracking-[0.18em] uppercase text-accent">Why Vexatry</span>
-                <h2 class="mt-4 text-[32px] sm:text-[42px] lg:text-[50px] font-extrabold leading-[1.05] tracking-tight">
-                    Don't just learn.<br>Build something.
+    <!-- Intro Section -->
+    <section class="py-12 sm:py-16 lg:py-28">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-16 items-end">
+                <h2 class="h-sec font-extrabold tracking-tight uppercase reveal">
+                    Internship should<br>
+                    be more than a<br>
+                    <span class="text-accent">certificate.</span>
                 </h2>
+                <p class="text-base lg:text-lg text-muted leading-relaxed reveal">
+                    At Vexatry, the internship experience should focus on practical exposure, learning and building meaningful work.
+                </p>
             </div>
+        </div>
+    </section>
 
-            <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <div class="reveal bg-bg2 border border-line rounded-xl p-6 hover:border-white/20 transition-colors">
-                    <div class="text-[13px] font-bold text-accent tracking-widest">01</div>
-                    <h3 class="mt-6 text-lg font-extrabold">Real Work</h3>
-                    <p class="mt-2 text-[15px] text-muted leading-relaxed">Work on practical projects and assignments.</p>
+    <!-- Why Vexatry — numbered editorial rows -->
+    <section id="why" class="pb-12 sm:pb-16 lg:pb-24">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="border-t border-ink">
+                <div class="reveal grid grid-cols-[52px_1fr] sm:grid-cols-[80px_1fr] lg:grid-cols-[100px_1fr_1.2fr] gap-x-3 sm:gap-x-4 lg:gap-x-10 gap-y-2 lg:gap-y-0 py-6 sm:py-7 lg:py-9 border-b border-ink/30 items-baseline">
+                    <div class="text-2xl lg:text-3xl font-extrabold text-accent">01</div>
+                    <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase tracking-tight">Real Projects</h3>
+                    <p class="text-[15px] sm:text-[15px] lg:text-base text-muted leading-relaxed col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 pl-[52px] sm:pl-0 lg:pl-0">Work on practical projects and real assignments.</p>
                 </div>
-                <div class="reveal bg-bg2 border border-line rounded-xl p-6 hover:border-white/20 transition-colors">
-                    <div class="text-[13px] font-bold text-accent tracking-widest">02</div>
-                    <h3 class="mt-6 text-lg font-extrabold">Learn</h3>
-                    <p class="mt-2 text-[15px] text-muted leading-relaxed">Develop technical and professional skills.</p>
+                <div class="reveal grid grid-cols-[52px_1fr] sm:grid-cols-[80px_1fr] lg:grid-cols-[100px_1fr_1.2fr] gap-x-3 sm:gap-x-4 lg:gap-x-10 gap-y-2 lg:gap-y-0 py-6 sm:py-7 lg:py-9 border-b border-ink/30 items-baseline">
+                    <div class="text-2xl lg:text-3xl font-extrabold text-accent">02</div>
+                    <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase tracking-tight">Learn by Doing</h3>
+                    <p class="text-[15px] sm:text-[15px] lg:text-base text-muted leading-relaxed col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 pl-[52px] sm:pl-0 lg:pl-0">Build skills through actual work instead of only theory.</p>
                 </div>
-                <div class="reveal bg-bg2 border border-line rounded-xl p-6 hover:border-white/20 transition-colors">
-                    <div class="text-[13px] font-bold text-accent tracking-widest">03</div>
-                    <h3 class="mt-6 text-lg font-extrabold">Collaborate</h3>
-                    <p class="mt-2 text-[15px] text-muted leading-relaxed">Work with people and teams.</p>
+                <div class="reveal grid grid-cols-[52px_1fr] sm:grid-cols-[80px_1fr] lg:grid-cols-[100px_1fr_1.2fr] gap-x-3 sm:gap-x-4 lg:gap-x-10 gap-y-2 lg:gap-y-0 py-6 sm:py-7 lg:py-9 border-b border-ink/30 items-baseline">
+                    <div class="text-2xl lg:text-3xl font-extrabold text-accent">03</div>
+                    <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase tracking-tight">Build Your Portfolio</h3>
+                    <p class="text-[15px] sm:text-[15px] lg:text-base text-muted leading-relaxed col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 pl-[52px] sm:pl-0 lg:pl-0">Create work that can become part of your professional profile.</p>
                 </div>
-                <div class="reveal bg-bg2 border border-line rounded-xl p-6 hover:border-white/20 transition-colors">
-                    <div class="text-[13px] font-bold text-accent tracking-widest">04</div>
-                    <h3 class="mt-6 text-lg font-extrabold">Grow</h3>
-                    <p class="mt-2 text-[15px] text-muted leading-relaxed">Build experience you can take forward.</p>
+                <div class="reveal grid grid-cols-[52px_1fr] sm:grid-cols-[80px_1fr] lg:grid-cols-[100px_1fr_1.2fr] gap-x-3 sm:gap-x-4 lg:gap-x-10 gap-y-2 lg:gap-y-0 py-6 sm:py-7 lg:py-9 border-b border-ink items-baseline">
+                    <div class="text-2xl lg:text-3xl font-extrabold text-accent">04</div>
+                    <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase tracking-tight">Grow with a Team</h3>
+                    <p class="text-[15px] sm:text-[15px] lg:text-base text-muted leading-relaxed col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 pl-[52px] sm:pl-0 lg:pl-0">Collaborate and learn from people working on real projects.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Open Opportunities -->
-    <section id="internships" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8 bg-bg2 border-y border-line">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
-                <h2 class="text-[32px] sm:text-[42px] lg:text-[50px] font-extrabold leading-[1.02] tracking-tight uppercase">
-                    Open<br>Opportunities
+    <!-- Open Internships -->
+    <section id="internships" class="py-12 sm:py-16 lg:py-24 bg-white border-y border-ink">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:grid lg:grid-cols-[1fr_1fr] gap-6 lg:gap-16 items-end">
+                <h2 class="h-sec font-extrabold leading-[0.98] tracking-tight uppercase reveal">
+                    Open<br>Internships
                 </h2>
-                <span id="result-count" class="text-[13px] font-semibold text-muted">6 Open Roles</span>
+                <p class="text-base lg:text-lg text-muted leading-relaxed reveal">
+                    Find an opportunity that matches what you want to learn.
+                </p>
             </div>
 
-            <!-- Search and Filters -->
-            <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5 reveal">
-                <div class="lg:col-span-2 relative">
-                    <label for="search" class="sr-only">Search internships</label>
-                    <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-placeholder pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
-                    <input type="text" id="search" placeholder="Search internships..." class="field w-full pl-10 pr-4 py-2.5 text-sm">
+            <!-- Filters -->
+            <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 reveal">
+                <div class="relative">
+                    <label for="search" class="sr-only">Search</label>
+                    <input type="text" id="search" placeholder="Search" class="field w-full px-4 py-3 text-sm">
                 </div>
                 <div>
                     <label for="filter-dept" class="sr-only">Department</label>
-                    <select id="filter-dept" class="field w-full px-3.5 py-2.5 text-sm">
-                        <option value="">All Departments</option>
+                    <select id="filter-dept" class="field w-full px-4 py-3 text-sm">
+                        <option value="">Department</option>
                         <option value="development">Development</option>
                         <option value="design">Design</option>
                         <option value="marketing">Marketing</option>
                     </select>
                 </div>
                 <div>
-                    <label for="filter-loc" class="sr-only">Location</label>
-                    <select id="filter-loc" class="field w-full px-3.5 py-2.5 text-sm">
-                        <option value="">All Locations</option>
+                    <label for="filter-mode" class="sr-only">Work Mode</label>
+                    <select id="filter-mode" class="field w-full px-4 py-3 text-sm">
+                        <option value="">Work Mode</option>
                         <option value="remote">Remote</option>
                         <option value="hybrid">Hybrid</option>
                     </select>
                 </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label for="filter-mode" class="sr-only">Work Mode</label>
-                        <select id="filter-mode" class="field w-full px-3.5 py-2.5 text-sm">
-                            <option value="">Work Mode</option>
-                            <option value="full-time">Full-time</option>
-                            <option value="part-time">Part-time</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="filter-duration" class="sr-only">Duration</label>
-                        <select id="filter-duration" class="field w-full px-3.5 py-2.5 text-sm">
-                            <option value="">Duration</option>
-                            <option value="2">2 Months</option>
-                            <option value="3">3 Months</option>
-                        </select>
-                    </div>
+                <div>
+                    <label for="filter-duration" class="sr-only">Duration</label>
+                    <select id="filter-duration" class="field w-full px-4 py-3 text-sm">
+                        <option value="">Duration</option>
+                        <option value="2">2 Months</option>
+                        <option value="3">3 Months</option>
+                    </select>
                 </div>
             </div>
 
-            <!-- Internship Cards -->
-            <div id="internship-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
-                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="development" data-loc="remote" data-mode="full-time" data-duration="3" data-title="Web Development Intern" data-desc="Build websites APIs and web applications">
-                    <div class="flex items-start justify-between">
-                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Development</span>
-                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
-                    </div>
-                    <h3 class="mt-3 text-lg font-extrabold">Web Development Intern</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Build websites, APIs and real-world web applications.</p>
-                    <div class="mt-4 text-[13px] text-muted">Remote &nbsp;&middot;&nbsp; 3 Months</div>
-                    <div class="mt-3 flex flex-wrap gap-1.5">
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">HTML</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">CSS</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">JavaScript</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Django</span>
-                    </div>
-                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
-                </article>
-
-                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="design" data-loc="remote" data-mode="full-time" data-duration="3" data-title="UI/UX Design Intern" data-desc="Design interfaces and product experiences">
-                    <div class="flex items-start justify-between">
-                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Design</span>
-                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
-                    </div>
-                    <h3 class="mt-3 text-lg font-extrabold">UI/UX Design Intern</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Design interfaces and experiences for real products.</p>
-                    <div class="mt-4 text-[13px] text-muted">Remote &nbsp;&middot;&nbsp; 3 Months</div>
-                    <div class="mt-3 flex flex-wrap gap-1.5">
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Figma</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Prototyping</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">UI Design</span>
-                    </div>
-                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
-                </article>
-
-                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="marketing" data-loc="remote" data-mode="part-time" data-duration="2" data-title="Digital Marketing Intern" data-desc="Plan and execute digital marketing campaigns">
-                    <div class="flex items-start justify-between">
-                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Marketing</span>
-                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
-                    </div>
-                    <h3 class="mt-3 text-lg font-extrabold">Digital Marketing Intern</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Plan and execute digital marketing campaigns.</p>
-                    <div class="mt-4 text-[13px] text-muted">Remote &nbsp;&middot;&nbsp; 2 Months</div>
-                    <div class="mt-3 flex flex-wrap gap-1.5">
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">SEO</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Social Media</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Analytics</span>
-                    </div>
-                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
-                </article>
-
-                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="development" data-loc="remote" data-mode="full-time" data-duration="3" data-title="Frontend Development Intern" data-desc="Build modern responsive user interfaces">
-                    <div class="flex items-start justify-between">
-                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Development</span>
-                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
-                    </div>
-                    <h3 class="mt-3 text-lg font-extrabold">Frontend Development Intern</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Build modern, responsive user interfaces.</p>
-                    <div class="mt-4 text-[13px] text-muted">Remote &nbsp;&middot;&nbsp; 3 Months</div>
-                    <div class="mt-3 flex flex-wrap gap-1.5">
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">React</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Tailwind</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">TypeScript</span>
-                    </div>
-                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
-                </article>
-
-                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="development" data-loc="hybrid" data-mode="full-time" data-duration="3" data-title="Backend Development Intern" data-desc="Build APIs and server-side applications">
-                    <div class="flex items-start justify-between">
-                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Development</span>
-                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
-                    </div>
-                    <h3 class="mt-3 text-lg font-extrabold">Backend Development Intern</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Build APIs and server-side applications.</p>
-                    <div class="mt-4 text-[13px] text-muted">Hybrid &nbsp;&middot;&nbsp; 3 Months</div>
-                    <div class="mt-3 flex flex-wrap gap-1.5">
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Python</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Django</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">REST APIs</span>
-                    </div>
-                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
-                </article>
-
-                <article class="intern-card reveal group bg-bg border border-line rounded-xl p-5 flex flex-col" data-dept="marketing" data-loc="remote" data-mode="part-time" data-duration="2" data-title="Content Writing Intern" data-desc="Write blogs copy and content strategy">
-                    <div class="flex items-start justify-between">
-                        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-muted">Marketing</span>
-                        <span class="card-arrow text-muted group-hover:text-accent">&#8599;</span>
-                    </div>
-                    <h3 class="mt-3 text-lg font-extrabold">Content Writing Intern</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed flex-1">Write blogs, copy and shape content strategy.</p>
-                    <div class="mt-4 text-[13px] text-muted">Remote &nbsp;&middot;&nbsp; 2 Months</div>
-                    <div class="mt-3 flex flex-wrap gap-1.5">
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Copywriting</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">SEO</span>
-                        <span class="text-[12px] font-semibold bg-surface border border-line rounded px-2 py-1">Blogs</span>
-                    </div>
-                    <a href="#" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white group-hover:text-accent transition-colors">View &rarr;</a>
-                </article>
+            <div class="mt-4 flex items-center justify-between">
+                <span id="result-count" class="label text-muted">6 Internships</span>
             </div>
 
-            <!-- Empty State -->
-            <div id="empty-state" class="hidden mt-8 border border-line rounded-xl bg-bg p-10 text-center">
-                <div class="text-[13px] font-bold tracking-[0.18em] uppercase text-muted">No Internships Found</div>
+            <!-- Internship rows -->
+            <div id="internship-list" class="mt-4 border-t border-ink">
+
+                <a href="#" class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="development" data-mode="remote" data-duration="3" data-title="Web Development Intern" data-desc="Build modern websites and web applications">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">01</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">Web Development Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Build modern websites and web applications with the Vexatry team.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Development</span>
+                            <span>Remote</span>
+                            <span>3 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">HTML &middot; CSS &middot; JavaScript &middot; Django</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+
+                <a href="#" class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="design" data-mode="remote" data-duration="3" data-title="UI/UX Design Intern" data-desc="Design interfaces and product experiences">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">02</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">UI/UX Design Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Design interfaces and experiences for real products.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Design</span>
+                            <span>Remote</span>
+                            <span>3 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">Figma &middot; Prototyping &middot; UI Design</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+
+                <a href="#" class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="marketing" data-mode="remote" data-duration="2" data-title="Digital Marketing Intern" data-desc="Plan and execute digital marketing campaigns">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">03</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">Digital Marketing Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Plan and execute digital marketing campaigns.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Marketing</span>
+                            <span>Remote</span>
+                            <span>2 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">SEO &middot; Social Media &middot; Analytics</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+
+                <a href="#" class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="development" data-mode="remote" data-duration="3" data-title="Frontend Development Intern" data-desc="Build modern responsive user interfaces">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">04</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">Frontend Development Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Build modern, responsive user interfaces.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Development</span>
+                            <span>Remote</span>
+                            <span>3 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">React &middot; Tailwind &middot; TypeScript</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+
+                <a href="#" class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="development" data-mode="hybrid" data-duration="3" data-title="Backend Development Intern" data-desc="Build APIs and server-side applications">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">05</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">Backend Development Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Build APIs and server-side applications.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Development</span>
+                            <span>Hybrid</span>
+                            <span>3 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">Python &middot; Django &middot; REST APIs</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+
+                <a href="#" class="intern-row reveal group block border-b border-ink px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="marketing" data-mode="remote" data-duration="2" data-title="Content Writing Intern" data-desc="Write blogs copy and content strategy">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">06</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">Content Writing Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Write blogs, copy and shape content strategy.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Marketing</span>
+                            <span>Remote</span>
+                            <span>2 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">Copywriting &middot; SEO &middot; Blogs</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+            </div>
+
+            <!-- Empty state -->
+            <div id="empty-state" class="hidden mt-6 border border-ink p-8 sm:p-10 text-center bg-ivory">
+                <div class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase">Nothing here yet.</div>
                 <p class="mt-2 text-sm text-muted">Try adjusting your search or filters.</p>
             </div>
 
-            <div class="mt-10 text-center">
-                <a href="#" class="btn-secondary inline-block px-8 py-3 text-sm">View All Internships &rarr;</a>
+            <div class="mt-10">
+                <a href="#" class="btn-outline block w-full sm:w-auto sm:inline-block px-8 py-3.5 text-sm">View All Internships &rarr;</a>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
+    <!-- Selection Process -->
+    <section id="how-it-works" class="py-12 sm:py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
             <div class="max-w-2xl reveal">
-                <span class="text-[12px] font-bold tracking-[0.18em] uppercase text-accent">Process</span>
-                <h2 class="mt-4 text-[32px] sm:text-[42px] lg:text-[50px] font-extrabold leading-[1.05] tracking-tight uppercase">
-                    From Application<br>To Experience.
+                <div class="label text-accent">How It Works</div>
+                <h2 class="mt-4 h-sec font-extrabold tracking-tight uppercase">
+                    Selection<br>Process
                 </h2>
             </div>
 
-            <ol class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
-                    <div class="text-3xl font-extrabold text-accent">01</div>
-                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Create Your Profile</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Sign up and complete your student profile.</p>
+            <ol class="mt-10 sm:mt-12 border-t border-ink">
+                <li class="reveal grid grid-cols-[52px_1fr] sm:grid-cols-[80px_1fr] lg:grid-cols-[100px_1fr_1.2fr] gap-x-3 sm:gap-x-4 lg:gap-x-10 gap-y-2 lg:gap-y-0 py-6 sm:py-7 border-b border-ink/30 items-baseline">
+                    <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-accent">01</div>
+                    <h3 class="text-base sm:text-lg lg:text-xl font-extrabold uppercase tracking-tight">Apply</h3>
+                    <p class="text-[15px] text-muted leading-relaxed col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 pl-[52px] sm:pl-0 lg:pl-0">Browse open internships and submit your application.</p>
                 </li>
-                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
-                    <div class="text-3xl font-extrabold text-accent">02</div>
-                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Apply for an Internship</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Find a role that matches your skills and apply.</p>
+                <li class="reveal grid grid-cols-[52px_1fr] sm:grid-cols-[80px_1fr] lg:grid-cols-[100px_1fr_1.2fr] gap-x-3 sm:gap-x-4 lg:gap-x-10 gap-y-2 lg:gap-y-0 py-6 sm:py-7 border-b border-ink/30 items-baseline">
+                    <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-accent">02</div>
+                    <h3 class="text-base sm:text-lg lg:text-xl font-extrabold uppercase tracking-tight">Application Review</h3>
+                    <p class="text-[15px] text-muted leading-relaxed col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 pl-[52px] sm:pl-0 lg:pl-0">Our team reviews your application and profile.</p>
                 </li>
-                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
-                    <div class="text-3xl font-extrabold text-accent">03</div>
-                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Application Review</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Our team reviews your application and profile.</p>
+                <li class="reveal grid grid-cols-[52px_1fr] sm:grid-cols-[80px_1fr] lg:grid-cols-[100px_1fr_1.2fr] gap-x-3 sm:gap-x-4 lg:gap-x-10 gap-y-2 lg:gap-y-0 py-6 sm:py-7 border-b border-ink/30 items-baseline">
+                    <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-accent">03</div>
+                    <h3 class="text-base sm:text-lg lg:text-xl font-extrabold uppercase tracking-tight">Discussion / Interview</h3>
+                    <p class="text-[15px] text-muted leading-relaxed col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 pl-[52px] sm:pl-0 lg:pl-0">Selected candidates are invited for a short discussion.</p>
                 </li>
-                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
-                    <div class="text-3xl font-extrabold text-accent">04</div>
-                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Interview / Discussion</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Selected candidates are invited for a short discussion.</p>
+                <li class="reveal grid grid-cols-[52px_1fr] sm:grid-cols-[80px_1fr] lg:grid-cols-[100px_1fr_1.2fr] gap-x-3 sm:gap-x-4 lg:gap-x-10 gap-y-2 lg:gap-y-0 py-6 sm:py-7 border-b border-ink/30 items-baseline">
+                    <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-accent">04</div>
+                    <h3 class="text-base sm:text-lg lg:text-xl font-extrabold uppercase tracking-tight">Selection</h3>
+                    <p class="text-[15px] text-muted leading-relaxed col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 pl-[52px] sm:pl-0 lg:pl-0">Get selected and receive your internship offer.</p>
                 </li>
-                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
-                    <div class="text-3xl font-extrabold text-accent">05</div>
-                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Start Your Internship</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Onboard, meet your mentor and start working.</p>
+                <li class="reveal grid grid-cols-[52px_1fr] sm:grid-cols-[80px_1fr] lg:grid-cols-[100px_1fr_1.2fr] gap-x-3 sm:gap-x-4 lg:gap-x-10 gap-y-2 lg:gap-y-0 py-6 sm:py-7 border-b border-ink/30 items-baseline">
+                    <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-accent">05</div>
+                    <h3 class="text-base sm:text-lg lg:text-xl font-extrabold uppercase tracking-tight">Internship</h3>
+                    <p class="text-[15px] text-muted leading-relaxed col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 pl-[52px] sm:pl-0 lg:pl-0">Work on real projects, learn from mentors and build your skills.</p>
                 </li>
-                <li class="reveal bg-bg2 border border-line rounded-xl p-6">
-                    <div class="text-3xl font-extrabold text-success">06</div>
-                    <h3 class="mt-4 text-base font-extrabold uppercase tracking-wide">Complete &amp; Get Certified</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Finish your internship and receive a verifiable certificate.</p>
+                <li class="reveal grid grid-cols-[52px_1fr] sm:grid-cols-[80px_1fr] lg:grid-cols-[100px_1fr_1.2fr] gap-x-3 sm:gap-x-4 lg:gap-x-10 gap-y-2 lg:gap-y-0 py-6 sm:py-7 border-b border-ink items-baseline">
+                    <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-success">06</div>
+                    <h3 class="text-base sm:text-lg lg:text-xl font-extrabold uppercase tracking-tight">Completion</h3>
+                    <p class="text-[15px] text-muted leading-relaxed col-span-2 lg:col-span-1 row-start-2 lg:row-start-1 pl-[52px] sm:pl-0 lg:pl-0">Complete your internship and receive your verified certificate.</p>
                 </li>
             </ol>
         </div>
     </section>
 
     <!-- Life at Vexatry -->
-    <section id="life" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8 bg-bg2 border-y border-line">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            <div class="reveal">
-                <span class="text-[12px] font-bold tracking-[0.18em] uppercase text-accent">Culture</span>
-                <h2 class="mt-4 text-[32px] sm:text-[42px] lg:text-[50px] font-extrabold leading-[1.05] tracking-tight">
-                    Life at Vexatry.
-                </h2>
-                <p class="mt-4 text-base text-muted leading-relaxed max-w-md">
-                    A community of builders, learners and problem solvers. We keep the work real, the feedback honest and the growth continuous.
-                </p>
-                <a href="#internships" class="mt-7 inline-block btn-primary px-6 py-3 text-sm">Explore Internships &rarr;</a>
-            </div>
+    <section id="life" class="py-12 sm:py-16 lg:py-24 bg-softblue border-y border-ink">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 items-start">
+                <div class="reveal">
+                    <div class="label text-brand">Culture</div>
+                    <h2 class="mt-4 h-sec font-extrabold tracking-tight uppercase">
+                        Life at<br>Vexatry.
+                    </h2>
+                    <p class="mt-5 text-base lg:text-lg text-navy/70 leading-relaxed max-w-md">
+                        A community of builders, learners and problem solvers. We keep the work real, the feedback honest and the growth continuous.
+                    </p>
+                    <a href="#internships" class="mt-7 btn-dark block w-full sm:w-auto sm:inline-block px-7 py-3.5 text-sm">Explore Internships &rarr;</a>
+                </div>
 
-            <div class="grid sm:grid-cols-2 gap-5">
-                <div class="reveal bg-bg border border-line rounded-xl p-6">
-                    <div class="w-9 h-9 rounded-md border border-line bg-surface flex items-center justify-center text-accent">
-                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12h18M3 6h18M3 18h12"/></svg>
+                <div class="border-t border-ink">
+                    <div class="reveal grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2 sm:gap-3 py-5 sm:py-6 border-b border-ink/30 items-baseline">
+                        <h3 class="text-base sm:text-lg font-extrabold uppercase tracking-tight">Remote-First</h3>
+                        <p class="text-[15px] text-navy/70 leading-relaxed sm:text-right sm:max-w-[280px]">Work from anywhere with async-friendly workflows.</p>
                     </div>
-                    <h3 class="mt-4 text-base font-extrabold">Remote-First</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Work from anywhere with async-friendly workflows.</p>
-                </div>
-                <div class="reveal bg-bg border border-line rounded-xl p-6">
-                    <div class="w-9 h-9 rounded-md border border-line bg-surface flex items-center justify-center text-accent">
-                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                    <div class="reveal grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2 sm:gap-3 py-5 sm:py-6 border-b border-ink/30 items-baseline">
+                        <h3 class="text-base sm:text-lg font-extrabold uppercase tracking-tight">Hands-On Learning</h3>
+                        <p class="text-[15px] text-navy/70 leading-relaxed sm:text-right sm:max-w-[280px]">No passive tasks. Every intern ships meaningful work.</p>
                     </div>
-                    <h3 class="mt-4 text-base font-extrabold">Hands-On Learning</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed">No passive tasks. Every intern ships meaningful work.</p>
-                </div>
-                <div class="reveal bg-bg border border-line rounded-xl p-6">
-                    <div class="w-9 h-9 rounded-md border border-line bg-surface flex items-center justify-center text-accent">
-                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <div class="reveal grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2 sm:gap-3 py-5 sm:py-6 border-b border-ink/30 items-baseline">
+                        <h3 class="text-base sm:text-lg font-extrabold uppercase tracking-tight">Mentorship</h3>
+                        <p class="text-[15px] text-navy/70 leading-relaxed sm:text-right sm:max-w-[280px]">Guidance from experienced professionals throughout.</p>
                     </div>
-                    <h3 class="mt-4 text-base font-extrabold">Mentorship</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Guidance from experienced professionals throughout.</p>
-                </div>
-                <div class="reveal bg-bg border border-line rounded-xl p-6">
-                    <div class="w-9 h-9 rounded-md border border-line bg-surface flex items-center justify-center text-accent">
-                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <div class="reveal grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2 sm:gap-3 py-5 sm:py-6 border-b border-ink items-baseline">
+                        <h3 class="text-base sm:text-lg font-extrabold uppercase tracking-tight">Verified Outcome</h3>
+                        <p class="text-[15px] text-navy/70 leading-relaxed sm:text-right sm:max-w-[280px]">Certificates with unique IDs, publicly verifiable.</p>
                     </div>
-                    <h3 class="mt-4 text-base font-extrabold">Verified Outcome</h3>
-                    <p class="mt-2 text-[14px] text-muted leading-relaxed">Certificates with unique IDs, publicly verifiable.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Certificate Verification -->
-    <section id="verify" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8">
-        <div class="max-w-2xl mx-auto text-center">
-            <span class="text-[12px] font-bold tracking-[0.18em] uppercase text-accent reveal inline-block">Verification</span>
-            <h2 class="mt-4 text-[32px] sm:text-[42px] lg:text-[50px] font-extrabold leading-[1.05] tracking-tight uppercase reveal">
-                Verify a<br>Certificate.
-            </h2>
-            <p class="mt-4 text-[15px] text-muted leading-relaxed reveal">
-                Enter the certificate ID to verify a certificate issued by Vexatry Global.
-            </p>
-
-            <div class="mt-8 flex flex-col sm:flex-row gap-3 reveal">
-                <label for="cert-input" class="sr-only">Certificate ID</label>
-                <input type="text" id="cert-input" placeholder="VG-CERT-2026-00124" class="field flex-1 px-4 py-3 text-sm" autocomplete="off">
-                <button type="button" onclick="verifyCert()" class="btn-primary px-6 py-3 text-sm whitespace-nowrap">Verify Certificate &rarr;</button>
+    <section id="verify" class="py-12 sm:py-16 lg:py-24">
+        <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="text-center reveal">
+                <div class="label text-accent">Verification</div>
+                <h2 class="mt-4 h-sec font-extrabold tracking-tight uppercase">
+                    Certificate<br>Verification
+                </h2>
+                <p class="mt-4 text-base text-muted leading-relaxed">
+                    Verify whether an internship certificate was issued by Vexatry Global.
+                </p>
             </div>
 
-            <div id="verify-result" class="mt-6 hidden text-left" role="status" aria-live="polite">
-                <div id="verify-valid" class="hidden border border-line rounded-xl bg-bg2 p-6">
-                    <div class="flex items-center gap-2.5">
-                        <span class="w-5 h-5 rounded-full bg-success flex items-center justify-center">
-                            <svg class="w-3 h-3 text-bg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-                        </span>
-                        <span class="text-[13px] font-extrabold uppercase tracking-wider text-success">Verified</span>
+            <div class="mt-8 reveal">
+                <label for="cert-input" class="label block mb-2">Certificate ID</label>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="text" id="cert-input" placeholder="VG-CERT-2026-00124" class="field flex-1 px-4 py-3.5 text-sm" autocomplete="off">
+                    <button type="button" onclick="verifyCert()" class="btn-primary block w-full sm:w-auto px-6 py-3.5 text-sm whitespace-nowrap">Verify Certificate</button>
+                </div>
+            </div>
+
+            <div id="verify-result" class="mt-6 hidden" role="status" aria-live="polite">
+                <div id="verify-valid" class="hidden border border-ink bg-white p-5 sm:p-6 lg:p-8">
+                    <div class="flex items-center gap-3">
+                        <span class="w-6 h-6 rounded-full bg-success flex items-center justify-center text-white text-sm font-bold">&#10003;</span>
+                        <span class="text-lg font-extrabold uppercase tracking-wide text-success">Verified</span>
                     </div>
-                    <p class="mt-3 text-sm text-muted">Certificate issued by Vexatry Global</p>
-                    <dl class="mt-4 grid grid-cols-2 gap-4 text-sm">
-                        <div><dt class="text-[12px] font-bold uppercase tracking-wider text-muted">Name</dt><dd class="mt-0.5 font-bold">Aman Maurya</dd></div>
-                        <div><dt class="text-[12px] font-bold uppercase tracking-wider text-muted">Internship</dt><dd class="mt-0.5 font-bold">Web Development Intern</dd></div>
-                        <div><dt class="text-[12px] font-bold uppercase tracking-wider text-muted">Duration</dt><dd class="mt-0.5 font-bold">01 Sep 2026 — 30 Nov 2026</dd></div>
-                        <div><dt class="text-[12px] font-bold uppercase tracking-wider text-muted">Issued</dt><dd class="mt-0.5 font-bold">01 Dec 2026</dd></div>
-                        <div class="col-span-2"><dt class="text-[12px] font-bold uppercase tracking-wider text-muted">Certificate ID</dt><dd class="mt-0.5 font-bold">VG-CERT-2026-00124</dd></div>
-                    </dl>
+                    <p class="mt-3 text-sm text-muted">This certificate has been verified successfully.</p>
+                    <div class="mt-5 border-t border-ink/20 pt-5 grid sm:grid-cols-2 gap-4 text-sm">
+                        <div><div class="label text-[10px] text-muted">Holder</div><div class="mt-1 font-extrabold">Aman Maurya</div></div>
+                        <div><div class="label text-[10px] text-muted">Internship</div><div class="mt-1 font-bold">Web Development Intern</div></div>
+                        <div><div class="label text-[10px] text-muted">Duration</div><div class="mt-1 font-bold">01 Sep 2026 — 30 Nov 2026</div></div>
+                        <div><div class="label text-[10px] text-muted">Issued</div><div class="mt-1 font-bold">01 Dec 2026</div></div>
+                        <div class="sm:col-span-2"><div class="label text-[10px] text-muted">Certificate ID</div><div class="mt-1 font-bold">VG-CERT-2026-00124</div></div>
+                    </div>
                 </div>
 
-                <div id="verify-invalid" class="hidden border border-line rounded-xl bg-bg2 p-6">
-                    <div class="text-[13px] font-extrabold uppercase tracking-wider">Certificate Not Found</div>
-                    <p class="mt-2 text-sm text-muted leading-relaxed">We couldn't find a certificate with this ID. Please check the certificate ID and try again.</p>
-                    <button type="button" onclick="resetVerify()" class="mt-4 btn-secondary px-5 py-2.5 text-sm">Try Again</button>
+                <div id="verify-invalid" class="hidden border border-ink bg-white p-5 sm:p-6 lg:p-8">
+                    <div class="text-lg font-extrabold uppercase tracking-wide">Certificate Not Found</div>
+                    <p class="mt-2 text-sm text-muted leading-relaxed">The certificate ID you entered could not be verified. Please check the ID and try again.</p>
+                    <button type="button" onclick="resetVerify()" class="mt-4 btn-outline px-5 py-2.5 text-sm">Try Again</button>
                 </div>
             </div>
 
-            <p class="mt-5 text-[13px] text-muted reveal">You can also scan the QR code printed on the certificate.</p>
+            <p class="mt-5 text-center label text-muted reveal">Or scan the QR code on the certificate</p>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8 bg-bg2 border-y border-line">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-[32px] sm:text-[42px] font-extrabold tracking-tight reveal">Frequently asked questions.</h2>
+    <section id="faq" class="py-12 sm:py-16 lg:py-24 bg-white border-y border-ink">
+        <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
+            <h2 class="h-sec font-extrabold tracking-tight uppercase reveal">
+                Questions?<br>We've got answers.
+            </h2>
 
-            <div class="mt-10">
-                <div class="border-b border-line">
+            <div class="mt-10 border-t border-ink">
+                <div class="border-b border-ink/30">
                     <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
-                        <span class="text-[15px] font-bold">How do I apply for an internship?</span>
+                        <span class="text-[15px] lg:text-base font-bold">Who can apply?</span>
                         <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
-                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Browse open opportunities, open a listing and click "Apply Now". You'll need to create an account and complete your profile first.</p></div>
+                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Students and early-career learners who want practical, hands-on experience. Each listing states its eligibility requirements.</p></div>
                 </div>
-                <div class="border-b border-line">
+                <div class="border-b border-ink/30">
                     <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
-                        <span class="text-[15px] font-bold">Is the internship remote or on-site?</span>
+                        <span class="text-[15px] lg:text-base font-bold">Is the internship remote?</span>
                         <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
-                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Most internships are remote-first, with some hybrid roles. Each listing clearly states the work mode and location.</p></div>
+                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Most internships are remote-first, with some hybrid roles. Each listing clearly states the work mode.</p></div>
                 </div>
-                <div class="border-b border-line">
+                <div class="border-b border-ink/30">
                     <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
-                        <span class="text-[15px] font-bold">Will I receive a certificate after completion?</span>
+                        <span class="text-[15px] lg:text-base font-bold">What is the duration?</span>
+                        <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Internships typically run for 2 to 3 months, depending on the role and project requirements.</p></div>
+                </div>
+                <div class="border-b border-ink/30">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="text-[15px] lg:text-base font-bold">Is the internship paid?</span>
+                        <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Compensation details, if any, are mentioned on each individual internship listing.</p></div>
+                </div>
+                <div class="border-b border-ink/30">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="text-[15px] lg:text-base font-bold">Will I receive a certificate?</span>
                         <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
                     <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Yes. On successful completion you receive a verified certificate from Vexatry Global with a unique ID that anyone can verify publicly.</p></div>
                 </div>
-                <div class="border-b border-line">
+                <div class="border-b border-ink">
                     <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
-                        <span class="text-[15px] font-bold">How can I verify my certificate?</span>
+                        <span class="text-[15px] lg:text-base font-bold">How does the selection process work?</span>
                         <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
-                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Use the verification tool on this page. Enter the certificate ID (e.g. VG-CERT-2026-00124) to instantly check its authenticity, or scan the QR code on the certificate.</p></div>
-                </div>
-                <div class="border-b border-line">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
-                        <span class="text-[15px] font-bold">What is the selection process?</span>
-                        <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
-                    </button>
-                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Create profile &rarr; Apply &rarr; Review &rarr; Interview &rarr; Start &rarr; Complete &amp; Certified. You can track every stage from your dashboard.</p></div>
-                </div>
-                <div class="border-b border-line">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
-                        <span class="text-[15px] font-bold">Can I apply for multiple internships?</span>
-                        <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
-                    </button>
-                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Yes, you can apply to multiple roles. We recommend focusing on the ones that best match your skills and interests.</p></div>
+                    <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Apply &rarr; Review &rarr; Discussion/Interview &rarr; Selection &rarr; Internship &rarr; Completion. You can track every stage from your dashboard.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="py-16 lg:py-24 px-5 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="relative overflow-hidden bg-bg2 border border-line rounded-xl px-6 sm:px-10 lg:px-14 py-12 lg:py-16 text-center grid-bg reveal">
-                <div class="relative">
-                    <h2 class="text-[32px] sm:text-[42px] lg:text-[48px] font-extrabold tracking-tight uppercase">Ready to start?</h2>
-                    <p class="mt-3 text-[15px] text-muted max-w-md mx-auto">Create your Vexatry student account and begin building real experience today.</p>
-                    <div class="mt-8 flex flex-wrap justify-center gap-4">
-                        <a href="#internships" class="btn-primary px-7 py-3.5 text-sm">Explore Internships &rarr;</a>
-                        <a href="#" class="btn-secondary px-7 py-3.5 text-sm">Create Account</a>
-                    </div>
+    <!-- Final CTA -->
+    <section class="py-12 sm:py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="bg-brand text-white border border-ink px-6 sm:px-10 lg:px-16 py-12 sm:py-14 lg:py-20 text-center reveal">
+                <h2 class="h-sec font-extrabold tracking-tight uppercase">
+                    Ready to start<br>your next chapter?
+                </h2>
+                <p class="mt-4 text-base lg:text-lg text-softblue max-w-md mx-auto leading-relaxed">
+                    Find an internship and start building practical experience.
+                </p>
+                <div class="mt-8">
+                    <a href="#internships" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships &rarr;</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-line px-5 sm:px-6 lg:px-8 py-12">
+    <footer class="border-t border-ink px-5 sm:px-6 lg:px-8 py-12">
         <div class="max-w-7xl mx-auto">
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
                 <div class="sm:col-span-2 lg:col-span-1">
-                    <div class="flex items-center gap-2.5">
-                        <span class="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-bg font-extrabold text-sm">V</span>
-                        <span class="leading-none">
-                            <span class="block text-sm font-extrabold tracking-widest uppercase">Vexatry</span>
-                            <span class="block text-[10px] font-semibold tracking-[0.2em] uppercase text-muted">Global</span>
-                        </span>
-                    </div>
-                    <p class="mt-4 text-sm text-muted">Build. Learn. Grow.</p>
+                    <div class="text-[15px] font-extrabold tracking-[0.14em] uppercase">Vexatry Global</div>
+                    <div class="mt-1 label text-muted">Internship Portal</div>
+                    <p class="mt-4 text-sm text-muted leading-relaxed max-w-xs">Your internship is the beginning of your professional journey, not just a certificate.</p>
                 </div>
 
                 <div>
-                    <div class="text-[12px] font-bold uppercase tracking-widest text-muted">Platform</div>
-                    <ul class="mt-4 space-y-2.5 text-sm">
-                        <li><a href="#internships" class="text-muted hover:text-accent transition-colors">Internships</a></li>
-                        <li><a href="#how-it-works" class="text-muted hover:text-accent transition-colors">How It Works</a></li>
-                        <li><a href="#verify" class="text-muted hover:text-accent transition-colors">Certificate Verification</a></li>
-                        <li><a href="#faq" class="text-muted hover:text-accent transition-colors">FAQ</a></li>
+                    <div class="label text-muted">Portal</div>
+                    <ul class="mt-4 space-y-2.5 text-sm font-semibold">
+                        <li><a href="#internships" class="hover:text-accent transition-colors">Internships</a></li>
+                        <li><a href="#how-it-works" class="hover:text-accent transition-colors">How It Works</a></li>
+                        <li><a href="#verify" class="hover:text-accent transition-colors">Certificate Verification</a></li>
+                        <li><a href="#faq" class="hover:text-accent transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <div class="text-[12px] font-bold uppercase tracking-widest text-muted">Company</div>
-                    <ul class="mt-4 space-y-2.5 text-sm">
-                        <li><a href="#life" class="text-muted hover:text-accent transition-colors">Life at Vexatry</a></li>
-                        <li><a href="#" class="text-muted hover:text-accent transition-colors">Contact</a></li>
-                        <li><a href="#" class="text-muted hover:text-accent transition-colors">Privacy Policy</a></li>
+                    <div class="label text-muted">Company</div>
+                    <ul class="mt-4 space-y-2.5 text-sm font-semibold">
+                        <li><a href="#life" class="hover:text-accent transition-colors">Life at Vexatry</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Login</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Register</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <div class="text-[12px] font-bold uppercase tracking-widest text-muted">Account</div>
-                    <ul class="mt-4 space-y-2.5 text-sm">
-                        <li><a href="#" class="text-muted hover:text-accent transition-colors">Login</a></li>
-                        <li><a href="#" class="text-muted hover:text-accent transition-colors">Register</a></li>
-                        <li><a href="#" class="text-muted hover:text-accent transition-colors">Dashboard</a></li>
+                    <div class="label text-muted">Vexatry</div>
+                    <ul class="mt-4 space-y-2.5 text-sm font-semibold">
+                        <li><a href="https://vexatry.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">Main Vexatry Website &rarr;</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="mt-10 pt-6 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-3">
-                <div class="text-[13px] text-muted">&copy; 2026 Vexatry Global. All rights reserved.</div>
-                <a href="https://vexatry.com" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-muted hover:text-accent transition-colors">Visit vexatry.com &rarr;</a>
+            <div class="mt-10 pt-6 border-t border-ink/30 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="text-[13px] text-muted">&copy; 2026 Vexatry Global</div>
+                <div class="label text-[10px] text-muted">Opportunity &middot; Experience &middot; Progress</div>
             </div>
         </div>
     </footer>
@@ -743,10 +738,13 @@
             });
         });
 
-        // Navbar scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('nav-scrolled', window.scrollY > 20);
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024 && menuOpen) {
+                menuOpen = false;
+                mobileMenu.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuIcon.setAttribute('d', 'M4 7h16M4 12h16M4 17h16');
+            }
         });
 
         // FAQ accordion
@@ -771,39 +769,36 @@
         // Internship filters
         const searchInput = document.getElementById('search');
         const deptFilter = document.getElementById('filter-dept');
-        const locFilter = document.getElementById('filter-loc');
         const modeFilter = document.getElementById('filter-mode');
         const durationFilter = document.getElementById('filter-duration');
-        const cards = Array.from(document.querySelectorAll('.intern-card'));
+        const rows = Array.from(document.querySelectorAll('.intern-row'));
         const resultCount = document.getElementById('result-count');
         const emptyState = document.getElementById('empty-state');
 
         function applyFilters() {
             const q = searchInput.value.trim().toLowerCase();
             const dept = deptFilter.value;
-            const loc = locFilter.value;
             const mode = modeFilter.value;
             const dur = durationFilter.value;
             let visible = 0;
 
-            cards.forEach(card => {
-                const title = (card.dataset.title + ' ' + card.dataset.desc).toLowerCase();
+            rows.forEach(row => {
+                const text = (row.dataset.title + ' ' + row.dataset.desc).toLowerCase();
                 const match =
-                    (!q || title.includes(q)) &&
-                    (!dept || card.dataset.dept === dept) &&
-                    (!loc || card.dataset.loc === loc) &&
-                    (!mode || card.dataset.mode === mode) &&
-                    (!dur || card.dataset.duration === dur);
+                    (!q || text.includes(q)) &&
+                    (!dept || row.dataset.dept === dept) &&
+                    (!mode || row.dataset.mode === mode) &&
+                    (!dur || row.dataset.duration === dur);
 
-                card.classList.toggle('hidden', !match);
+                row.classList.toggle('hidden', !match);
                 if (match) visible++;
             });
 
-            resultCount.textContent = visible + (visible === 1 ? ' Open Role' : ' Open Roles');
+            resultCount.textContent = visible + (visible === 1 ? ' Internship' : ' Internships');
             emptyState.classList.toggle('hidden', visible !== 0);
         }
 
-        [searchInput, deptFilter, locFilter, modeFilter, durationFilter].forEach(el => {
+        [searchInput, deptFilter, modeFilter, durationFilter].forEach(el => {
             el.addEventListener('input', applyFilters);
             el.addEventListener('change', applyFilters);
         });
@@ -848,7 +843,7 @@
                         io.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.12 });
+            }, { threshold: 0.1 });
             revealEls.forEach(el => io.observe(el));
         } else {
             revealEls.forEach(el => el.classList.add('visible'));
