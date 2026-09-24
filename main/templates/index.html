@@ -35,10 +35,10 @@
                 </a>
 
                 <div class="hidden lg:flex items-center gap-8">
-                    <a href="#internships" class="text-[13px] font-semibold hover:text-accent transition-colors">Internships</a>
+                    <a href="{% url "internships" %}" class="text-[13px] font-semibold hover:text-accent transition-colors">Internships</a>
                     <a href="#how-it-works" class="text-[13px] font-semibold hover:text-accent transition-colors">How It Works</a>
                     <a href="#life" class="text-[13px] font-semibold hover:text-accent transition-colors">Life at Vexatry</a>
-                    <a href="about.html" class="text-[13px] font-semibold hover:text-accent transition-colors">About</a>
+                    <a href="{% url "about" %}" class="text-[13px] font-semibold hover:text-accent transition-colors">About</a>
                     <a href="{% url "contact" %}" class="text-[13px] font-semibold hover:text-accent transition-colors">Contact</a>
                     <a href="#verify" class="text-[13px] font-semibold hover:text-accent transition-colors">Certificate Verification</a>
                 </div>
@@ -59,7 +59,7 @@
                 <a href="#internships" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">Internships</a>
                 <a href="#how-it-works" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">How It Works</a>
                 <a href="#life" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">Life at Vexatry</a>
-                <a href="about.html" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">About</a>
+                <a href="{% url "about" %}" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">About</a>
                 <a href="#verify" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">Certificate Verification</a>
                 <div class="h-px bg-ink/20 my-2"></div>
                 <a href="#" class="py-2.5 text-sm font-semibold">Login</a>
@@ -114,7 +114,7 @@
         </div>
     </footer>
 
-    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/main.js' %}" defer></script>
     {% block extra_js %}{% endblock extra_js %}
 </body>
 </html>

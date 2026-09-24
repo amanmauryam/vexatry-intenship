@@ -1,0 +1,154 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+
+    <!-- Hero -->
+    <section class="pt-28 lg:pt-36 pb-12 lg:pb-16">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:grid lg:grid-cols-[1fr_1fr] gap-6 lg:gap-16 items-end">
+                <div class="reveal">
+                    <div class="label text-accent">Open Positions</div>
+                    <h1 class="mt-5 h-sec font-extrabold tracking-tight uppercase">
+                        Open<br>Internships
+                    </h1>
+                </div>
+                <p class="text-base lg:text-lg text-muted leading-relaxed reveal">
+                    Find an opportunity that matches what you want to learn. Browse open internships and submit your application.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Internships -->
+    <section id="internships" class="py-0 sm:py-0 lg:py-0 bg-white border-y border-ink">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+          
+
+           
+
+            <!-- Internship rows -->
+            <div id="internship-list" class="mt-4 ">
+
+                <a href="#" class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="development" data-mode="remote" data-duration="3" data-title="Web Development Intern" data-desc="Build modern websites and web applications">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">01</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">Web Development Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Build modern websites and web applications with the Vexatry team.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Development</span>
+                            <span>Remote</span>
+                            <span>3 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">HTML &middot; CSS &middot; JavaScript &middot; Django</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+
+                <a href="#" class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="design" data-mode="remote" data-duration="3" data-title="UI/UX Design Intern" data-desc="Design interfaces and product experiences">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">02</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">UI/UX Design Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Design interfaces and experiences for real products.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Design</span>
+                            <span>Remote</span>
+                            <span>3 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">Figma &middot; Prototyping &middot; UI Design</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+
+                <a href="#" class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="marketing" data-mode="remote" data-duration="2" data-title="Digital Marketing Intern" data-desc="Plan and execute digital marketing campaigns">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">03</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">Digital Marketing Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Plan and execute digital marketing campaigns.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Marketing</span>
+                            <span>Remote</span>
+                            <span>2 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">SEO &middot; Social Media &middot; Analytics</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+
+                <a href="#" class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="development" data-mode="remote" data-duration="3" data-title="Frontend Development Intern" data-desc="Build modern responsive user interfaces">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">04</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">Frontend Development Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Build modern, responsive user interfaces.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Development</span>
+                            <span>Remote</span>
+                            <span>3 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">React &middot; Tailwind &middot; TypeScript</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+
+                <a href="#" class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="development" data-mode="hybrid" data-duration="3" data-title="Backend Development Intern" data-desc="Build APIs and server-side applications">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">05</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">Backend Development Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Build APIs and server-side applications.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Development</span>
+                            <span>Hybrid</span>
+                            <span>3 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">Python &middot; Django &middot; REST APIs</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+
+                <a href="#" class="intern-row reveal group block border-b border-ink px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="marketing" data-mode="remote" data-duration="2" data-title="Content Writing Intern" data-desc="Write blogs copy and content strategy">
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">06</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">Content Writing Intern</h3>
+                        <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Write blogs, copy and shape content strategy.</p>
+                        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 label text-[11px] text-muted">
+                            <span>Marketing</span>
+                            <span>Remote</span>
+                            <span>2 Months</span>
+                        </div>
+                        <div class="mt-2 text-[13px] font-semibold text-navy/70">Copywriting &middot; SEO &middot; Blogs</div>
+                    </div>
+                    <div class="row-arrow justify-self-end sm:justify-self-center text-2xl font-bold self-center" aria-hidden="true">&rarr;</div>
+                </a>
+            </div>
+
+            <!-- Empty state -->
+            <div id="empty-state" class="hidden mt-6 border border-ink p-8 sm:p-10 text-center bg-ivory">
+                <div class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase">Nothing here yet.</div>
+                <p class="mt-2 text-sm text-muted">Try adjusting your search or filters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-12 sm:py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="bg-brand text-white border border-ink px-6 sm:px-10 lg:px-16 py-12 sm:py-14 lg:py-20 text-center reveal">
+                <h2 class="h-sec font-extrabold tracking-tight uppercase">
+                    Ready to start<br>your next chapter?
+                </h2>
+                <p class="mt-4 text-base lg:text-lg text-softblue max-w-md mx-auto leading-relaxed">
+                    Find an internship and start building practical experience.
+                </p>
+                <div class="mt-8">
+                    <a href="#internships" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/internship.js' %}" defer></script>
+{% endblock extra_js %}

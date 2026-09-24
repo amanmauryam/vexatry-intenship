@@ -141,48 +141,12 @@
                 </p>
             </div>
 
-            <!-- Filters -->
-            <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 reveal">
-                <div class="relative">
-                    <label for="search" class="sr-only">Search</label>
-                    <input type="text" id="search" placeholder="Search" class="field w-full px-4 py-3 text-sm">
-                </div>
-                <div>
-                    <label for="filter-dept" class="sr-only">Department</label>
-                    <select id="filter-dept" class="field w-full px-4 py-3 text-sm">
-                        <option value="">Department</option>
-                        <option value="development">Development</option>
-                        <option value="design">Design</option>
-                        <option value="marketing">Marketing</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="filter-mode" class="sr-only">Work Mode</label>
-                    <select id="filter-mode" class="field w-full px-4 py-3 text-sm">
-                        <option value="">Work Mode</option>
-                        <option value="remote">Remote</option>
-                        <option value="hybrid">Hybrid</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="filter-duration" class="sr-only">Duration</label>
-                    <select id="filter-duration" class="field w-full px-4 py-3 text-sm">
-                        <option value="">Duration</option>
-                        <option value="2">2 Months</option>
-                        <option value="3">3 Months</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="mt-4 flex items-center justify-between">
-                <span id="result-count" class="label text-muted">6 Internships</span>
-            </div>
 
             <!-- Internship rows -->
             <div id="internship-list" class="mt-4 border-t border-ink">
 
                 <a href="#" class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="development" data-mode="remote" data-duration="3" data-title="Web Development Intern" data-desc="Build modern websites and web applications">
-                    <div class="text-lg lg:text-2xl font-extrabold text-accent">01</div>
+                    <div class="text-lg lg:text-2xl font-extrabold text-accent">#</div>
                     <div class="min-w-0">
                         <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">Web Development Intern</h3>
                         <p class="mt-2 text-[15px] text-muted leading-relaxed max-w-md">Build modern websites and web applications with the Vexatry team.</p>
@@ -383,7 +347,7 @@
                 <label for="cert-input" class="label block mb-2">Certificate ID</label>
                 <div class="flex flex-col sm:flex-row gap-3">
                     <input type="text" id="cert-input" placeholder="VG-CERT-2026-00124" class="field flex-1 px-4 py-3.5 text-sm" autocomplete="off">
-                    <button type="button" onclick="verifyCert()" class="btn-primary block w-full sm:w-auto px-6 py-3.5 text-sm whitespace-nowrap">Verify Certificate</button>
+                    <button type="button" id="verify-btn" class="btn-primary block w-full sm:w-auto px-6 py-3.5 text-sm whitespace-nowrap">Verify Certificate</button>
                 </div>
             </div>
 
@@ -406,7 +370,7 @@
                 <div id="verify-invalid" class="hidden border border-ink bg-white p-5 sm:p-6 lg:p-8">
                     <div class="text-lg font-extrabold uppercase tracking-wide">Certificate Not Found</div>
                     <p class="mt-2 text-sm text-muted leading-relaxed">The certificate ID you entered could not be verified. Please check the ID and try again.</p>
-                    <button type="button" onclick="resetVerify()" class="mt-4 btn-outline px-5 py-2.5 text-sm">Try Again</button>
+                    <button type="button" id="reset-btn" class="mt-4 btn-outline px-5 py-2.5 text-sm">Try Again</button>
                 </div>
             </div>
 
@@ -423,42 +387,42 @@
 
             <div class="mt-10 border-t border-ink">
                 <div class="border-b border-ink/30">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" aria-expanded="false">
                         <span class="text-[15px] lg:text-base font-bold">Who can apply?</span>
                         <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
                     <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Students and early-career learners who want practical, hands-on experience. Each listing states its eligibility requirements.</p></div>
                 </div>
                 <div class="border-b border-ink/30">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" aria-expanded="false">
                         <span class="text-[15px] lg:text-base font-bold">Is the internship remote?</span>
                         <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
                     <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Most internships are remote-first, with some hybrid roles. Each listing clearly states the work mode.</p></div>
                 </div>
                 <div class="border-b border-ink/30">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" aria-expanded="false">
                         <span class="text-[15px] lg:text-base font-bold">What is the duration?</span>
                         <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
                     <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Internships typically run for 2 to 3 months, depending on the role and project requirements.</p></div>
                 </div>
                 <div class="border-b border-ink/30">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" aria-expanded="false">
                         <span class="text-[15px] lg:text-base font-bold">Is the internship paid?</span>
                         <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
                     <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Compensation details, if any, are mentioned on each individual internship listing.</p></div>
                 </div>
                 <div class="border-b border-ink/30">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" aria-expanded="false">
                         <span class="text-[15px] lg:text-base font-bold">Will I receive a certificate?</span>
                         <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
                     <div class="faq-answer"><p class="pb-5 text-sm text-muted leading-relaxed">Yes. On successful completion you receive a verified certificate from Vexatry Global with a unique ID that anyone can verify publicly.</p></div>
                 </div>
                 <div class="border-b border-ink">
-                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" onclick="toggleFaq(this)" aria-expanded="false">
+                    <button class="faq-toggle w-full flex items-center justify-between py-5 text-left gap-4" aria-expanded="false">
                         <span class="text-[15px] lg:text-base font-bold">How does the selection process work?</span>
                         <span class="text-xl font-bold text-accent flex-shrink-0 transition-transform duration-300">+</span>
                     </button>
@@ -487,3 +451,7 @@
 
 
 {% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/home.js' %}" defer></script>
+{% endblock extra_js %}
