@@ -39,6 +39,7 @@
                     <a href="#how-it-works" class="text-[13px] font-semibold hover:text-accent transition-colors">How It Works</a>
                     <a href="#life" class="text-[13px] font-semibold hover:text-accent transition-colors">Life at Vexatry</a>
                     <a href="about.html" class="text-[13px] font-semibold hover:text-accent transition-colors">About</a>
+                    <a href="{% url "contact" %}" class="text-[13px] font-semibold hover:text-accent transition-colors">Contact</a>
                     <a href="#verify" class="text-[13px] font-semibold hover:text-accent transition-colors">Certificate Verification</a>
                 </div>
 
@@ -114,5 +115,6 @@
     </footer>
 
     <script src="{% static 'js/index.js' %}"></script>
+    {% block extra_js %}{% endblock extra_js %}
 </body>
 </html>
