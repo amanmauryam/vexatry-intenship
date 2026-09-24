@@ -10,6 +10,7 @@ class Internship(models.Model):
     name = models.CharField(max_length=100)
     category = models.ForeignKey(InternshipCategory, on_delete=models.CASCADE)
     short_description=models.TextField()
+    is_featured=models.BooleanField(default=False)
     def __str__(self):
             return self.name
 

@@ -4,7 +4,7 @@ from app.models import Internship
 
 # Create your views here.
 def home(request):
-    internships=Internship.objects.all()
+    internships=Internship.objects.filter(is_featured=True)
     return render(request,'pages/home.html', {'internships': internships})
 
 def contact(request):
