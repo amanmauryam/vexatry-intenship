@@ -1,0 +1,244 @@
+/* ========================================
+   Global Styles
+======================================== */
+
+* {
+    font-family: "Manrope", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #F7F5EF;
+    color: #111827;
+    overflow-x: hidden;
+}
+
+section[id],
+div[id] {
+    scroll-margin-top: 84px;
+}
+
+
+/* ========================================
+   Typography
+======================================== */
+
+.label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.h-hero {
+    font-size: clamp(2.1rem, 7vw, 84px);
+    line-height: 0.96;
+}
+
+.h-sec {
+    font-size: clamp(1.9rem, 5.2vw, 56px);
+    line-height: 1;
+}
+
+
+/* ========================================
+   Navigation
+======================================== */
+
+.nav-scrolled {
+    background: rgba(247, 245, 239, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* ========================================
+   Buttons
+======================================== */
+
+.btn-primary {
+    display: inline-block;
+    background: #FF6B35;
+    color: #FFFFFF;
+    font-weight: 700;
+    border: 1px solid #FF6B35;
+    border-radius: 4px;
+    text-align: center;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: #E85A28;
+    border-color: #E85A28;
+}
+
+
+.btn-dark {
+    display: inline-block;
+    background: #111827;
+    color: #FFFFFF;
+    font-weight: 700;
+    border: 1px solid #111827;
+    border-radius: 4px;
+    text-align: center;
+    transition: background 0.2s ease;
+}
+
+.btn-dark:hover {
+    background: #000000;
+}
+
+
+.btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: #111827;
+    font-weight: 700;
+    border: 1px solid #111827;
+    border-radius: 4px;
+    text-align: center;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn-outline:hover {
+    background: #111827;
+    color: #F7F5EF;
+}
+
+
+/* ========================================
+   Form Fields
+======================================== */
+
+.field {
+    background: #FFFFFF;
+    border: 1px solid #111827;
+    color: #111827;
+    border-radius: 4px;
+    transition: box-shadow 0.2s ease;
+}
+
+.field::placeholder {
+    color: #8B93A1;
+}
+
+.field:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.25);
+}
+
+select.field option {
+    background: #FFFFFF;
+    color: #111827;
+}
+
+
+/* ========================================
+   FAQ
+======================================== */
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer.open {
+    max-height: 320px;
+}
+
+
+/* ========================================
+   Internship Rows
+======================================== */
+
+.intern-row {
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.intern-row:hover {
+    background: #FFFFFF;
+    border-color: #111827;
+}
+
+.row-arrow {
+    color: #FF6B35;
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* ========================================
+   Desktop Hover Behaviour
+======================================== */
+
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+    .row-arrow {
+        opacity: 0;
+        transform: translateX(-6px);
+    }
+
+    .intern-row:hover .row-arrow {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* ========================================
+   Reveal Animation
+======================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   Keyboard Focus
+======================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #FF6B35;
+    outline-offset: 2px;
+}
+
+
+/* ========================================
+   Reduced Motion
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}

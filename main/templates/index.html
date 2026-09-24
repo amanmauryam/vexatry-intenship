@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vexatry Global — Internship Portal</title>
+    <meta name="description" content="Your first big opportunity starts here. Explore internships at Vexatry Global, work on real projects and start building your career.">
+    <link rel="canonical" href="https://vexatry.com/internship/">
+    <meta property="og:title" content="Vexatry Global — Internship Portal">
+    <meta property="og:description" content="Get practical experience, work on real projects and start building your career.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vexatry.com/internship/">
+    <meta name="theme-color" content="#F7F5EF">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+
+<link rel="stylesheet" href="{% static 'css/output.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+   
+  
+</head>
+<body class="bg-ivory text-navy antialiased">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-ivory border-b border-ink transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-[68px]">
+                <a href="#" class="flex items-baseline gap-2 sm:gap-3 min-w-0" aria-label="Vexatry Global Internship Portal home">
+                    <span class="text-sm sm:text-[15px] lg:text-base font-extrabold tracking-[0.08em] sm:tracking-[0.14em] uppercase whitespace-nowrap">Vexatry Global</span>
+                    <span class="hidden sm:inline label text-muted border-l border-ink/30 pl-3">Internship Portal</span>
+                </a>
+
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#internships" class="text-[13px] font-semibold hover:text-accent transition-colors">Internships</a>
+                    <a href="#how-it-works" class="text-[13px] font-semibold hover:text-accent transition-colors">How It Works</a>
+                    <a href="#life" class="text-[13px] font-semibold hover:text-accent transition-colors">Life at Vexatry</a>
+                    <a href="about.html" class="text-[13px] font-semibold hover:text-accent transition-colors">About</a>
+                    <a href="#verify" class="text-[13px] font-semibold hover:text-accent transition-colors">Certificate Verification</a>
+                </div>
+
+                <div class="hidden lg:flex items-center gap-5">
+                    <a href="#" class="text-[13px] font-semibold hover:text-accent transition-colors">Login</a>
+                    <a href="#internships" class="btn-primary text-[13px] px-5 py-2.5">Apply Now</a>
+                </div>
+
+                <button id="menu-btn" class="lg:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="lg:hidden hidden bg-ivory border-t border-ink max-h-[calc(100dvh-64px)] overflow-y-auto overscroll-contain">
+            <div class="px-5 py-5 flex flex-col gap-1">
+                <a href="#internships" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">Internships</a>
+                <a href="#how-it-works" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">How It Works</a>
+                <a href="#life" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">Life at Vexatry</a>
+                <a href="about.html" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">About</a>
+                <a href="#verify" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">Certificate Verification</a>
+                <div class="h-px bg-ink/20 my-2"></div>
+                <a href="#" class="py-2.5 text-sm font-semibold">Login</a>
+                <a href="#internships" class="btn-primary text-center text-sm px-5 py-3 mt-1">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+    {% block content %}{% endblock content %}
+    <!-- Footer -->
+    <footer class="border-t border-ink px-5 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <div class="text-[15px] font-extrabold tracking-[0.14em] uppercase">Vexatry Global</div>
+                    <div class="mt-1 label text-muted">Internship Portal</div>
+                    <p class="mt-4 text-sm text-muted leading-relaxed max-w-xs">Your internship is the beginning of your professional journey, not just a certificate.</p>
+                </div>
+
+                <div>
+                    <div class="label text-muted">Portal</div>
+                    <ul class="mt-4 space-y-2.5 text-sm font-semibold">
+                        <li><a href="#internships" class="hover:text-accent transition-colors">Internships</a></li>
+                        <li><a href="#how-it-works" class="hover:text-accent transition-colors">How It Works</a></li>
+                        <li><a href="#verify" class="hover:text-accent transition-colors">Certificate Verification</a></li>
+                        <li><a href="#faq" class="hover:text-accent transition-colors">FAQ</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="label text-muted">Company</div>
+                    <ul class="mt-4 space-y-2.5 text-sm font-semibold">
+                        <li><a href="#life" class="hover:text-accent transition-colors">Life at Vexatry</a></li>
+                        <li><a href="about.html" class="hover:text-accent transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Login</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Register</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="label text-muted">Vexatry</div>
+                    <ul class="mt-4 space-y-2.5 text-sm font-semibold">
+                        <li><a href="https://vexatry.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">Main Vexatry Website &rarr;</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-ink/30 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="text-[13px] text-muted">&copy; 2026 Vexatry Global</div>
+                <div class="label text-[10px] text-muted">Opportunity &middot; Experience &middot; Progress</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>
