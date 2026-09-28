@@ -148,7 +148,7 @@
 
             {% for internship in internships %}
 
-                <a href="#"
+                <a href="{% url "apply" %}?role={{ internship.name|urlencode }}"
                    class="intern-row reveal group block border-b border-ink/30 px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start"
                    data-dept="{{ internship.category.name|lower }}"
                    data-mode="remote"

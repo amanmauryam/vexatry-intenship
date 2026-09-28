@@ -33,7 +33,7 @@
 
                {% if internships %}
                {% for internship in internships %}
-                <a href="#" class="intern-row reveal group block border-b border-ink px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="marketing" data-mode="remote" data-duration="2" data-title="Content Writing Intern" data-desc="Write blogs copy and content strategy">
+                <a href="{% url "apply" %}?role={{ internship.name|urlencode }}" class="intern-row reveal group block border-b border-ink px-1 sm:px-3 py-6 sm:py-7 grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-x-3 sm:gap-x-4 lg:gap-8 items-start" data-dept="marketing" data-mode="remote" data-duration="2" data-title="Content Writing Intern" data-desc="Write blogs copy and content strategy">
                     <div class="text-lg lg:text-2xl font-extrabold text-accent">0{{ forloop.counter }}</div>
                     <div class="min-w-0">
                         <h3 class="text-lg sm:text-xl lg:text-2xl font-extrabold uppercase leading-tight">{{ internship.name}}</h3>

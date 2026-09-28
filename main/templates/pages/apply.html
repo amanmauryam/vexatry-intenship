@@ -1,0 +1,170 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+    <!-- Hero -->
+    <section class="pt-28 lg:pt-36 pb-12 lg:pb-16">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-[1.3fr_0.7fr] gap-10 md:gap-8 lg:gap-16 items-end">
+                <div>
+                    <div class="label text-accent">Application Form</div>
+                    <h1 class="mt-5 h-hero font-extrabold tracking-tight uppercase">
+                        Start your<br>first<br>
+                        <span class="text-accent">chapter.</span>
+                    </h1>
+                </div>
+                <div>
+                    <p class="text-base lg:text-lg text-muted leading-relaxed">
+                        Tell us who you are and which internship fits your goals. Applications take about 5 minutes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application form -->
+    <section id="apply" class="pb-12 sm:pb-16 lg:pb-24">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-start">
+                <!-- Form -->
+                <div class="reveal border border-ink bg-white p-6 sm:p-8 lg:p-10">
+                    <div class="label text-muted">Apply for an internship</div>
+                    <h2 class="mt-3 text-xl sm:text-2xl font-extrabold uppercase tracking-tight">Your details.</h2>
+                      {% if messages %}
+            <div class="mb-4">
+                {% for message in messages %}
+                <div class="p-3 rounded-lg text-sm {% if message.tags == 'error' %}bg-red-50 text-red-700 border border-red-200{% else %}bg-green-50 text-green-700 border border-green-200{% endif %}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+                    <form id="apply-form" method="post" class="mt-7" novalidate>
+                        {% csrf_token %}
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="name" class="label block mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" autocomplete="name" placeholder="Your full name" class="field w-full px-4 py-3 text-sm" required>
+                                <p class="form-error hidden mt-1.5 text-[12px] font-semibold text-accent" role="alert">Please enter your full name.</p>
+                            </div>
+                            <div>
+                                <label for="email" class="label block mb-2">Email</label>
+                                <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" class="field w-full px-4 py-3 text-sm" required>
+                                <p class="form-error hidden mt-1.5 text-[12px] font-semibold text-accent" role="alert">Please enter a valid email.</p>
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-5 mt-5">
+                            <div>
+                                <label for="phone" class="label block mb-2">Phone</label>
+                                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+91 00000 00000" class="field w-full px-4 py-3 text-sm">
+                                <p class="form-error hidden mt-1.5 text-[12px] font-semibold text-accent" role="alert">Please enter a valid phone number.</p>
+                            </div>
+                            <div>
+                                <label for="status" class="label block mb-2">Current Status</label>
+                                <select id="status" name="status" class="field w-full px-4 py-3 text-sm">
+                                    <option value="">Select status</option>
+                                    <option value="student">Student</option>
+                                    <option value="graduate">Recent Graduate</option>
+                                    <option value="professional">Working Professional</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mt-5">
+                            <label for="role" class="label block mb-2">Internship Role</label>
+                            <select id="role" name="role" class="field w-full px-4 py-3 text-sm" required>
+                                <option value="">Open to any role</option>
+                                {% for internship in internships %}
+                                    <option value="{{ internship.name }}">{{ internship.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <p class="form-error hidden mt-1.5 text-[12px] font-semibold text-accent" role="alert">Please choose an internship role.</p>
+                        </div>
+
+                        <div class="mt-5">
+                            <label for="portfolio" class="label block mb-2">LinkedIn / Portfolio <span class="normal-case text-muted">(optional)</span></label>
+                            <input type="url" id="portfolio" name="portfolio" placeholder="https://linkedin.com/in/yourname" class="field w-full px-4 py-3 text-sm">
+                            <p class="form-error hidden mt-1.5 text-[12px] font-semibold text-accent" role="alert">Please enter a valid URL.</p>
+                        </div>
+
+                        <div class="mt-5">
+                            <label for="password" class="label block mb-2">Password</label>
+                            <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Your password" class="field w-full px-4 py-3 text-sm" required>
+                            <p class="form-error hidden mt-1.5 text-[12px] font-semibold text-accent" role="alert">Please enter your password.</p>
+                        </div>
+                        <div class="mt-5">
+                            <label for="password2" class="label block mb-2">Confirm Password</label>
+                            <input type="password" id="password2" name="password2" autocomplete="current-password" placeholder="Confirm your password" class="field w-full px-4 py-3 text-sm" required>
+                            <p class="form-error hidden mt-1.5 text-[12px] font-semibold text-accent" role="alert">Please confirm your password.</p>
+                        </div>
+
+                        {% comment %} <div class="mt-5">
+                            <label for="why" class="label block mb-2">Why this internship?</label>
+                            <textarea id="why" name="why" rows="5" placeholder="Tell us what you want to learn and why you're a good fit." class="field w-full px-4 py-3 text-sm resize-y" required></textarea>
+                            <p class="form-error hidden mt-1.5 text-[12px] font-semibold text-accent" role="alert">Please write a short note (at least 20 characters).</p>
+                        </div> {% endcomment %}
+
+                        <button type="submit" class="btn-primary mt-6 block w-full sm:w-auto px-8 py-3.5 text-sm">Submit Application</button>
+                    </form>
+
+                    <div id="apply-success" class="hidden mt-6 border border-ink bg-softblue p-5" role="status" aria-live="polite">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-success flex items-center justify-center text-white text-sm font-bold">&#10003;</span>
+                            <span class="text-lg font-extrabold uppercase tracking-wide text-success">Application received</span>
+                        </div>
+                        <p class="mt-2 text-sm text-navy/70 leading-relaxed">Thanks for applying. Our team reviews every application and gets back to you within a few days.</p>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div>
+                    <div class="border-t border-ink">
+                        <div class="reveal grid grid-cols-[1fr_auto] gap-2 sm:gap-3 py-6 border-b border-ink/30 items-baseline">
+                            <div>
+                                <div class="label text-muted">Step 01</div>
+                                <div class="mt-1 text-base sm:text-lg font-extrabold">Submit your application</div>
+                                <p class="mt-1 text-sm text-muted leading-relaxed max-w-sm">Fill in the details and pick the role you want.</p>
+                            </div>
+                        </div>
+                        <div class="reveal grid grid-cols-[1fr_auto] gap-2 sm:gap-3 py-6 border-b border-ink/30 items-baseline">
+                            <div>
+                                <div class="label text-muted">Step 02</div>
+                                <div class="mt-1 text-base sm:text-lg font-extrabold">Review &amp; discussion</div>
+                                <p class="mt-1 text-sm text-muted leading-relaxed max-w-sm">We review your profile and invite shortlisted candidates for a short discussion.</p>
+                            </div>
+                        </div>
+                        <div class="reveal grid grid-cols-[1fr_auto] gap-2 sm:gap-3 py-6 border-b border-ink/30 items-baseline">
+                            <div>
+                                <div class="label text-muted">Step 03</div>
+                                <div class="mt-1 text-base sm:text-lg font-extrabold">Selection &amp; offer</div>
+                                <p class="mt-1 text-sm text-muted leading-relaxed max-w-sm">Selected candidates receive an offer and begin their internship.</p>
+                            </div>
+                        </div>
+                        <div class="reveal grid grid-cols-[1fr_auto] gap-2 sm:gap-3 py-6 border-b border-ink items-baseline">
+                            <div>
+                                <div class="label text-muted">Step 04</div>
+                                <div class="mt-1 text-base sm:text-lg font-extrabold">Work &amp; complete</div>
+                                <p class="mt-1 text-sm text-muted leading-relaxed max-w-sm">Work on real projects with mentorship and earn your verified certificate.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick tips card -->
+                    <div class="reveal mt-8 bg-brand text-white border border-ink px-6 sm:px-8 py-8 sm:py-10">
+                        <div class="label text-softblue">Before you apply</div>
+                        <h3 class="mt-3 text-xl sm:text-2xl font-extrabold uppercase tracking-tight">Make it easy for us.</h3>
+                        <p class="mt-4 text-sm sm:text-base text-softblue leading-relaxed">
+                            A short, honest note about what you want to learn goes a long way. Link your portfolio or LinkedIn if you have one.
+                        </p>
+                        <a href="{% url "contact" %}" class="mt-5 btn-primary block w-full sm:w-auto sm:inline-block px-7 py-3.5 text-sm text-center">Questions? Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/apply.js' %}" defer></script>
+{% endblock extra_js %}

@@ -19,3 +19,5 @@ class InternshipTool(models.Model):
      internship = models.ForeignKey(Internship, on_delete=models.CASCADE, related_name='tools')
      def __str__(self):
              return self.name    
+
+     

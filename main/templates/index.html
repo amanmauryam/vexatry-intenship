@@ -30,7 +30,7 @@
         <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 lg:h-[68px]">
                 <a href="{% url "home" %}" class="flex items-center min-w-0" aria-label="Vexatry Global Internship Portal home">
-                    <img src="{% static 'logo.webp' %}" alt="Vexatry Global" class="h-13 lg:h-12 w-auto max-w-[180px]" width="790" height="316">
+                    <img src="{% static 'logo.webp' %}" alt="Vexatry Global" class="h-[52px] lg:h-12 w-auto max-w-[180px]" width="790" height="316">
                 </a>
 
                 <div class="hidden lg:flex items-center gap-8">
@@ -40,8 +40,8 @@
                 </div>
 
                 <div class="hidden lg:flex items-center gap-5">
-                    <a href="#" class="text-[13px] font-semibold hover:text-accent transition-colors">Login</a>
-                    <a href="#internships" class="btn-primary text-[13px] px-5 py-2.5">Apply Now</a>
+                    <a href="{% url "loginview" %}" class="text-[13px] font-semibold hover:text-accent transition-colors">Login</a>
+                    <a href="{% url "apply" %}" class="btn-primary text-[13px] px-5 py-2.5">Apply Now</a>
                 </div>
 
                 <button id="menu-btn" class="lg:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false">
@@ -58,8 +58,8 @@
                 
                 <a href="{% url "contact" %}" class="mobile-link py-2.5 text-sm font-semibold hover:text-accent transition-colors">Contact</a>
                 
-                <a href="#" class="py-2.5 text-sm font-semibold">Login</a>
-                <a href="#internships" class="btn-primary text-center text-sm px-5 py-3 mt-1">Apply Now</a>
+                <a href="{% url "loginview" %}" class="py-2.5 text-sm font-semibold">Login</a>
+                <a href="{% url "apply" %}" class="btn-primary text-center text-sm px-5 py-3 mt-1">Apply Now</a>
             </div>
         </div>
     </nav>
@@ -71,7 +71,7 @@
                 <div class="sm:col-span-2 lg:col-span-1">
                     <div class="text-[15px] font-extrabold tracking-[0.14em] uppercase">
                         <a href="{% url "home" %}" class="flex items-center min-w-0" aria-label="Vexatry Global Internship Portal home">
-                    <img src="{% static 'logo.webp' %}" alt="Vexatry Global" class="h-13 lg:h-12 w-auto max-w-[180px]" width="790" height="316">
+                    <img src="{% static 'logo.webp' %}" alt="Vexatry Global" class="h-[52px] lg:h-12 w-auto max-w-[180px]" width="790" height="316">
                     </a>
                     </div>
                     <div class="mt-1 label text-muted">Internship Portal</div>
@@ -91,7 +91,7 @@
                     <div class="label text-muted">Company</div>
                     <ul class="mt-4 space-y-2.5 text-sm font-semibold">
                         <li><a href="{% url "about" %}" class="hover:text-accent transition-colors">About Us</a></li>
-                        <li><a href="" class="hover:text-accent transition-colors">Login</a></li>
+                        <li><a href="{% url "loginview" %}" class="hover:text-accent transition-colors">Login</a></li>
                         <li><a href="" class="hover:text-accent transition-colors">Register</a></li>
                     </ul>
                 </div>
