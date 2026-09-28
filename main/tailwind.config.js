@@ -4,6 +4,34 @@ module.exports = {
         "./templates/**/*.html",
         "./static/js/**/*.js",
     ],
+    safelist: [
+        // Dashboard component classes defined in static/css/input.css.
+        // Tailwind purges unused rules inside @layer components, so these
+        // are safelisted to keep the built component set complete.
+        "sidebar-link",
+        "sidebar-link-active",
+        "sidebar-icon",
+        "btn-secondary",
+        "btn-danger",
+        "btn-ghost",
+        "input-field",
+        "input-field-error",
+        "card",
+        "card-hover",
+        "badge",
+        "badge-green",
+        "badge-yellow",
+        "badge-blue",
+        "badge-gray",
+        "badge-red",
+        "tab-btn",
+        "tab-btn-active",
+        "tab-btn-inactive",
+        "animate-in",
+        "modal-overlay",
+        "modal-backdrop",
+        "modal-box",
+    ],
     theme: {
         extend: {
             colors: {

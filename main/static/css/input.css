@@ -1,3 +1,226 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ========================================
+   Base
+   Design source of truth: design.md
+   ======================================== */
+
+@layer base {
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(17, 24, 39, 0.25) transparent;
+    }
+
+    *::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: rgba(17, 24, 39, 0.2);
+        border-radius: 10px;
+    }
+}
+
+/* ========================================
+   Components
+   Moved out of templates/dashboard/dashboard_base.html
+   so they are compiled into static/css/output.css.
+
+   Palette, typography and borders follow design.md:
+     ivory #F7F5EF / navy #111827 / brand #243B6B
+     accent #FF6B35 / softblue #D9E6FF / success #1FA774
+     1px borders in #111827, minimal shadows
+   `.btn-primary`, `.btn-dark`, `.btn-outline`, `.field`,
+   `.label`, `.h-sec`, `.h-hero` and `.reveal` live in
+   static/css/style.css and are intentionally not
+   redefined here.
+   ======================================== */
+
+@layer components {
+
+    /* ---------------------------------------
+       Dashboard navigation
+       design.md 3: brand blue for dashboard navigation
+       --------------------------------------- */
+    .sidebar-link {
+        @apply relative flex items-center gap-3 h-11 px-3 text-sm font-semibold text-muted bg-transparent border border-transparent transition-colors duration-200 hover:bg-white hover:border-ink hover:text-navy;
+    }
+
+    .sidebar-link-active {
+        @apply bg-brand text-white border-ink;
+    }
+
+    .sidebar-link-active::before {
+        content: '';
+        @apply absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-accent;
+    }
+
+    .sidebar-icon {
+        @apply w-7 h-7 flex items-center justify-center shrink-0 text-navy/40 transition-colors duration-200;
+    }
+
+    .sidebar-link:hover .sidebar-icon,
+    .sidebar-link-active .sidebar-icon {
+        @apply text-accent;
+    }
+
+
+    /* ---------------------------------------
+       Buttons
+       design.md 3: accent used sparingly for CTAs
+       --------------------------------------- */
+    .btn-secondary {
+        @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-bold text-navy bg-white border border-ink rounded-[4px] transition-colors duration-200 hover:bg-navy hover:text-ivory;
+    }
+
+    .btn-danger {
+        @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-bold text-white bg-red-600 border border-red-600 rounded-[4px] transition-colors duration-200 hover:bg-red-700 hover:border-red-700;
+    }
+
+    .btn-ghost {
+        @apply inline-flex items-center justify-center gap-2 px-3 py-1.5 text-xs font-bold text-muted transition-colors duration-200 hover:text-accent;
+    }
+
+
+    /* ---------------------------------------
+       Form fields
+       design.md 5: visible but elegant 1px borders
+       --------------------------------------- */
+    .input-field {
+        @apply w-full px-4 py-2.5 text-sm text-navy bg-white border border-ink rounded-[4px] transition-shadow duration-200;
+    }
+
+    .input-field::placeholder {
+        @apply text-muted;
+    }
+
+    .input-field:focus {
+        @apply outline-none;
+        box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.25);
+    }
+
+    select.input-field option {
+        @apply bg-white text-navy;
+    }
+
+    .input-field-error {
+        @apply border-red-400;
+    }
+
+    .input-field-error:focus {
+        box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.25);
+    }
+
+
+    /* ---------------------------------------
+       Cards
+       design.md 5: rely on border, background
+       contrast and typography instead of shadows
+       --------------------------------------- */
+    .card {
+        @apply bg-white border border-ink;
+    }
+
+    .card-hover {
+        @apply card transition-colors duration-200 hover:bg-ivory;
+    }
+
+
+    /* ---------------------------------------
+       Badges
+       design.md 4: uppercase labels with
+       increased letter spacing for metadata
+       --------------------------------------- */
+    .badge {
+        @apply inline-flex items-center px-2.5 py-0.5 text-xs font-bold uppercase tracking-[0.12em];
+    }
+
+    .badge-green {
+        @apply badge bg-success/10 text-success border border-success/30;
+    }
+
+    .badge-yellow {
+        @apply badge bg-accent/10 text-accent border border-accent/30;
+    }
+
+    .badge-blue {
+        @apply badge bg-softblue text-brand border border-ink/20;
+    }
+
+    .badge-gray {
+        @apply badge bg-ivory text-muted border border-ink/20;
+    }
+
+    .badge-red {
+        @apply badge bg-red-50 text-red-700 border border-red-200;
+    }
+
+
+    /* ---------------------------------------
+       Tabs
+       --------------------------------------- */
+    .tab-btn {
+        @apply px-4 py-2 text-sm font-bold border border-transparent transition-colors duration-200 whitespace-nowrap;
+    }
+
+    .tab-btn-active {
+        @apply bg-navy text-ivory border-navy;
+    }
+
+    .tab-btn-inactive {
+        @apply bg-ivory text-muted border-ink hover:bg-white hover:text-navy;
+    }
+
+
+    /* ---------------------------------------
+       Modals
+       --------------------------------------- */
+    .modal-overlay {
+        @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+    }
+
+    .modal-backdrop {
+        @apply absolute inset-0 bg-navy/50 backdrop-blur-sm;
+    }
+
+    .modal-box {
+        @apply relative w-full max-w-md bg-white border border-ink p-6 animate-in;
+    }
+
+}
+
+
+/* ========================================
+   Motion
+   design.md 35: restrained motion only
+   ======================================== */
+
+@keyframes dashboard-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    animation: dashboard-fade-in 0.3s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-in {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
