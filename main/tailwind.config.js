@@ -14,7 +14,12 @@ module.exports = {
                 softblue: "#D9E6FF",
                 success: "#1FA774",
                 muted: "#5B6472",
-            },
+                 50: "#fef2f2",
+                 200: "#fecaca",
+                 500: "#ef4444",
+                 600: "#dc2626",
+                 700: "#b91c1c",
+         },
 
             fontFamily: {
                 manrope: ["Manrope", "sans-serif"],

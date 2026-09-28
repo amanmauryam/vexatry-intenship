@@ -23,6 +23,15 @@ def internship(request):
     return render(request,'pages/internship.html', {'internships': internships})
 
 def loginview(request):
+    if request.method == 'POST':
+        email=request.POST.get('email').strip()
+        password=request.POST.get('password')
+        user = authenticate(request,username=email,password=password)
+        if user is not None:
+            login(request,user)
+            next_url = request.GET.get("next", "manage_dashboard")
+            return redirect(next_url)
+        messages.error(request, "Invalid email or password.")
 
     return render(request,'pages/login.html')
 
@@ -76,3 +85,7 @@ def apply(request):
             login(request, user)
             return redirect('dashboard')
     return render(request,'pages/apply.html', {'internships': internships})
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
