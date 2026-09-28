@@ -124,7 +124,7 @@
        contrast and typography instead of shadows
        --------------------------------------- */
     .card {
-        @apply bg-white border border-ink;
+        @apply bg-white border border-ink rounded-[4px];
     }
 
     .card-hover {
