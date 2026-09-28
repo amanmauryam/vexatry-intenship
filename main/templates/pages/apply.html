@@ -38,7 +38,7 @@
                 {% endfor %}
             </div>
             {% endif %}
-                    <form id="apply-form" method="post" class="mt-7" novalidate>
+                    <form id="apply-form" method="post" class="mt-7" >
                         {% csrf_token %}
                         <div class="grid sm:grid-cols-2 gap-5">
                             <div>
@@ -76,7 +76,7 @@
                             <select id="role" name="role" class="field w-full px-4 py-3 text-sm" required>
                                 <option value="">Open to any role</option>
                                 {% for internship in internships %}
-                                    <option value="{{ internship.name }}">{{ internship.name }}</option>
+                                    <option value="{{ internship.id }}">{{ internship.name }}</option>
                                 {% endfor %}
                             </select>
                             <p class="form-error hidden mt-1.5 text-[12px] font-semibold text-accent" role="alert">Please choose an internship role.</p>
@@ -166,5 +166,5 @@
 {% endblock content %}
 
 {% block extra_js %}
-<script src="{% static 'js/apply.js' %}" defer></script>
+{% comment %} <script src="{% static 'js/apply.js' %}" defer></script> {% endcomment %}
 {% endblock extra_js %}
