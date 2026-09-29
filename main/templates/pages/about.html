@@ -18,8 +18,8 @@
                         Vexatry Global is a company of builders, learners and problem solvers. Our internship portal turns real work into the start of your professional journey.
                     </p>
                     <div class="mt-6 flex flex-wrap gap-3">
-                        <a href="index.html#internships" class="btn-primary px-7 py-3.5 text-sm w-full sm:w-auto text-center">Explore Internships</a>
-                        <a href="#story" class="btn-outline px-7 py-3.5 text-sm w-full sm:w-auto text-center">Our Story</a>
+                        <a href="{% url "internships" %}" class="btn-primary px-7 py-3.5 text-sm w-full sm:w-auto text-center">Explore Internships</a>
+                        <a href="{% url "about" %}" class="btn-outline px-7 py-3.5 text-sm w-full sm:w-auto text-center">Our Story</a>
                     </div>
                 </div>
             </div>
@@ -186,7 +186,7 @@
                     <p class="mt-5 text-base lg:text-lg text-navy/70 leading-relaxed max-w-md">
                         We keep teams small so every intern gets real ownership and real attention. Work is remote-first, asynchronous and hands-on.
                     </p>
-                    <a href="index.html#internships" class="mt-7 btn-dark block w-full sm:w-auto sm:inline-block px-7 py-3.5 text-sm text-center">See Open Internships &rarr;</a>
+                    <a href="{% url "internships" %}" class="mt-7 btn-dark block w-full sm:w-auto sm:inline-block px-7 py-3.5 text-sm text-center">See Open Internships &rarr;</a>
                 </div>
 
                 <div class="border-t border-ink">
@@ -222,7 +222,7 @@
                     Find an internship and start building practical experience with us.
                 </p>
                 <div class="mt-8">
-                    <a href="index.html#internships" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships &rarr;</a>
+                    <a href="{% url "internships" %}" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships &rarr;</a>
                 </div>
             </div>
         </div>

@@ -39,6 +39,27 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
                 <div class="md:col-span-2">
+                    <label for="image" class="label block mb-2">Profile Picture</label>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <div class="w-24 h-24 border border-ink bg-ivory overflow-hidden flex items-center justify-center shrink-0">
+                            <img id="image-preview"
+                                 src="{% if candidate.image %}{{ candidate.image.url }}{% endif %}"
+                                 alt="Profile picture preview"
+                                 class="w-full h-full object-cover {% if not candidate.image %}hidden{% endif %}">
+                            <svg id="image-placeholder" class="w-10 h-10 text-brand {% if candidate.image %}hidden{% endif %}"
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M20 21a8 8 0 00-16 0m12-12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                        </div>
+                        <div class="min-w-0">
+                            <input type="file" id="image" name="image" accept="image/jpeg,image/png,image/webp"
+                                class="block w-full text-sm text-muted file:mr-4 file:py-2 file:px-4 file:border file:border-ink file:bg-ivory file:text-xs file:font-bold file:uppercase file:tracking-tight file:text-navy hover:file:bg-softblue cursor-pointer">
+                            <p class="text-xs text-muted mt-2">JPG, PNG or WEBP up to 5 MB. Images are converted to WEBP automatically.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-2">
                     <label for="name" class="label block mb-2">Full Name <span class="text-accent">*</span></label>
                     <input type="text" id="name" name="name" value="{{ candidate.name|default:'' }}" required class="input-field" placeholder="Your full name">
                 </div>
@@ -47,7 +68,8 @@
                     <input type="email" id="email" value="{{ request.user.email }}" disabled class="input-field opacity-60 cursor-not-allowed">
                 </div>
                 <div>
-                    <label for="phone" class="label block mb-2">Phone</label>
+                    <label for="phone" class="label block mb-0">Phone</label>
+                    <span class="text-red-700 text-[12px]">Don't use Country Code</span>
                     <input type="tel" id="phone" name="phone" value="{{ candidate.phone|default:'' }}" maxlength="15" class="input-field" placeholder="+91 00000 00000">
                 </div>
                 <div>
@@ -75,7 +97,7 @@
             </div>
 
             <div class="flex flex-col sm:flex-row items-center gap-3 pt-5 border-t border-ink/30">
-                <button type="submit" class="btn-primary w-full sm:w-auto px-6 py-3 text-sm">
+                <button type="submit" class="btn-primary w-full sm:w-auto px-6 py-3 text-sm  flex justify-end">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                     </svg>
@@ -86,5 +108,44 @@
         </form>
     </div>
 </div>
+
+{% block extra_js %}
+<script>
+    (function () {
+        const input = document.getElementById('image');
+        const preview = document.getElementById('image-preview');
+        const placeholder = document.getElementById('image-placeholder');
+        const MAX_SIZE = 5 * 1024 * 1024;
+        const ALLOWED = ['image/jpeg', 'image/png', 'image/webp'];
+        let objectUrl = null;
+
+        if (!input) return;
+
+        input.addEventListener('change', function () {
+            const file = input.files && input.files[0];
+            if (!file) return;
+
+            if (ALLOWED.indexOf(file.type) === -1) {
+                alert('Please choose a JPG, PNG or WEBP image.');
+                input.value = '';
+                return;
+            }
+
+            if (file.size > MAX_SIZE) {
+                alert('The image must be 5 MB or smaller.');
+                input.value = '';
+                return;
+            }
+
+            if (objectUrl) URL.revokeObjectURL(objectUrl);
+            objectUrl = URL.createObjectURL(file);
+
+            preview.src = objectUrl;
+            preview.classList.remove('hidden');
+            placeholder.classList.add('hidden');
+        });
+    })();
+</script>
+{% endblock %}
 
 {% endblock %}

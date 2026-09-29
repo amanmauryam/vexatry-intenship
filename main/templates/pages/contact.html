@@ -80,7 +80,7 @@
                         <div class="reveal grid grid-cols-[1fr_auto] gap-2 sm:gap-3 py-6 border-b border-ink/30 items-baseline">
                             <div>
                                 <div class="label text-muted">Email</div>
-                                <a href="mailto:contact@vexatry.com" class="mt-1 text-base sm:text-lg font-extrabold hover:text-accent transition-colors break-all">contact@vexatry.com</a>
+                                <a href="mailto:info@vexatryglobal.com" class="mt-1 text-base sm:text-lg font-extrabold hover:text-accent transition-colors break-all">info@vexatryglobal.com</a>
                             </div>
                         </div>
                         <div class="reveal grid grid-cols-[1fr_auto] gap-2 sm:gap-3 py-6 border-b border-ink/30 items-baseline">
@@ -92,13 +92,13 @@
                         <div class="reveal grid grid-cols-[1fr_auto] gap-2 sm:gap-3 py-6 border-b border-ink/30 items-baseline">
                             <div>
                                 <div class="label text-muted">Internship Applications</div>
-                                <a href="index.html#internships" class="mt-1 text-base sm:text-lg font-extrabold hover:text-accent transition-colors">Apply through listings &rarr;</a>
+                                <a href="{% url "internships" %}" class="mt-1 text-base sm:text-lg font-extrabold hover:text-accent transition-colors">Apply through listings &rarr;</a>
                             </div>
                         </div>
                         <div class="reveal grid grid-cols-[1fr_auto] gap-2 sm:gap-3 py-6 border-b border-ink items-baseline">
                             <div>
                                 <div class="label text-muted">Certificates</div>
-                                <a href="index.html#verify" class="mt-1 text-base sm:text-lg font-extrabold hover:text-accent transition-colors">Verify a certificate &rarr;</a>
+                                <a href="{% url "contact" %}" class="mt-1 text-base sm:text-lg font-extrabold hover:text-accent transition-colors">Verify a certificate &rarr;</a>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                         <p class="mt-3 text-sm sm:text-base text-softblue leading-relaxed">
                             Most questions about who can apply, duration, stipends and selection are answered on our FAQ page.
                         </p>
-                        <a href="index.html#faq" class="mt-5 btn-primary block w-full sm:w-auto sm:inline-block px-7 py-3.5 text-sm text-center">Visit FAQ &rarr;</a>
+                        <a href="{% url "contact" %}" class="mt-5 btn-primary block w-full sm:w-auto sm:inline-block px-7 py-3.5 text-sm text-center">Visit FAQ &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@
                     Explore open internships and begin your first professional chapter today.
                 </p>
                 <div class="mt-8">
-                    <a href="index.html#internships" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships &rarr;</a>
+                    <a href="{% url "internships" %}" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships &rarr;</a>
                 </div>
             </div>
         </div>
@@ -157,5 +157,5 @@
   {% endblock content %}
      
 {% block extra_js %}
-<script src="{% static 'js/contact.js' %}" defer></script>
+<script src="{% static 'js/dist/contact.min.js' %}" defer></script>
 {% endblock extra_js %}

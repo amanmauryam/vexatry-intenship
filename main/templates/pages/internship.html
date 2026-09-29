@@ -78,7 +78,7 @@
                     Find an internship and start building practical experience.
                 </p>
                 <div class="mt-8">
-                    <a href="#internships" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships &rarr;</a>
+                    <a href="{% url "internships" %}" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships &rarr;</a>
                 </div>
             </div>
         </div>
@@ -87,5 +87,5 @@
 {% endblock content %}
 
 {% block extra_js %}
-<script src="{% static 'js/internship.js' %}" defer></script>
+<script src="{% static 'js/dist/internship.min.js' %}" defer></script>
 {% endblock extra_js %}

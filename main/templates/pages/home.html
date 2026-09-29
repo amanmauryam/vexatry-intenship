@@ -19,7 +19,7 @@
                         Get practical experience, work on real projects and start building your career.
                     </p>
                     <div class="mt-8">
-                        <a href="#internships" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships</a>
+                        <a href="{% url "internships" %}" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships</a>
                     </div>
                 </div>
 
@@ -280,7 +280,7 @@
                     <p class="mt-5 text-base lg:text-lg text-navy/70 leading-relaxed max-w-md">
                         A community of builders, learners and problem solvers. We keep the work real, the feedback honest and the growth continuous.
                     </p>
-                    <a href="#internships" class="mt-7 btn-dark block w-full sm:w-auto sm:inline-block px-7 py-3.5 text-sm">Explore Internships &rarr;</a>
+                    <a href="{% url "internships" %}" class="mt-7 btn-dark block w-full sm:w-auto sm:inline-block px-7 py-3.5 text-sm">Explore Internships &rarr;</a>
                 </div>
 
                 <div class="border-t border-ink">
@@ -418,7 +418,7 @@
                     Find an internship and start building practical experience.
                 </p>
                 <div class="mt-8">
-                    <a href="#internships" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships &rarr;</a>
+                    <a href="{% url "internships" %}" class="btn-primary block w-full sm:w-auto sm:inline-block px-8 py-4 sm:py-3.5 text-[15px]">Explore Internships &rarr;</a>
                 </div>
             </div>
         </div>
@@ -428,5 +428,5 @@
 {% endblock content %}
 
 {% block extra_js %}
-<script src="{% static 'js/home.js' %}" defer></script>
+<script src="{% static 'js/dist/home.min.js' %}" defer></script>
 {% endblock extra_js %}
