@@ -6,12 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vexatry Global — Internship Portal</title>
     <meta name="description" content="Your first big opportunity starts here. Explore internships at Vexatry Global, work on real projects and start building your career.">
-    <link rel="canonical" href="https://vexatry.com/internship/">
-    <meta property="og:title" content="Vexatry Global — Internship Portal">
-    <meta property="og:description" content="Get practical experience, work on real projects and start building your career.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vexatry.com/internship/">
+    <link rel="canonical" href="https://internship.vexatry.com/">
+
     <meta name="theme-color" content="#F7F5EF">
+
+    
+    <!-- Favicon -->
+    <link rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="{% static 'favicon-32x32.png' %}">
+
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="{% static 'favicon-16x16.png' %}">
+
+    <link rel="icon"
+          type="image/svg+xml"
+          href="{% static 'favicon.svg' %}">
+
+    <link rel="icon"
+          href="{% static 'favicon.ico' %}">
+
+    <link rel="apple-touch-icon"
+          href="{% static 'apple-touch-icon.png' %}">
+
+    <!-- Web App -->
+    <link rel="manifest"
+          href="{% static 'site.webmanifest' %}">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Vexatry Global ">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <meta name="msapplication-TileColor" content="#2563eb">
+
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Vexatry Global — Internship Portal">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:type" content="website">
+
+    <meta property="og:title"
+          content="{% block og_title %}
+              Vexatry Global — Internship Portal
+          {% endblock %}">
+
+    <meta property="og:description"
+          content="{% block og_description %}
+              Vexatry Global Private Limited provides web development, digital marketing and technology solutions for businesses.
+          {% endblock %}">
+
+    <meta property="og:url"
+          content="{{ request.build_absolute_uri }}">
+
+    <meta property="og:image"
+          content="{% block og_image %}
+              https://internship.vexatryglobal.com/static/logo.webp
+          {% endblock %}">
+
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="{% block twitter_title %}
+              Vexatry Global — Internship Portal
+          {% endblock %}">
+
+    <meta name="twitter:description"
+          content="{% block twitter_description %}
+              Vexatry Global Private Limited provides web development, digital marketing and technology solutions for businesses.
+          {% endblock %}">
+
+    <meta name="twitter:image"
+          content="{% block twitter_image %}
+              https://internship.vexatryglobal.com/static/logo.webp
+          {% endblock %}">
+
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
